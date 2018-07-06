@@ -1,0 +1,66 @@
+
+/* BASE STYLES ========================================= */
+
+* {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+}
+
+section {
+    background: #6a6361;
+    height: 30em;
+}
+section:nth-child(2n+1) {
+    background-color: #6a6361;
+    height: 30em;
+}
+
+nav ul {
+    margin: 0 2em;
+    justify-content: space-between;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    padding: 1em;
+}
+
+#oxle-menu {
+   background-color: #83538a;
+   height: 4em;
+   border-radius: 0;
+}
+
+.nav-logo {
+   font-weight: 600;
+   font-size: 2em;
+}
+
+/* MEDIA QUERIES ========================================= */
+/*
+@media screen and (max-width: 425px){
+    html {
+        font-size: 12pt;
+    }
+}
+ */
