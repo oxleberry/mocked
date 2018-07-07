@@ -2,65 +2,236 @@
 /* BASE STYLES ========================================= */
 
 * {
-  box-sizing: border-box;
-  font-size: 16px;
+   box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Raleway', sans-serif;
-}
-
-section {
-    background: #6a6361;
-    height: 30em;
-}
-section:nth-child(2n+1) {
-    background-color: #6a6361;
-    height: 30em;
-}
-
-nav ul {
-    margin: 0 2em;
-    justify-content: space-between;
+   margin: 0;
+   padding: 0;
+   font-family: 'Quicksand', sans-serif;
 }
 
 .flex-row {
-    display: flex;
-    flex-direction: row;
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
 }
 
 .flex-column {
-    display: flex;
-    flex-direction: column;
+   display: flex;
+   flex-direction: column;
 }
 
 li {
-    list-style: none;
+   list-style: none;
 }
 
 a {
-    text-decoration: none;
-    padding: 1em;
+   text-decoration: none;
+   padding: 1em;
+   /* color: white; */
+}
+/*
+nav {
+   background-image: linear-gradient(#83538a, #582661);
+   min-height: 64px;
 }
 
-#oxle-menu {
-   background-color: #83538a;
-   height: 4em;
-   border-radius: 0;
+.mocked-logo {
+   font-weight: 600;
+   font-size: 2em;
+   padding: 0;
+} */
+
+/* NAV ========================= */
+
+header a {
+   color: #F0F8EA;
+   font-weight: 400;
+   letter-spacing: 1px;
+   text-decoration: none;
+   text-transform: uppercase;
+   padding: 1em .5em;
+   display: inline-block;
+   width: 100%;
+   text-align: center;
+   transition: all 0.5s;
+}
+
+header a:hover, header a:focus {
+   text-decoration: underline;
+}
+
+.toggle-nav {
+   display: none;
 }
 
 .nav-logo {
-   font-weight: 600;
-   font-size: 2em;
+   font-size: 1rem;
+   font-weight: 700;
 }
 
-/* MEDIA QUERIES ========================================= */
-/*
-@media screen and (max-width: 425px){
-    html {
-        font-size: 12pt;
-    }
+.flex-nav, footer {
+   background: #E54B4B;
+   color: #EBEBD3;
 }
- */
+
+.flex-nav ul {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+   display: flex;
+}
+
+/* flex-basis is the min starting width
+before an elements starts shrink or wrap */
+.flex-nav li {
+   flex-basis: 16%;
+}
+
+.flex-nav li a {
+   color: #F0F8EA;
+   transition: all 0.5s;
+}
+
+.flex-nav li a:hover,
+.flex-nav li a:focus {
+    color: #adff63;
+    text-decoration: none;
+}
+
+.nav-hidden {
+   display: none;
+}
+
+@media all and (max-width:800px) {
+
+   .flex-nav li{
+      flex-basis: 100%;
+      border-top: 1px solid rgba(240, 248, 235,.4);
+   }
+
+   .nav-logo-hidden {
+      display: none;
+   }
+
+   .toggle-nav {
+      display: block;
+      color: #f0f8eb;
+   }
+
+   .toggle-nav:hover, .toggle-nav:focus {
+      color: #adff63;
+      text-decoration: none;
+   }
+
+   .flex-nav {
+      border-bottom: 1px solid #e2e2e2;
+   }
+
+   .flex-nav ul {
+      display: none;
+      flex-wrap: wrap;
+   }
+
+   .flex-nav ul.nav-active {
+      display: flex;
+   }
+
+}
+
+
+/* MAIN ========================= */
+
+main {
+   height: 100vh;
+   background-color: #bbb;
+   padding: 1em 2em;
+   /* margin: 0.8em 0 0 0; */
+}
+
+.shirt-container, .info-container {
+   width: 48%;
+   height: 34em;
+   background-color: white;
+   border-radius: 2em;
+   margin: 0 auto;
+   margin-top: 2em;
+   border: solid 4px #aaa;
+   justify-content: space-between;
+}
+
+.main-right, .main-left {
+   width: 50%;
+   background-image: radial-gradient(circle at 50% 50%, #fff, #aaa);
+}
+
+/* INFO CONTAINER ===================== */
+
+.garment, .image-design, .text-design {
+   border: 4px solid #000;
+   padding: .8em;
+   /* display: inline-block; */
+}
+
+.garment-style {
+   width: 90px;
+}
+
+.garment span {
+   color: black;
+}
+
+.garment-swatch {
+   width: 1em;
+   height: 1em;
+   background-color: grey;
+   border: 2px solid black;
+   margin-right: 6px;
+}
+
+.black {
+   background-color: black;
+}
+
+.red {
+   background-color: red;
+}
+
+.dimension{
+   width: 3em;
+   border-bottom: 2px solid pink;
+   text-align: center;
+}
+
+.save {
+   margin: 0 auto;
+   margin-top: 1.8em;
+   padding: .8em 3em;
+}
+/* FOOTER ========================= */
+
+footer{
+   height: 56px;
+}
+
+footer p {
+   color: rgba(255,255,255,.4);
+   margin: 0 auto;
+   text-align: center;
+   padding-top: 1em;
+}
+
+/* MEDIA QUERIES ====================== */
+
+@media screen and (max-width: 700px){
+   main {
+      background-color: pink;
+      flex-direction: column;
+   }
+
+   .flex-row {
+      flex-direction: column;
+   }
+
+}
