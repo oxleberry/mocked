@@ -17,26 +17,20 @@
 
 
    <!-- 	 	BOOTSTRAPS / NAVBAR -->
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous" defer></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous" defer></script>
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous" defer></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous" defer></script> -->
+   <!-- jQuery files -->
+   <script src="https://code.jquery.com/jquery-3.3.1.min.js" defer></script>
 
    <!-- jQueryUI -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" defer></script>
-   <!-- Semantic UI -->
-   <!-- <link rel="stylesheet" href="semantic/dist/semantic.min.css">
-   <script
-   src="https://code.jquery.com/jquery-3.1.1.min.js"
-   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-   crossorigin="anonymous" defer></script> -->
+
 
    <!-- My CSS styles -->
    <link rel="stylesheet" href="css/style.css">
 
-   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" defer></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.3/semantic.min.js" defer></script> -->
-   <!-- jQuery files -->
    <!-- My JS files -->
    <script src="js/app.js" defer></script>
 
@@ -44,33 +38,7 @@
 <body>
 
 
-   <!-- <nav class="navbar navbar-toggleable-md navbar-inverse">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-         <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-         <a class="navbar-brand mocked-logo" href="#">Mocked</a>
-         <ul class="navbar-nav">
-            <li class="nav-item active">
-               <a class="nav-link" href="#">New Design</a>
-            </li>
-            <li class="nav-item">
-               <a class="nav-link" href="#">
-               My Gallery</a>
-            </li>
-            <li class="nav-item">
-               <a class="nav-link" href="#">Log In</a>
-            </li>
-            <li class="nav-item">
-               <a class="nav-link" href="#">
-               Sign Up</a>
-            </li>
-         </ul>
-      </div>
-   </nav> -->
-
    <header>
-
       <nav class="flex-nav">
          <a href="#"<h1 class="nav-logo toggle-nav">Mocked</h1><i class="fa fa-bars"></i></a>
          <!-- <a href="#" class="toggle-nav"><i class="fa fa-bars"></i> Mocked</a> -->
@@ -83,110 +51,143 @@
             <li><a href="#">Log In/Out</a></li>
          </ul>
       </nav>
-
    </header>
 
 
 
-   <main class="flex-row">
-
+   <main class="flex-row stacked">
       <!-- SHIRT CONTAINER -->
       <section class="shirt-container">
-         1 of 2
+         t-shirt
       </section>
-
       <!-- INFO CONTAINER -->
       <section class="info-container">
-
       <!-- GARMENT STYLE -->
          <section class="garment">
+            <h3>Garment Options</h3>
             <div class="flex-row">
-               <div class="flex-column">
-                  <div class="input-group">
-                     <div class="input-group-prepend">
-                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Style</button>
-                        <div class="dropdown-menu">
-                           <a class="dropdown-item" href="#">Mens Tee</a>
-                           <a class="dropdown-item" href="#">Womens Tee</a>
-                           <a class="dropdown-item" href="#">Youth Tee</a>
-                        </div>
+               <div class="flex-row">
+                  <div class="dropdown-container">
+                     <div class="dropdown">
+                        <button class="dropdown-button">
+                           <span class="button-label">Style</span>
+                           <i class="fa fa-angle-down"></i>
+                        </button>
+                        <ul class="dropdown-options">
+                           <li class="dropdown-option" id="Mens-tee">Mens Tee</li>
+                           <li class="dropdown-option" id="Womens-tee">Womens Tee</li>
+                           <li class="dropdown-option" id="Youth-tee">Youth Tee</li>
+                        </ul>
                      </div>
-                     <span> Mens Tee</span>
+                  </div>
+                  <div class="value-container">
+                     <span id="style-value" class="current-value">
+                        Current Tee
+                     </span>
                   </div>
                </div>
+
                <!-- GARMENT POSITION -->
-               <div class="flex-column">
-                  <div class="input-group">
-                     <div class="input-group-prepend">
-                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Placement</button>
-                        <div class="dropdown-menu">
-                           <a class="dropdown-item" href="#">Front</a>
-                           <a class="dropdown-item" href="#">Back</a>
-                           <a class="dropdown-item" href="#">Sleeve</a>
-                        </div>
+               <div class="flex-row">
+                  <div class="dropdown-container">
+                     <div class="dropdown">
+                        <button class="dropdown-button">
+                           <span class="button-label">Position</span>
+                           <i class="fa fa-angle-down"></i>
+                        </button>
+                        <ul class="dropdown-options">
+                           <li class="dropdown-option" id="Front">Front</li>
+                           <li class="dropdown-option" id="Back">Back</li>
+                           <li class="dropdown-option" id="Sleeve">Sleeve</li>
+                        </ul>
                      </div>
-                     <span>Front</span>
+                  </div>
+                  <div class="value-container">
+                     <span id="placement-value" class="current-value">
+                        Placement
+                     </span>
                   </div>
                </div>
             </div>
             <hr />
+
             <!-- GARMENT COLOR -->
             <div class="flex-row">
-               <span>Color: </span>
-               <span>Black</span>
-            </div>
-            <div class="flex-row">
-               <div class="garment-swatch black"></div>
-               <div class="garment-swatch red"></div>
-               <div class="garment-swatch"></div>
-               <div class="garment-swatch"></div>
-               <div class="garment-swatch"></div>
-               <div class="garment-swatch"></div>
+               <div class="flex-row">
+                  <span>Color:</span>
+                  <span class="current-value">Color</span>
+               </div>
+               <div class="flex-row">
+                  <div class="garment-swatch black"></div>
+                  <div class="garment-swatch red"></div>
+                  <div class="garment-swatch"></div>
+                  <div class="garment-swatch"></div>
+                  <div class="garment-swatch"></div>
+                  <div class="garment-swatch"></div>
+               </div>
             </div>
          </section>
          <!-- end of garment section  -->
 
          <!-- IMAGE SECTION -->
          <section class="image-design">
-            <button type="button" class="btn btn-outline-secondary">Upload Image</button>
+            <h3>Image Options</h3>
             <div class="flex-row">
+            <button type="button" class="image-upload">Upload Image</button>
                <span>Width:</span>
-               <span class="dimension">8</span>
+               <span class="current-value">8</span>
                <span>Height:</span>
-               <span class="dimension">5</span>
+               <span class="current-value">5</span>
             </div>
          </section>
 
          <!-- TEXT SECTION -->
          <section class="text-design">
-            <!-- TEXT COLOR SECTION -->
-            <input class="form-control form-control-lg" type="text" placeholder="Add Text">
+            <!-- TEXT FONT SECTION -->
+            <h3>Text Options</h3>
+            <input class="custom-text" type="text" placeholder="Add Your Text Here">
             <div class="flex-row">
-               <div class="flex-column">
-                  <div class="input-group">
-                     <div class="input-group-prepend">
-                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Font</button>
-                        <div class="dropdown-menu">
-                           <a class="dropdown-item" href="#">Script</a>
-                           <a class="dropdown-item" href="#">Collegiate</a>
-                           <a class="dropdown-item" href="#">Bold</a>
-                        </div>
+               <div class="flex-row">
+                  <div class="dropdown-container">
+                     <div class="dropdown">
+                        <button class="dropdown-button">
+                           <span class="button-label">Font</span>
+                           <i class="fa fa-angle-down"></i>
+                        </button>
+                        <ul class="dropdown-options">
+                           <li class="dropdown-option" id="Front">Script</li>
+                           <li class="dropdown-option" id="Back">Collegiate</li>
+                           <li class="dropdown-option" id="Sleeve">Bold</li>
+                        </ul>
                      </div>
-                     <span>Script</span>
+                  </div>
+                  <div class="value-container">
+                     <span id="placement-value" class="current-value">
+                        Font
+                     </span>
                   </div>
                </div>
-               <!-- TEXT FONT SECTION -->
-               <div class="flex-column">
-                  <div class="input-group">
-                     <div class="input-group-prepend">
-                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Color</button>
-                        <div class="dropdown-menu">
-                           <a class="dropdown-item" href="#">Red</a>
-                           <a class="dropdown-item" href="#">Black</a>
-                           <a class="dropdown-item" href="#">White</a>
-                        </div>
+
+                  <!-- TEXT COLOR SECTION -->
+
+               <div class="flex-row">
+                  <div class="dropdown-container">
+                     <div class="dropdown">
+                        <button class="dropdown-button">
+                           <span class="button-label">Text Color</span>
+                           <i class="fa fa-angle-down"></i>
+                        </button>
+                        <ul class="dropdown-options">
+                           <li class="dropdown-option" id="Red">Red</li>
+                           <li class="dropdown-option" id="Black">Black</li>
+                           <li class="dropdown-option" id="White">White</li>
+                        </ul>
                      </div>
-                     <span>White</span>
+                  </div>
+                  <div class="value-container">
+                     <span id="placement-value" class="current-value">
+                        Color
+                     </span>
                   </div>
                </div>
             </div>
@@ -198,8 +199,9 @@
          </div>
       </section>
       <!-- end of info Container  -->
-
    </main>
+
+
 
    <footer>
       <p> &copy; 2018 Sharon Paz</p>

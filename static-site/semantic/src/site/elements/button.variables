@@ -1,5 +1,0 @@
-/*******************************
-    User Variable Overrides
-*******************************/
-@backgroundColor: @pink;
-@textColor:@white;
