@@ -1,19 +1,50 @@
 
 $(function(){
-    console.log('Sanity Check');
+   console.log('Sanity Check');
 
-    // NAV ACTIONS
-      $('.toggle-nav').on('click',function() {
-      $('.flex-nav ul').toggleClass('nav-active');
+   // NAV ACTIONS ================================
+   $('.flex-nav ul li a').on('click',function() {
+      $('.flex-nav ul li a').removeClass('nav-active');
+      $(this).addClass('nav-active');
    });
 
+   // DROPDOWN ACTIONS ================================
+   let dropdownButtonEls = document.querySelectorAll('.dropdown-button');
+   let dropdownEls = document.querySelectorAll('.dropdown');
+   let dropdownOptionEls = document.querySelectorAll('.dropdown-option');
 
-    // DROPDOWN ACTIONS
-   let dropdownButtonEl = document.querySelector('.dropdown-button');
-   let dropdownEl = document.querySelector('.dropdown');
-   let dropdownOptionsEl = document.querySelectorAll('.dropdown-option');
-   let currentValueEl = document.querySelector('.current-value');
-   let valueContainerEl = document.querySelector('.value-container');
+   // handles the open and closing of
+   // drop down options
+   dropdownButtonEls.forEach(function(el) {
+      el.addEventListener('click', function(e) {
+         let dropdownParent = el.parentNode;
+         // since this event listener is nested inside
+         // another element with an event listener, stopPropagation
+         // will stop the parent event listener from automatically triggering
+         e.stopPropagation();
+         dropdownParent.classList.toggle("is-up");
+      });
+   });
+
+   // dropdown option handling
+   dropdownOptionEls.forEach(function(el) {
+      el.addEventListener('click', function(e) {
+         // traverse the DOM from
+         // dropdownOption (LI) to current value (SPAN)
+         let valTarget = el.parentNode
+         .parentNode
+         .parentNode
+         .nextElementSibling
+         .firstElementChild;
+         // in the field next to the dropdown bar,
+         // swaps old text content for new text content
+         // from selected dropdown value
+         valTarget.textContent = el.textContent;
+         unselectSiblings(el)
+         el.classList.add("is-selected");
+         hideDropdown();
+      })
+   });
 
    // closes dropdown if clicked outside
    // of the dropdown component
@@ -21,33 +52,64 @@ $(function(){
       hideDropdown();
    });
 
-   // toggles the dropdown features
-   dropdownButtonEl.addEventListener('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      dropdownEl.classList.toggle("is-up");
-      dropdownButtonEl.classList.add("is-selected");
-   });
-
-   // outputs the selected value
-   // from the dropdown options to the
-   // value container to the right
-   let selected = null;
-   dropdownOptionsEl.forEach(option =>
-      option.addEventListener('click', function(e) {
-         e.preventDefault();
-         e.stopPropagation();
-         let currVal = currentValueEl.innerHTML = e.target.id;
-         console.log(currVal);
-         // console.log(valueContainerEl);
-         $(".current-value").text(currVal);
-         hideDropdown();
-      })
-   );
-
-   function hideDropdown() {
-      dropdownEl.classList.remove("is-up");
+   // deselects highlighted color from other options
+   function unselectSiblings(el) {
+      let siblings = el.parentNode.children;
+      for (var i=0; i < siblings.length; i++){
+         siblings[i].classList.remove("is-selected");
+      }
    }
-    // end of dropdown actions
+
+   // closes the dropdown option list
+   function hideDropdown() {
+      dropdownEls.forEach(el => {
+         el.classList.remove("is-up");
+      });
+   }
+   // end of dropdown actions
+
+
+   // IMAGE UPLOAD ===================================
+   let file;
+   let reader;
+   let designDisplayEl = document.getElementById("design-display");
+
+   // activates the image upload button when the styled button is clicked
+   document.getElementById("upload-button").addEventListener("click", function(){
+      document.getElementById("image-input").click();
+   }, false);
+
+   // use file search to upload image
+   document.getElementById("image-input").addEventListener("change", function(e){
+      imageHandling(e);
+   }, false);
+
+   // uses drag and drop to upload image
+   document.body.addEventListener("drop", function(e){
+      imageHandling(e);
+   }, false);
+
+   function imageHandling(e) {
+      file = e.target.files[0];
+      if(!file.type.match("image.*")) {
+         alert("This file isn't image or it's unsupported format");
+         return;
+      }
+      reader = new FileReader();
+      reader.addEventListener("load", (function(imgFile) {
+         return function(e) {
+            // uploads as an allover background print
+            // document.body.style.backgroundImage = "url('" + e.target.result + "')";
+            // uploads images in target area
+            designDisplayEl.setAttribute('src', e.target.result);
+            console.log(file);
+            console.log(file.name);
+            console.log(file.size);
+         };
+      })(file), false);
+      reader.readAsDataURL(file);
+   }
+   // end of image uploads
+
 
 }); // end of document.ready

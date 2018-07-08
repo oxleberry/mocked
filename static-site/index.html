@@ -44,7 +44,7 @@
          <!-- <a href="#" class="toggle-nav"><i class="fa fa-bars"></i> Mocked</a> -->
          <ul>
             <li><a href="#" class="nav-logo nav-logo-hidden">Mocked</a></li>
-            <li><a href="#">New Design</a></li>
+            <li><a href="#" class="nav-active">New Design</a></li>
             <li><a href="#">Gallery</a></li>
             <li><a href="#" class="nav-hidden">.</a></li>
             <li><a href="#" class="nav-hidden">.</a></li>
@@ -58,7 +58,16 @@
    <main class="flex-row stacked">
       <!-- SHIRT CONTAINER -->
       <section class="shirt-container">
-         t-shirt
+         <div class="current-tee">
+            <img class="tee" src="images/mocked-tee-blk.png" />
+         </div>
+         <div class="current-design">
+            <div id="design-target" class="print-area">
+               <img id="design-display" class="upload-art" src="" />
+            </div>
+         </div>
+
+
       </section>
       <!-- INFO CONTAINER -->
       <section class="info-container">
@@ -74,7 +83,7 @@
                            <i class="fa fa-angle-down"></i>
                         </button>
                         <ul class="dropdown-options">
-                           <li class="dropdown-option" id="Mens-tee">Mens Tee</li>
+                           <li class="dropdown-option is-selected" id="Mens-tee">Mens Tee</li>
                            <li class="dropdown-option" id="Womens-tee">Womens Tee</li>
                            <li class="dropdown-option" id="Youth-tee">Youth Tee</li>
                         </ul>
@@ -82,7 +91,7 @@
                   </div>
                   <div class="value-container">
                      <span id="style-value" class="current-value">
-                        Current Tee
+                        Mens Tee
                      </span>
                   </div>
                </div>
@@ -92,11 +101,11 @@
                   <div class="dropdown-container">
                      <div class="dropdown">
                         <button class="dropdown-button">
-                           <span class="button-label">Position</span>
+                           <span class="button-label">Placement</span>
                            <i class="fa fa-angle-down"></i>
                         </button>
                         <ul class="dropdown-options">
-                           <li class="dropdown-option" id="Front">Front</li>
+                           <li class="dropdown-option is-selected" id="Front">Front</li>
                            <li class="dropdown-option" id="Back">Back</li>
                            <li class="dropdown-option" id="Sleeve">Sleeve</li>
                         </ul>
@@ -104,7 +113,7 @@
                   </div>
                   <div class="value-container">
                      <span id="placement-value" class="current-value">
-                        Placement
+                        Front
                      </span>
                   </div>
                </div>
@@ -115,10 +124,10 @@
             <div class="flex-row">
                <div class="flex-row">
                   <span>Color:</span>
-                  <span class="current-value">Color</span>
+                  <span class="current-value">Black</span>
                </div>
                <div class="flex-row">
-                  <div class="garment-swatch black"></div>
+                  <div class="garment-swatch black is-selected"></div>
                   <div class="garment-swatch red"></div>
                   <div class="garment-swatch"></div>
                   <div class="garment-swatch"></div>
@@ -133,7 +142,10 @@
          <section class="image-design">
             <h3>Image Options</h3>
             <div class="flex-row">
-            <button type="button" class="image-upload">Upload Image</button>
+
+            <!-- upload file button, masked with a styled button -->
+            <input id="image-input" type="file" />
+            <button type="button" id="upload-button" class="image-upload">Upload Image</button>
                <span>Width:</span>
                <span class="current-value">8</span>
                <span>Height:</span>

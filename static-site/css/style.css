@@ -79,7 +79,7 @@ before an elements starts shrink or wrap */
 }
 
 .flex-nav li a {
-   color: #F0F8EA;
+   /* color: #F0F8EA; */
    transition: all 0.5s;
 }
 
@@ -87,6 +87,11 @@ before an elements starts shrink or wrap */
 .flex-nav li a:focus {
     color: #adff63;
     text-decoration: none;
+}
+
+.nav-active {
+    color: #adff63;
+    /* font-size: 3em; */
 }
 
 .nav-hidden {
@@ -133,15 +138,12 @@ before an elements starts shrink or wrap */
 /* MAIN ========================= */
 
 main {
-   height: 100vh;
-   background-color: #bbb;
-   padding: 1em 2em;
+   background-color: #d6d6d6;
+   padding: 2em 2em 3em;
    /* margin: 0.8em 0 0 0; */
 }
 
 .shirt-container, .info-container {
-   /* width: 49%; */
-   height: 40em;
    background-color: white;
    /* border-radius: 2em; */
    margin: 0 auto;
@@ -152,16 +154,37 @@ main {
 }
 
 .shirt-container {
-   width: 44%;
+   width: 47%;
+   position: relative;
 }
 
 .info-container {
-   width: 54%;
-}
-
-.info-container {
+   width: 50%;
    border: 4px solid #34485f;
 }
+
+/* Tee CONTAINER ===================== */
+
+.tee {
+   max-width: 100%;
+   max-height: 100%;
+   width: auto;
+   height: auto;
+   padding: 4% 12%;
+}
+
+.current-design {
+
+}
+.print-area {
+   /* border: 2px dotted #cccccc40; */
+   width: 42%;
+   height: 45%;
+   position: absolute;
+   top: 7em;
+   left: 10.1em;
+}
+
 /* INFO CONTAINER ===================== */
 
 main h3 {
@@ -201,7 +224,7 @@ main h3 {
    background-color: red;
 }
 
-.image-upload {
+/* .image-upload {
    width: 140px;
    height: 40px;
    background: none;
@@ -221,11 +244,13 @@ main h3 {
 
 .image-design .current-value {
    margin: 1em 1em 0 0;
-}
+} */
 
-input::placeholder {
+/* input::placeholder {
    padding-left: 1em;
-}
+   text-indent: 30px;
+} */
+
 
 .custom-text {
    height: 40px;
@@ -233,6 +258,7 @@ input::placeholder {
    border: 2px solid #a8b6c5;
    margin-bottom: 1em;
    border-radius: 3px;
+   text-indent: 18px;
 }
 
 .save {
@@ -259,14 +285,14 @@ input::placeholder {
 
 .dropdown {
    position: absolute;
-   width: 140px;
+   width: 130px;
    height: 40px;
    overflow: hidden;
    display: inline-block;
-   font-family: sans-serif;
-   font-size: 14px;
+   font-family: 'Lato', sans-serif;
+   /* font-size: 17px; */
    border-radius: 3px;
-   transition: height 1O0ms ease-in, box-shadow 80ms ease-out 60ms;
+   transition: height 150ms ease-in, box-shadow 130ms ease-out 120ms;
    z-index: 2;
    background: white;
 }
@@ -280,40 +306,41 @@ input::placeholder {
    color: white;
    /* padding: 0 15px; */
    border-radius: 3px;
-   /* font-family: sans-serif; */
+   font-family: sans-serif;
    font-size: 14px;
    transition: all 50ms linear;
    cursor: pointer;
 }
 .dropdown-button i {
    position: absolute;
-   right: 30px;
+   right: 16px;
    margin-top: 1px;
    font-weight: 600;
    font-size: 16px;
 }
-.dropdown-button:active, .dropdown-button:focus {
+.dropdown-button:active,
+.dropdown-button:focus {
    outline: none;
 }
 .dropdown-button:active:active, .dropdown-button:focus:active {
    outline: none;
 }
 .dropdown-button:hover {
-   background-color: #346394;
+   background-color: #e64a4b;
 }
 
 .button-label {
-   margin-right: 41px;
+   margin-right: 33px;
 }
 
 .dropdown.is-up {
    height: 160px;
    box-shadow: 0 13px 43px 0 rgba(0, 0, 0, 0.16);
-   transition: height 120ms ease-in 100ms, box-shadow 100ms ease-in;
+   transition: height 220ms ease-in 100ms, box-shadow 100ms ease-in;
    z-index: 10;
 }
 .dropdown.is-up .dropdown-button {
-   background: #346394;;
+   background: #e64a4b;
    border-color: transparent;
 }
 
@@ -327,20 +354,23 @@ input::placeholder {
    position: relative;
    height: 40px;
    line-height: 40px;
-   padding-left: 24px;
+   padding-left: 18px;
    cursor: pointer;
-   color: #a6a6a6;
-   font-weight: 600;
+   color: #6b6b6b;
+   /* font-weight: 600; */
 
 }
 .dropdown-option.is-selected {
-   color: #42586f;
+   color: #e54b4b;
 }
 
 .dropdown-option:hover {
-   color: #346394;
+   /* color: #346394; */
+   font-weight: 900;
+   font-size: 17px;
 }
-/* VALUE SECTION ========================= */
+
+   /* VALUE SECTION ========== */
 
 .current-value {
    width: 100px;
@@ -355,6 +385,70 @@ input::placeholder {
    width: 160px;
    margin-top: .6em;
 }
+
+/* IMAGE UPLOAD ========================= */
+
+.image-upload {
+   width: 140px;
+   height: 40px;
+   background: none;
+   /* border: none; */
+   border: 2px dashed #42586f;
+   /* background-color: #42586f; */
+   /* color: white; */
+   color: #42586f
+   border-radius: 3px;
+   font-size: 14px;
+   margin-right: 1.5em;
+   transition: all 50ms linear;
+   cursor: pointer;
+}
+
+.image-upload:hover {
+   background-color: #e64a4b;
+}
+
+.image-design span {
+   margin-top: 1em;
+}
+
+.image-design .current-value {
+   margin: 1em 1em 0 0;
+}
+
+input[type="file"] {
+   font-size: 3em;
+   position: absolute;
+   /* left: 0; */
+   /* top: 0; */
+   opacity: 0;
+   /* display: none; */
+}
+
+#upload-button {
+   /* border: 2px dashed gray;
+   color: gray;
+   background-color: white;
+   padding: 8px 20px;
+   border-radius: 8px;
+   font-size: 20px;
+   font-weight: bold; */
+}
+
+#design-target {
+   /* border: 3px dotted gold;
+   width: 20em;
+   height: 20em;
+   margin: 0 auto;
+   background-size: 100%; */
+   /* background-position: center center;
+   background-repeat: no-repeat; */
+}
+
+#design-display {
+   width: 100%;
+}
+
 
 /* FOOTER ========================= */
 
