@@ -56,8 +56,9 @@ header a:hover, header a:focus {
 }
 
 .nav-logo {
-   font-size: 1rem;
-   font-weight: 700;
+   font-size: 1.4em;
+   padding: .6em 0;
+   font-weight: 800;
 }
 
 .flex-nav, footer {
@@ -160,7 +161,7 @@ main {
 
 .info-container {
    width: 50%;
-   border: 4px solid #34485f;
+   border: 8px solid #34485f;
 }
 
 /* Tee CONTAINER ===================== */
@@ -170,19 +171,83 @@ main {
    max-height: 100%;
    width: auto;
    height: auto;
-   padding: 4% 12%;
+   padding: 5% 9%;
 }
 
-.current-design {
-
+.resize-test {
+   resize: both;
+   overflow: hidden;
 }
+
+.image-resize-container {
+   border: dotted 3px black;
+   width: 236px;
+   height: 250px;
+   /* display: inline-block; */
+   resize: both;
+   overflow: hidden;
+}
+
+.image-resize-container2 {
+    resize: both;
+    border: 1px solid #222;
+    width: 500px;
+    height: 200px;
+    overflow: auto;
+    background: #222;
+    color: #999;
+    padding: 10px;
+  }
+
 .print-area {
    /* border: 2px dotted #cccccc40; */
-   width: 42%;
-   height: 45%;
+   width: 47%;
+   height: 78%;
    position: absolute;
-   top: 7em;
-   left: 10.1em;
+   top: 5em;
+   left: 9.4em;
+}
+
+/* IMAGE UPLOAD ========================= */
+
+.image-upload {
+   width: 140px;
+   height: 40px;
+   background: none;
+   /* border: none; */
+   border: 2px dashed #42586f;
+   /* background-color: #42586f; */
+   /* color: white; */
+   color: #42586f
+   border-radius: 3px;
+   font-size: 14px;
+   margin-right: 1.5em;
+   transition: all 50ms linear;
+   cursor: pointer;
+}
+
+.image-upload:hover {
+   background-color: #e64a4b;
+}
+
+.image-design span {
+   margin-top: 1em;
+}
+
+.image-design .current-value {
+   margin: 1em 1em 0 0;
+}
+
+input[type="file"] {
+   font-size: 3em;
+   position: absolute;
+   opacity: 0;
+}
+
+#design-display {
+   width: 58%;
+   left: 54px;
+   top: 50px;
 }
 
 /* INFO CONTAINER ===================== */
@@ -194,19 +259,16 @@ main h3 {
     text-transform: uppercase;
 }
 
-.garment, .image-design, .text-design {
-   border: 4px solid #34485f;
+.garment,
+.image-design,
+.text-design {
+   border-bottom: 4px solid #34485f;
    padding: .8em;
-   /* display: inline-block; */
 }
 
 .garment-style {
    width: 90px;
 }
-
-/* .garment span {
-   color: black;
-} */
 
 .garment-swatch {
    width: 1em;
@@ -224,33 +286,13 @@ main h3 {
    background-color: red;
 }
 
-/* .image-upload {
-   width: 140px;
-   height: 40px;
-   background: none;
-   border: none;
-   background-color: #42586f;
-   color: white;
-   border-radius: 3px;
-   font-size: 14px;
-   margin-right: 1.5em;
-   transition: all 50ms linear;
-   cursor: pointer;
+.size-control {
+   z-index: 20;
 }
 
-.image-design span {
-   margin-top: 1em;
+.size-control:nth-last-child(2n+ 1) {
+   margin-right: 2em;
 }
-
-.image-design .current-value {
-   margin: 1em 1em 0 0;
-} */
-
-/* input::placeholder {
-   padding-left: 1em;
-   text-indent: 30px;
-} */
-
 
 .custom-text {
    height: 40px;
@@ -269,10 +311,12 @@ main h3 {
    background-color: #fff;
    padding: .8em 4em;
    border: 3px solid #42576f;
+   border-radius: 3px;
 }
 
 .save:hover {
-   background-color: #e6e6e6;
+   border: 3px solid #e64a4b;
+   color: #e7494b;
 }
 
 /* DROPDOWN BUTTON ========================= */
@@ -373,7 +417,7 @@ main h3 {
    /* VALUE SECTION ========== */
 
 .current-value {
-   width: 100px;
+   width: 88px;
    border-bottom: 2px solid #346394;
    text-align: center;
    padding: 0 1em .2em .4em;
@@ -382,73 +426,15 @@ main h3 {
 
 .value-container {
    height: 40px;
-   width: 160px;
+   width: 134px;
    margin-top: .6em;
 }
 
-/* IMAGE UPLOAD ========================= */
-
-.image-upload {
-   width: 140px;
-   height: 40px;
-   background: none;
-   /* border: none; */
-   border: 2px dashed #42586f;
-   /* background-color: #42586f; */
-   /* color: white; */
-   color: #42586f
-   border-radius: 3px;
-   font-size: 14px;
-   margin-right: 1.5em;
-   transition: all 50ms linear;
-   cursor: pointer;
-}
-
-.image-upload:hover {
-   background-color: #e64a4b;
-}
-
-.image-design span {
-   margin-top: 1em;
-}
-
-.image-design .current-value {
-   margin: 1em 1em 0 0;
-}
-
-input[type="file"] {
-   font-size: 3em;
-   position: absolute;
-   /* left: 0; */
-   /* top: 0; */
-   opacity: 0;
-   /* display: none; */
-}
-
-#upload-button {
-   /* border: 2px dashed gray;
-   color: gray;
-   background-color: white;
-   padding: 8px 20px;
-   border-radius: 8px;
-   font-size: 20px;
-   font-weight: bold; */
-}
-
-#design-target {
-   /* border: 3px dotted gold;
-   width: 20em;
-   height: 20em;
-   margin: 0 auto;
-   background-size: 100%; */
-   /* background-position: center center;
-   background-repeat: no-repeat; */
-}
-
-#design-display {
-   width: 100%;
-}
-
+/* .save-container {
+   border: 4px solid #34485f;
+   padding: .8em;
+   height: auto;
+} */
 
 /* FOOTER ========================= */
 

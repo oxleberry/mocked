@@ -22,7 +22,7 @@ $(function(){
          // another element with an event listener, stopPropagation
          // will stop the parent event listener from automatically triggering
          e.stopPropagation();
-         dropdownParent.classList.toggle("is-up");
+         dropdownParent.classList.toggle('is-up');
       });
    });
 
@@ -41,7 +41,7 @@ $(function(){
          // from selected dropdown value
          valTarget.textContent = el.textContent;
          unselectSiblings(el)
-         el.classList.add("is-selected");
+         el.classList.add('is-selected');
          hideDropdown();
       })
    });
@@ -56,14 +56,14 @@ $(function(){
    function unselectSiblings(el) {
       let siblings = el.parentNode.children;
       for (var i=0; i < siblings.length; i++){
-         siblings[i].classList.remove("is-selected");
+         siblings[i].classList.remove('is-selected');
       }
    }
 
    // closes the dropdown option list
    function hideDropdown() {
       dropdownEls.forEach(el => {
-         el.classList.remove("is-up");
+         el.classList.remove('is-up');
       });
    }
    // end of dropdown actions
@@ -72,31 +72,31 @@ $(function(){
    // IMAGE UPLOAD ===================================
    let file;
    let reader;
-   let designDisplayEl = document.getElementById("design-display");
+   let designDisplayEl = document.getElementById('design-display');
 
    // activates the image upload button when the styled button is clicked
-   document.getElementById("upload-button").addEventListener("click", function(){
-      document.getElementById("image-input").click();
+   document.getElementById('upload-button').addEventListener('click', function(){
+      document.getElementById('image-input').click();
    }, false);
 
    // use file search to upload image
-   document.getElementById("image-input").addEventListener("change", function(e){
+   document.getElementById('image-input').addEventListener('change', function(e){
       imageHandling(e);
    }, false);
 
    // uses drag and drop to upload image
-   document.body.addEventListener("drop", function(e){
+   document.body.addEventListener('drop', function(e){
       imageHandling(e);
    }, false);
 
    function imageHandling(e) {
       file = e.target.files[0];
-      if(!file.type.match("image.*")) {
+      if(!file.type.match('image.*')) {
          alert("This file isn't image or it's unsupported format");
          return;
       }
       reader = new FileReader();
-      reader.addEventListener("load", (function(imgFile) {
+      reader.addEventListener('load', (function(imgFile) {
          return function(e) {
             // uploads as an allover background print
             // document.body.style.backgroundImage = "url('" + e.target.result + "')";
@@ -111,5 +111,39 @@ $(function(){
    }
    // end of image uploads
 
+   // DRAGGABLE IMAGE =====================
+   $('#design-display').draggable({ containment: '#design-target', scroll: false });
+   // end of draggable images
+
+   // RESIZE IMAGE BUTTON CONTROLS =====================
+   const changeSize = 16;
+   const changePosition = 8;
+
+   console.log('Postion TOP: ' + $('#design-display').position().top);
+   console.log('Postion LEFT: ' + $('#design-display').position().left);
+   console.log($('#design-display').position());
+   console.log('WIDTH: ' + $('#design-display').width());
+   console.log($('#design-display').width());
+
+   $('#width-plus').on('click', function() {
+      let curWidth = $('#design-display').width();
+      curWidth += changeSize;
+      $('#design-display').width(`${curWidth}px`);
+
+      let curPosition = $('#design-display').position().left;
+      curPosition -= changePosition;
+      $('#design-display').css({"left": curPosition});
+   });
+
+   $('#width-minus').on('click', function() {
+      let curWidth = $('#design-display').width();
+      curWidth -= changeSize;
+      $('#design-display').width(`${curWidth}px`);
+
+      let curPosition = $('#design-display').position().left;
+      curPosition += changePosition;
+      $('#design-display').css({"left": curPosition});
+   });
+   // end of resizeable buttons controls for images
 
 }); // end of document.ready

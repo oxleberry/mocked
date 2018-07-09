@@ -8,7 +8,7 @@
    <title>Mocked</title>
 
    <!-- Logo Favicon -->
-   <link rel="icon" type="image/png" href="http://www.oxleberry.com/all/oxleFavicon.png">
+   <link rel="icon" type="image/png" href="images/geo-flower.png">
    <!-- Google Fonts -->
    <link href="https://fonts.googleapis.com/css?family=Lato|Raleway|Quicksand:400,700" rel="stylesheet">
 
@@ -21,12 +21,15 @@
    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous" defer></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous" defer></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous" defer></script> -->
+
+   <!-- <script src="https://code.jquery.com/jquery-1.12.4.js" defer></script>
+   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" defer></script> -->
+
    <!-- jQuery files -->
    <script src="https://code.jquery.com/jquery-3.3.1.min.js" defer></script>
 
    <!-- jQueryUI -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" defer></script>
-
 
    <!-- My CSS styles -->
    <link rel="stylesheet" href="css/style.css">
@@ -41,7 +44,6 @@
    <header>
       <nav class="flex-nav">
          <a href="#"<h1 class="nav-logo toggle-nav">Mocked</h1><i class="fa fa-bars"></i></a>
-         <!-- <a href="#" class="toggle-nav"><i class="fa fa-bars"></i> Mocked</a> -->
          <ul>
             <li><a href="#" class="nav-logo nav-logo-hidden">Mocked</a></li>
             <li><a href="#" class="nav-active">New Design</a></li>
@@ -59,11 +61,14 @@
       <!-- SHIRT CONTAINER -->
       <section class="shirt-container">
          <div class="current-tee">
-            <img class="tee" src="images/mocked-tee-blk.png" />
+            <img class="tee" src="images/mens-tee-blk.png" />
          </div>
          <div class="current-design">
             <div id="design-target" class="print-area">
-               <img id="design-display" class="upload-art" src="" />
+               <!-- <div class="image-resize-container"> -->
+                  <!-- <img id="design-display" class="upload-art" src="" /> -->
+                  <img id="design-display" src="images/geo-flower.png" />
+               <!-- </div> -->
             </div>
          </div>
 
@@ -146,6 +151,8 @@
             <!-- upload file button, masked with a styled button -->
             <input id="image-input" type="file" />
             <button type="button" id="upload-button" class="image-upload">Upload Image</button>
+            <button id="width-plus" class="size-control">(+)</button>
+            <button id="width-minus" class="size-control">(-)</button>
                <span>Width:</span>
                <span class="current-value">8</span>
                <span>Height:</span>
@@ -206,7 +213,7 @@
 
          </section>
          <!-- end of text Section  -->
-         <div class="flex-row">
+         <div class="flex-row save-container">
             <button type="button" class="btn btn-secondary btn-lg save">SAVE</button>
          </div>
       </section>
