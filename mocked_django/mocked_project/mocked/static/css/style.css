@@ -1,0 +1,467 @@
+
+/* BASE STYLES ========================================= */
+
+* {
+   box-sizing: border-box;
+}
+
+body {
+   margin: 0;
+   padding: 0;
+   font-family: 'Quicksand', sans-serif;
+}
+
+.flex-row {
+   display: flex;
+   /* flex-direction: row; */
+   flex-wrap: wrap;
+}
+
+.flex-column {
+   display: flex;
+   flex-direction: column;
+}
+
+li {
+   list-style: none;
+}
+
+a {
+   text-decoration: none;
+   /* padding: 1em; */
+   /* color: white; */
+}
+
+/* NAV ========================= */
+
+header a {
+   color: #F0F8EA;
+   font-weight: 400;
+   letter-spacing: 1px;
+   text-decoration: none;
+   text-transform: uppercase;
+   padding: 1em .5em;
+   display: inline-block;
+   width: 100%;
+   text-align: center;
+   transition: all 0.5s;
+}
+
+header a:hover, header a:focus {
+   text-decoration: underline;
+}
+
+.toggle-nav {
+   display: none;
+}
+
+.nav-logo {
+   font-size: 1.4em;
+   padding: .6em 0;
+   font-weight: 800;
+}
+
+.flex-nav, footer {
+   background: #E54B4B;
+   color: #EBEBD3;
+}
+
+.flex-nav ul {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+   display: flex;
+}
+
+/* flex-basis is the min starting width
+before an elements starts shrink or wrap */
+.flex-nav li {
+   flex-basis: 16%;
+}
+
+.flex-nav li a {
+   /* color: #F0F8EA; */
+   transition: all 0.5s;
+}
+
+.flex-nav li a:hover,
+.flex-nav li a:focus {
+    color: #adff63;
+    text-decoration: none;
+}
+
+.nav-active {
+    color: #adff63;
+    /* font-size: 3em; */
+}
+
+.nav-hidden {
+   display: none;
+}
+
+@media all and (max-width:800px) {
+
+   .flex-nav li{
+      flex-basis: 100%;
+      border-top: 1px solid rgba(240, 248, 235,.4);
+   }
+
+   .nav-logo-hidden {
+      display: none;
+   }
+
+   .toggle-nav {
+      display: block;
+      color: #f0f8eb;
+   }
+
+   .toggle-nav:hover, .toggle-nav:focus {
+      color: #adff63;
+      text-decoration: none;
+   }
+
+   .flex-nav {
+      border-bottom: 1px solid #e2e2e2;
+   }
+
+   .flex-nav ul {
+      display: none;
+      flex-wrap: wrap;
+   }
+
+   .flex-nav ul.nav-active {
+      display: flex;
+   }
+
+}
+
+
+/* MAIN ========================= */
+
+main {
+   background-color: #d6d6d6;
+   padding: 2em 2em 3em;
+   /* margin: 0.8em 0 0 0; */
+}
+
+.shirt-container, .info-container {
+   background-color: white;
+   /* border-radius: 2em; */
+   margin: 0 auto;
+   margin-top: 1em;
+   /* border: solid 4px #aaa; */
+   justify-content: space-between;
+   box-shadow: 11px 12px 17px 0px rgba(0, 0, 0, 0.3);
+}
+
+.shirt-container {
+   width: 47%;
+   position: relative;
+}
+
+.info-container {
+   width: 50%;
+   border: 8px solid #34485f;
+}
+
+/* Tee CONTAINER ===================== */
+
+.tee {
+   max-width: 100%;
+   max-height: 100%;
+   width: auto;
+   height: auto;
+   padding: 5% 9%;
+}
+
+.resize-test {
+   resize: both;
+   overflow: hidden;
+}
+
+.image-resize-container {
+   border: dotted 3px black;
+   width: 236px;
+   height: 250px;
+   /* display: inline-block; */
+   resize: both;
+   overflow: hidden;
+}
+
+.image-resize-container2 {
+    resize: both;
+    border: 1px solid #222;
+    width: 500px;
+    height: 200px;
+    overflow: auto;
+    background: #222;
+    color: #999;
+    padding: 10px;
+  }
+
+.print-area {
+   /* border: 2px dotted #cccccc40; */
+   width: 47%;
+   height: 78%;
+   position: absolute;
+   top: 5em;
+   left: 9.4em;
+}
+
+/* IMAGE UPLOAD ========================= */
+
+.image-upload {
+   width: 140px;
+   height: 40px;
+   background: none;
+   /* border: none; */
+   border: 2px dashed #42586f;
+   /* background-color: #42586f; */
+   /* color: white; */
+   color: #42586f
+   border-radius: 3px;
+   font-size: 14px;
+   margin-right: 1.5em;
+   transition: all 50ms linear;
+   cursor: pointer;
+}
+
+.image-upload:hover {
+   background-color: #e64a4b;
+}
+
+.image-design span {
+   margin-top: 1em;
+}
+
+.image-design .current-value {
+   margin: 1em 1em 0 0;
+}
+
+input[type="file"] {
+   font-size: 3em;
+   position: absolute;
+   opacity: 0;
+}
+
+#design-display {
+   width: 58%;
+   left: 54px;
+   top: 50px;
+}
+
+/* INFO CONTAINER ===================== */
+
+main h3 {
+   margin: 0 0 .4em;
+    color: #163456;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.garment,
+.image-design,
+.text-design {
+   border-bottom: 4px solid #34485f;
+   padding: .8em;
+}
+
+.garment-style {
+   width: 90px;
+}
+
+.garment-swatch {
+   width: 1em;
+   height: 1em;
+   background-color: grey;
+   border: 2px solid black;
+   margin-right: 6px;
+}
+
+.black {
+   background-color: black;
+}
+
+.red {
+   background-color: red;
+}
+
+.size-control {
+   z-index: 20;
+}
+
+.size-control:nth-last-child(2n+ 1) {
+   margin-right: 2em;
+}
+
+.custom-text {
+   height: 40px;
+   width: 100%;
+   border: 2px solid #a8b6c5;
+   margin-bottom: 1em;
+   border-radius: 3px;
+   text-indent: 18px;
+}
+
+.save {
+   margin: 0 auto;
+   margin-top: 1.8em;
+   font-size: 1em;
+   color: #34475f;
+   background-color: #fff;
+   padding: .8em 4em;
+   border: 3px solid #42576f;
+   border-radius: 3px;
+}
+
+.save:hover {
+   border: 3px solid #e64a4b;
+   color: #e7494b;
+}
+
+/* DROPDOWN BUTTON ========================= */
+
+.dropdown-container {
+   height: 40px;
+   width: 140px;
+   position: relative;
+}
+
+.dropdown {
+   position: absolute;
+   width: 130px;
+   height: 40px;
+   overflow: hidden;
+   display: inline-block;
+   font-family: 'Lato', sans-serif;
+   /* font-size: 17px; */
+   border-radius: 3px;
+   transition: height 150ms ease-in, box-shadow 130ms ease-out 120ms;
+   z-index: 2;
+   background: white;
+}
+
+.dropdown-button {
+   width: 130px;
+   height: 40px;
+   background: none;
+   border: none;
+   background-color: #42586f;
+   color: white;
+   /* padding: 0 15px; */
+   border-radius: 3px;
+   font-family: sans-serif;
+   font-size: 14px;
+   transition: all 50ms linear;
+   cursor: pointer;
+}
+.dropdown-button i {
+   position: absolute;
+   right: 16px;
+   margin-top: 1px;
+   font-weight: 600;
+   font-size: 16px;
+}
+.dropdown-button:active,
+.dropdown-button:focus {
+   outline: none;
+}
+.dropdown-button:active:active, .dropdown-button:focus:active {
+   outline: none;
+}
+.dropdown-button:hover {
+   background-color: #e64a4b;
+}
+
+.button-label {
+   margin-right: 33px;
+}
+
+.dropdown.is-up {
+   height: 160px;
+   box-shadow: 0 13px 43px 0 rgba(0, 0, 0, 0.16);
+   transition: height 220ms ease-in 100ms, box-shadow 100ms ease-in;
+   z-index: 10;
+}
+.dropdown.is-up .dropdown-button {
+   background: #e64a4b;
+   border-color: transparent;
+}
+
+.dropdown-options {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+}
+
+.dropdown-option {
+   position: relative;
+   height: 40px;
+   line-height: 40px;
+   padding-left: 18px;
+   cursor: pointer;
+   color: #6b6b6b;
+   /* font-weight: 600; */
+
+}
+.dropdown-option.is-selected {
+   color: #e54b4b;
+}
+
+.dropdown-option:hover {
+   /* color: #346394; */
+   font-weight: 900;
+   font-size: 17px;
+}
+
+   /* VALUE SECTION ========== */
+
+.current-value {
+   width: 88px;
+   border-bottom: 2px solid #346394;
+   text-align: center;
+   padding: 0 1em .2em .4em;
+   margin: 0 1em 0 0;
+}
+
+.value-container {
+   height: 40px;
+   width: 134px;
+   margin-top: .6em;
+}
+
+/* .save-container {
+   border: 4px solid #34485f;
+   padding: .8em;
+   height: auto;
+} */
+
+/* FOOTER ========================= */
+
+footer{
+   height: 56px;
+}
+
+footer p {
+   color: rgba(255,255,255,.4);
+   margin: 0 auto;
+   text-align: center;
+   padding-top: 1em;
+}
+
+/* MAIN MEDIA QUERIES ====================== */
+
+@media screen and (max-width: 850px){
+   main.flex-row {
+      flex-direction: column;
+   }
+
+   main {
+      height: auto;
+   }
+
+   .shirt-container, .info-container {
+      width: 98%;
+
+   }
+}

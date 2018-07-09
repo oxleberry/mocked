@@ -1,0 +1,18 @@
+
+{% load staticfiles %}
+
+<html>
+    <head>
+        <title>Mocked</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    </head>
+    <body>
+        <h1>Mocked</h1>
+        <hr />
+        {% block content %}
+        {% endblock %}
+    </body>
+    <hr />
+    <footer>Mocked 2018, all rights reserved</footer>
+</html>
