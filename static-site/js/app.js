@@ -146,4 +146,10 @@ $(function(){
    });
    // end of resizeable buttons controls for images
 
+   console.log('Postion TOP: ' + $('#design-display').position().top);
+   console.log('Postion LEFT: ' + $('#design-display').position().left);
+   console.log($('#design-display').position());
+   console.log('WIDTH: ' + $('#design-display').width());
+   console.log($('#design-display').width());
+
 }); // end of document.ready
