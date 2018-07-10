@@ -1,0 +1,32 @@
+
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Mocked</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+   </head>
+   <body>
+
+      <h1>Mocked</h1>
+      <hr />
+      {% for design in designs %}
+          <p>shirtStyle: {{ design.shirtStyle }}</p>
+          <p>shirtPosition: {{ design.shirtPosition }}</p>
+          <p>shirtColor: {{ design.shirtColor }}</p>
+          <p>imgFile: {{ design.imgFile }}</p>
+          <p>artSize: {{ design.artSize }}</p>
+          <p>artPosition: {{ design.artPosition }}</p>
+          <p>text: {{ design.text }}</p>
+          <p>textFont: {{ design.textFont }}</p>
+          <p>textSize: {{ design.textSize }}</p>
+          <p>textPosition: {{ design.textPosition }}</p>
+          <p>title: {{ design.title }}</p>
+          <p>user: {{ design.user }}</p>
+          <hr />
+      {% endfor %}
+
+      <footer>All Rights Reserved, Mocked 2018</footer>
+   </body>
+</html>

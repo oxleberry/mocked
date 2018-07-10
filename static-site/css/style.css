@@ -239,9 +239,10 @@ main {
 }
 
 input[type="file"] {
-   font-size: 3em;
+   font-size: 1em;
    position: absolute;
    opacity: 0;
+   padding-bottom: 2em;
 }
 
 #design-display {
@@ -323,13 +324,13 @@ main h3 {
 
 .dropdown-container {
    height: 40px;
-   width: 140px;
+   width: 138px;
    position: relative;
 }
 
 .dropdown {
    position: absolute;
-   width: 130px;
+   width: 126px;
    height: 40px;
    overflow: hidden;
    display: inline-block;
@@ -342,7 +343,7 @@ main h3 {
 }
 
 .dropdown-button {
-   width: 130px;
+   width: 126px;
    height: 40px;
    background: none;
    border: none;
@@ -461,7 +462,7 @@ footer p {
    }
 
    .shirt-container, .info-container {
-      width: 98%;
+      width: 100%;
 
    }
 }

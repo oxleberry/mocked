@@ -1,14 +1,60 @@
 
-from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
+
+from django.contrib.auth.models import User
+from .forms import LoginForm
+from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required
+
+from django.contrib.auth.forms import UserCreationForm
 
 # Test our first view
 # from django.http import HttpResponse
 # def hello_world(request):
 # 	return HttpResponse('<h1>Hello World! /ᐠ｡‸｡ᐟ\ﾉ</h1>')
 
-def index(request):
-	return render( request, 'mocked/index.html', {'designs': designs} )
+
+def home(request):
+    return render(request, 'mocked/home.html')
+    # if request.user.is_authenticated:
+    #     return redirect('create_new')
+	# return render( request, 'mocked/test.html', {'designs': designs} )
+
+
+def login_user(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        raw_password = request.POST['password']
+        user = authenticate(username=username, password=raw_password)
+        login(request, user)
+        return redirect('home')
+    else:
+        form = LoginForm()
+    return render(request, 'mocked/login.html', {'form': form})
+
+def logout_user(request):
+    logout(request)
+    return redirect('mocked/home.html')
+
+def signup_user(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('home')
+    else:
+        form = UserCreationForm()
+    return render(request, 'mocked/signup.html', {'form': form})
+
+
+# Test some data
+def test(request):
+	return render( request, 'mocked/test.html', {'designs': designs} )
 
 class Design:
     def __init__(self,

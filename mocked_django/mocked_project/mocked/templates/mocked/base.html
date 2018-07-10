@@ -5,10 +5,20 @@
     <head>
         <title>Mocked</title>
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
     </head>
     <body>
-        <h1>Mocked</h1>
+        <h1>Home</h1>
+        <h2>A t-shirt mockup app</h2>
+        <nav>
+          <a href="{% url 'home' %}">Mocked</a> |
+             {% if user.is_authenticated %}
+                <a href="#">Hello, {{ user.username }}!</a> |
+                <a href="{% url 'logout_user' %}">Logout</a>
+             {% else %}
+          <a href="{% url 'signup_user' %}">Sign Up</a> |
+          <a href="{% url 'login_user' %}">Log In</a>
+             {% endif %}
+       </nav>
         <hr />
         {% block content %}
         {% endblock %}
