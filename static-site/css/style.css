@@ -212,7 +212,7 @@ main {
 
 .image-upload {
    width: 140px;
-   height: 40px;
+   height: 52px;
    background: none;
    /* border: none; */
    border: 2px dashed #42586f;
@@ -221,7 +221,7 @@ main {
    color: #42586f
    border-radius: 3px;
    font-size: 14px;
-   margin-right: 1.5em;
+   margin-right: 1em;
    transition: all 50ms linear;
    cursor: pointer;
 }
@@ -249,6 +249,17 @@ input[type="file"] {
    width: 58%;
    left: 54px;
    top: 50px;
+}
+
+#text-display {
+   font-size: 3em;
+   color: white;
+   left: 66.6875px;
+   width: 58%;
+   position: inherit;
+   font-size: 3em;
+   margin: -24px 0;
+   font-family: 'Lobster', sans-serif;
 }
 
 /* INFO CONTAINER ===================== */
@@ -289,24 +300,60 @@ main h3 {
 
 .size-control {
    z-index: 20;
+   font-size: 1em;
+   margin-right: 0.4em;
+   width: 36px;
 }
 
 .size-control:nth-last-child(2n+ 1) {
-   margin-right: 2em;
+   margin-right: .8em;
 }
 
 .custom-text {
-   height: 40px;
-   width: 100%;
+   height: 54px;
+   width: 71%;
    border: 2px solid #a8b6c5;
    margin-bottom: 1em;
    border-radius: 3px;
    text-indent: 18px;
+   font-size: .8em;
+}
+
+#text-plus {
+   height: 53px;
+   width: 41px;
+   margin-left: 8px;
+   margin-right: 2px;
+   font-size: 1em;
+}
+
+#text-minus {
+   height: 53px;
+   width: 41px;
+   margin-right: 0;
+   font-size: 1em;
+}
+
+.save-container {
+   margin: 1.5em;
+}
+
+.design-title {
+   height: 54px;
+    width: 40%;
+   border: 2px solid #a8b6c5;
+   /* margin-bottom: 1em; */
+   margin: 0 auto;
+   border-radius: 3px;
+   /* text-indent: 18px; */
+   font-size: .8em;
+   text-align: center;
 }
 
 .save {
    margin: 0 auto;
-   margin-top: 1.8em;
+    margin-top: 0.6em;
+   width: 40%;
    font-size: 1em;
    color: #34475f;
    background-color: #fff;
@@ -421,7 +468,7 @@ main h3 {
    width: 88px;
    border-bottom: 2px solid #346394;
    text-align: center;
-   padding: 0 1em .2em .4em;
+   padding: 0 1em 0.2em 0.4em;
    margin: 0 1em 0 0;
 }
 

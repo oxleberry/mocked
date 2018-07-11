@@ -1,4 +1,13 @@
 
+const textFonts = {
+   anton: 'Anton',
+   monoton: 'Monoton',
+   cabinSketch: 'Cabin Sketch',
+   juliusSansOne: 'Julius Sans One',
+   bungeeInline: 'Bungee Inline',
+   lobster: 'Lobster'
+}
+
 $(function(){
    console.log('Sanity Check');
 
@@ -113,11 +122,12 @@ $(function(){
 
    // DRAGGABLE IMAGE =====================
    $('#design-display').draggable({ containment: '#design-target', scroll: false });
+   $('#text-display').draggable({ containment: '#design-target', scroll: true });
    // end of draggable images
 
    // RESIZE IMAGE BUTTON CONTROLS =====================
-   const changeSize = 16;
-   const changePosition = 8;
+   const changeSize = 12;
+   const changePosition = 6;
 
    console.log('Postion TOP: ' + $('#design-display').position().top);
    console.log('Postion LEFT: ' + $('#design-display').position().left);
@@ -146,10 +156,53 @@ $(function(){
    });
    // end of resizeable buttons controls for images
 
+   // IMAGE WIDTH AND HEIGHT CALCULATOR
+   // Pertinent info on design data
    console.log('Postion TOP: ' + $('#design-display').position().top);
    console.log('Postion LEFT: ' + $('#design-display').position().left);
    console.log($('#design-display').position());
    console.log('WIDTH: ' + $('#design-display').width());
+   console.log('HEIGHT: ' + $('#design-display').height());
    console.log($('#design-display').width());
+   calcArtDimensions();
+
+   // output the dimensions of the art size
+   function calcArtDimensions() {
+      const rulerConverter = 17.456666;
+      let curWidth = $('#design-display').width();
+      let curHeight = $('#design-display').height();
+      let widthInInches = curWidth / rulerConverter;
+      let heightInInches = curHeight / rulerConverter;
+      widthInInches = widthInInches.toFixed(2);
+      $('.current-width').text(`${widthInInches}"`);
+      heightInInches = heightInInches.toFixed(2);
+      $('.current-height').text(`${heightInInches}"`);
+   }
+
+   // let customTextEl = document.getElementById('custom-text').value;
+   // let textDisplayEl = document.getElementById('text-display');
+   // console.log(customTextEl);
+   // console.log(textDisplayEl);
+   //
+   // customTextEl.addEventListener('input', function (e) {
+   //     textDisplayEl.innerHTML = customTextEl;
+   // });
+
+   // currentText.addEventListener('keypress', function() {
+   //    textDisplayEl.innerHTML = customTextEl;
+   // });
+
+   $('#custom-text').keyup(function() {
+      let currentText = $('#custom-text').val();
+      console.log(currentText);
+      $('#text-display').text(currentText);
+      $('#text-display').css(currentText);
+
+   });
+
+
+
+   // $('#custon-text').val();
+
 
 }); // end of document.ready

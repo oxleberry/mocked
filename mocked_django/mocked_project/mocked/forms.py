@@ -10,3 +10,25 @@ class LoginForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ('username', 'password')
+
+
+class DesignForm(forms.ModelForm):
+
+    class Meta:
+        model = Design
+        fields = ('user',
+                 'title',
+                 'shirtStyle',
+                 'shirtPlacement',
+                 'shirtColor',
+                 'artFile',
+                 'artWidth',
+                 'artPosTop',
+                 'artPosLeft',
+                 'text',
+                 'textFont',
+                 'textSize',
+                 'textWidth',
+                 'textPosTop',
+                 'textPosLeft',
+                 )
