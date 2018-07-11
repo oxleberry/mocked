@@ -1,0 +1,42 @@
+
+{% extends 'mocked/base.html' %}
+
+{% block content %}
+   <h2>DESIGN LIST INFO</h2>
+   <h2>{{ user.username }}'s Gallery</h2>
+   <ul>
+      {% for design in designs %}
+         <hr />
+         <li>
+            {{ design.user }}
+         </li>
+         <li>
+            {{ design.title }}
+         </li>
+         <li>
+            {{ design.shirtStyle }}
+         </li>
+         <li>
+            {{ design.shirtPlacement }}
+         </li>
+         <li>
+            {{ design.shirtColor }}
+         </li>
+         <li>
+            {{ design.document }}
+         </li>
+         <li>
+            {{ design.artWidth }}
+         </li>
+         <li>
+            {{ design.artPosTop }}
+         </li>
+         <li>
+            {{ design.artPosLeft }}
+         </li>
+         <li>
+            {{ design.text }}
+         </li>
+      {% endfor %}
+   </ul>
+{% endblock %}

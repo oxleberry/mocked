@@ -3,6 +3,7 @@ from django import forms
 from django.forms import CharField, PasswordInput
 
 from django.contrib.auth.models import User
+from .models import Design
 
 class LoginForm(forms.ModelForm):
     username = CharField(max_length=100)
@@ -21,7 +22,7 @@ class DesignForm(forms.ModelForm):
                  'shirtStyle',
                  'shirtPlacement',
                  'shirtColor',
-                 'artFile',
+                 'document',
                  'artWidth',
                  'artPosTop',
                  'artPosLeft',

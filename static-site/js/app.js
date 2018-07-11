@@ -8,6 +8,8 @@ const textFonts = {
    lobster: 'Lobster'
 }
 
+let currentArtFileName;
+
 $(function(){
    console.log('Sanity Check');
 
@@ -114,6 +116,7 @@ $(function(){
             console.log(file);
             console.log(file.name);
             console.log(file.size);
+            currentArtFileName = file.name
          };
       })(file), false);
       reader.readAsDataURL(file);
@@ -143,6 +146,7 @@ $(function(){
       let curPosition = $('#design-display').position().left;
       curPosition -= changePosition;
       $('#design-display').css({"left": curPosition});
+      calcArtDimensions();
    });
 
    $('#width-minus').on('click', function() {
@@ -153,17 +157,20 @@ $(function(){
       let curPosition = $('#design-display').position().left;
       curPosition += changePosition;
       $('#design-display').css({"left": curPosition});
+      calcArtDimensions();
    });
    // end of resizeable buttons controls for images
 
    // IMAGE WIDTH AND HEIGHT CALCULATOR
    // Pertinent info on design data
-   console.log('Postion TOP: ' + $('#design-display').position().top);
-   console.log('Postion LEFT: ' + $('#design-display').position().left);
-   console.log($('#design-display').position());
+   console.log('NEW');
+   console.log('ART FILE: ' + currentArtFileName);
    console.log('WIDTH: ' + $('#design-display').width());
-   console.log('HEIGHT: ' + $('#design-display').height());
-   console.log($('#design-display').width());
+   console.log('ART POS TOP: ' + $('#design-display').position().top);
+   console.log('ART POS LEFT: ' + $('#design-display').position().left);
+   // console.log($('#design-display').position());
+   // console.log('HEIGHT: ' + $('#design-display').height());
+   // console.log($('#design-display').width());
    calcArtDimensions();
 
    // output the dimensions of the art size

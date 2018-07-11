@@ -9,7 +9,7 @@ class Design(models.Model):
     shirtStyle = models.CharField(max_length=255)
     shirtPlacement = models.CharField(max_length=255)
     shirtColor = models.CharField(max_length=255)
-    artFile = models.ImageField(blank=True, null=True, upload_to='uploads/')
+    document = models.ImageField(blank=True, null=True, upload_to='uploads/')
     artWidth = models.IntegerField(blank=True, null=True)
     artPosTop = models.IntegerField(blank=True, null=True)
     artPosLeft = models.IntegerField(blank=True, null=True)

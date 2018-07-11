@@ -9,6 +9,13 @@ from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth.forms import UserCreationForm
 
+from django.conf import settings
+from django.http import JsonResponse
+from django.views.decorators.http import require_POST
+
+from .models import Design
+
+
 # Test our first view
 # from django.http import HttpResponse
 # def hello_world(request):
@@ -21,6 +28,12 @@ def home(request):
     #     return redirect('create_new')
 	# return render( request, 'mocked/test.html', {'designs': designs} )
 
+def design_list(request):
+    designs = Design.objects.all()
+    return render(request, 'mocked/design_list.html', {'designs': designs})
+    # if request.user.is_authenticated:
+    #     return redirect('create_new')
+	# return render( request, 'mocked/test.html', {'designs': designs} )
 
 def login_user(request):
     if request.method == 'POST':
@@ -51,74 +64,81 @@ def signup_user(request):
         form = UserCreationForm()
     return render(request, 'mocked/signup.html', {'form': form})
 
+# Image File Upload to Database
+@require_POST
+def file_upload(request):
+    save_path = os.path.join(settings.MEDIA_ROOT, 'uploads', request.FILES['file'])
+    path = default_storage.save(save_path, request.FILES['file'])
+    document = Document.objects.create(document=path, upload_by=request.user)
+    return JsonResponse({'document': document.id})
 
 # Test some data
 def test(request):
 	return render( request, 'mocked/test.html', {'designs': designs} )
 
-class Design:
-    def __init__(self,
-                 shirtStyle,
-                 shirtPosition,
-                 shirtColor,
-                 imgFile,
-                 artSize,
-                 artPosition,
-                 text,
-                 textFont,
-                 textSize,
-                 textPosition,
-                 title,
-                 user
-				 ):
-        self.shirtStyle = shirtStyle
-        self.shirtPosition = shirtPosition
-        self.shirtColor = shirtColor
-        self.imgFile = imgFile
-        self.artSize = artSize
-        self.artPosition = artPosition
-        self.text = text
-        self.textFont = textFont
-        self.textSize = textSize
-        self.textPosition = textPosition
-        self.title = title
-        self.user = user
-
-designs = [
-	Design('Mens Tee',
-		   'Front',
-		   'Black',
-		   'geo-flower.svg',
-		   153.859,
-		   [50, 54],
-		   '',
-		   '',
-		   0,
-		   [0, 0],
-		   'Geo Flower',
-		   'oxleberry' ),
-	Design('Mens Tee',
-		   'Front',
-		   'Black',
-		   'teo_pAll_2.png',
-		   217.844,
-		   [11, 20],
-		   '',
-		   '',
-		   0,
-		   [0, 0],
-		   'Teotihuacan',
-		   'De Young Museum' ),
-	Design('Mens Tee',
-		   'Front',
-		   'Black',
-		   'sugar-skull-white.svg',
-		   89.8438,
-		   [64, 140],
-		   '',
-		   '',
-		   0,
-		   [0, 0],
-		   'Sugar Skull',
-		   'oxleberry' ),
-]
+# class Design:
+#     def __init__(self,
+#                  shirtStyle,
+#                  shirtPlacement,
+#                  shirtColor,
+#                  imgFile,
+#                  artSize,
+#                  artPosition,
+#                  text,
+#                  textFont,
+#                  textSize,
+#                  textPosition,
+#                  title,
+#                  user
+# 				 ):
+#         self.shirtStyle = shirtStyle
+#         self.shirtPlacement = shirtPlacement
+#         self.shirtColor = shirtColor
+#         self.imgFile = imgFile
+#         self.artSize = artSize
+#         self.artPosition = artPosition
+#         self.text = text
+#         self.textFont = textFont
+#         self.textSize = textSize
+#         self.textPosition = textPosition
+#         self.title = title
+#         self.user = user
+#
+# designs = [
+# 	Design('Mens Tee',
+# 		   'Front',
+# 		   'Black',
+# 		   'geo-flower.svg',
+# 		   153.859,
+# 		   [50, 54],
+# 		   '',
+# 		   '',
+# 		   0,
+# 		   [0, 0],
+# 		   'Geo Flower',
+# 		   'oxleberry' ),
+# 	Design('Mens Tee',
+# 		   'Front',
+# 		   'Black',
+# 		   'teo_pAll_2.png',
+# 		   217.844,
+# 		   [11, 20],
+# 		   '',
+# 		   '',
+# 		   0,
+# 		   [0, 0],
+# 		   'Teotihuacan',
+# 		   'De Young Museum' ),
+# 	Design('Mens Tee',
+# 		   'Front',
+# 		   'Black',
+# 		   'sugar-skull-white.svg',
+# 		   89.8438,
+# 		   [64, 140],
+# 		   '',
+# 		   '',
+# 		   0,
+# 		   [0, 0],
+# 		   'Sugar Skull',
+# 		   'oxleberry' ),
+# ]

@@ -201,8 +201,10 @@ main {
 
 .print-area {
    /* border: 2px dotted #cccccc40; */
-   width: 47%;
-   height: 78%;
+   /* width: 47%;
+   height: 78%; */
+   width: 262px;
+   height: 480px;
    position: absolute;
    top: 5em;
    left: 9.4em;
@@ -246,7 +248,8 @@ input[type="file"] {
 }
 
 #design-display {
-   width: 58%;
+   /* width: 58%; */
+   width: 150px;
    left: 54px;
    top: 50px;
 }
@@ -260,6 +263,22 @@ input[type="file"] {
    font-size: 3em;
    margin: -24px 0;
    font-family: 'Lobster', sans-serif;
+}
+
+/* GALLERY CONTAINER ===================== */
+
+.gallery-title {
+   text-align: center;
+   font-size: 2.2em;
+   margin: 0;
+   text-transform: uppercase;
+}
+
+.gallery-display {
+   position: absolute;
+   width: 150px;
+   left: 54px;
+   top: 50px;
 }
 
 /* INFO CONTAINER ===================== */
