@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+	<!ENTITY ns_flows "http://ns.adobe.com/Flows/1.0/">
+	<!ENTITY ns_extend "http://ns.adobe.com/Extensibility/1.0/">
+	<!ENTITY ns_ai "http://ns.adobe.com/AdobeIllustrator/10.0/">
+	<!ENTITY ns_graphs "http://ns.adobe.com/Graphs/1.0/">
+	<!ENTITY ns_vars "http://ns.adobe.com/Variables/1.0/">
+	<!ENTITY ns_imrep "http://ns.adobe.com/ImageReplacement/1.0/">
+	<!ENTITY ns_sfw "http://ns.adobe.com/SaveForWeb/1.0/">
+	<!ENTITY ns_custom "http://ns.adobe.com/GenericCustomNamespace/1.0/">
+	<!ENTITY ns_adobe_xpath "http://ns.adobe.com/XPath/1.0/">
+]>
+<svg version="1.1"
+	 xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;" i:viewOrigin="307.5244 -82.7578" i:rulerOrigin="-307.5244 198.5332" i:pageBounds="307.5244 -82.7578 443.5439 -198.5332"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+	 x="0px" y="0px" width="136.02px" height="115.775px" viewBox="0 0 136.02 115.775" enable-background="new 0 0 136.02 115.775"
+	 xml:space="preserve">
+<metadata>
+	<variableSets  xmlns="&ns_vars;">
+		<variableSet  locked="none" varSetName="binding1">
+			<variables></variables>
+			<v:sampleDataSets  xmlns:v="&ns_vars;" xmlns="&ns_custom;"></v:sampleDataSets>
+		</variableSet>
+	</variableSets>
+</metadata>
+<g id="Layer_8" i:layer="yes" i:dimmedPercent="50" i:rgbTrio="#800080008000">
+	<g>
+
+			<polygon i:knockout="Off" fill="none" stroke="#FFF" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			68.023,57.888 101.639,114.726 34.672,114.726 		"/>
+
+			<line i:knockout="Off" fill="none" stroke="#FFF" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="68.003" y1="95.606" x2="68.003" y2="58.281"/>
+
+			<line i:knockout="Off" fill="none" stroke="#FFF" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="68.018" y1="95.625" x2="35.551" y2="114.199"/>
+
+			<line i:knockout="Off" fill="none" stroke="#FFF" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="68.027" y1="95.617" x2="100.475" y2="114.064"/>
+
+			<polygon i:knockout="Off" fill="none" stroke="#FFF" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			34.677,114.726 1.064,57.888 68.029,57.888 		"/>
+
+			<line i:knockout="Off" fill="none" stroke="#FFF" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="34.685" y1="77.011" x2="34.685" y2="114.334"/>
+
+			<line i:knockout="Off" fill="none" stroke="#FFF" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="34.684" y1="76.988" x2="67.137" y2="58.412"/>
+
+			<line i:knockout="Off" fill="none" stroke="#FFF" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="34.672" y1="76.998" x2="2.228" y2="58.547"/>
+
+			<polygon i:knockout="Off" fill="none" stroke="#FFF" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			101.616,114.726 68.003,57.888 134.97,57.888 		"/>
+
+			<line i:knockout="Off" fill="none" stroke="#FFF" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="101.623" y1="77.011" x2="101.623" y2="114.334"/>
+
+			<line i:knockout="Off" fill="none" stroke="#FFF" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="101.62" y1="76.988" x2="134.088" y2="58.412"/>
+
+			<line i:knockout="Off" fill="none" stroke="#FFF" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="101.609" y1="76.998" x2="69.165" y2="58.547"/>
+
+			<polygon i:knockout="Off" fill="none" stroke="#FFF" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			34.404,1.05 68.003,57.888 1.05,57.888 		"/>
+
+			<line i:knockout="Off" fill="none" stroke="#FFF" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="34.384" y1="38.767" x2="34.384" y2="1.443"/>
+
+			<line i:knockout="Off" fill="none" stroke="#FFF" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="34.384" y1="38.787" x2="1.932" y2="57.363"/>
+
+			<line i:knockout="Off" fill="none" stroke="#FFF" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="34.407" y1="38.779" x2="66.854" y2="57.23"/>
+
+			<polygon i:knockout="Off" fill="none" stroke="#FFF" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			101.34,1.05 134.954,57.888 67.987,57.888 		"/>
+
+			<line i:knockout="Off" fill="none" stroke="#FFF" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="101.333" y1="38.767" x2="101.333" y2="1.443"/>
+
+			<line i:knockout="Off" fill="none" stroke="#FFF" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="101.335" y1="38.787" x2="68.882" y2="57.363"/>
+
+			<line i:knockout="Off" fill="none" stroke="#FFF" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="101.348" y1="38.779" x2="133.79" y2="57.23"/>
+
+			<polygon i:knockout="Off" fill="none" stroke="#FFF" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			67.992,57.888 34.382,1.05 101.348,1.05 		"/>
+
+			<line i:knockout="Off" fill="none" stroke="#FFF" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="68.002" y1="20.171" x2="68.002" y2="57.494"/>
+
+			<line i:knockout="Off" fill="none" stroke="#FFF" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="67.999" y1="20.15" x2="100.465" y2="1.574"/>
+
+			<line i:knockout="Off" fill="none" stroke="#FFF" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="67.989" y1="20.158" x2="35.545" y2="1.709"/>
+	</g>
+</g>
+</svg>

@@ -24,16 +24,17 @@ from .models import Design
 
 def home(request):
     return render(request, 'mocked/home.html')
-    # if request.user.is_authenticated:
-    #     return redirect('create_new')
-	# return render( request, 'mocked/test.html', {'designs': designs} )
 
 def design_list(request):
     designs = Design.objects.all()
     return render(request, 'mocked/design_list.html', {'designs': designs})
-    # if request.user.is_authenticated:
-    #     return redirect('create_new')
-	# return render( request, 'mocked/test.html', {'designs': designs} )
+
+def design(request):
+    designs = Design.objects.all()
+    return render(request, 'mocked/design.html', {'designs': designs})
+
+def create(request):
+    return render(request, 'mocked/create.html')    
 
 def login_user(request):
     if request.method == 'POST':
@@ -73,8 +74,8 @@ def file_upload(request):
     return JsonResponse({'document': document.id})
 
 # Test some data
-def test(request):
-	return render( request, 'mocked/test.html', {'designs': designs} )
+# def test(request):
+# 	return render( request, 'mocked/test.html', {'designs': designs} )
 
 # class Design:
 #     def __init__(self,

@@ -1,28 +1,67 @@
 
 {% load staticfiles %}
 
-<html>
-    <head>
-        <title>Mocked</title>
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    </head>
-    <body>
-        <h1>Home</h1>
-        <h2>A t-shirt mockup app</h2>
-        <nav>
-          <a href="{% url 'home' %}">Mocked</a> |
-             {% if user.is_authenticated %}
-                <a href="#">Hello, {{ user.username }}!</a> |
-                <a href="{% url 'logout_user' %}">Logout</a>
-             {% else %}
-          <a href="{% url 'signup_user' %}">Sign Up</a> |
-          <a href="{% url 'login_user' %}">Log In</a>
-             {% endif %}
-       </nav>
-        <hr />
-        {% block content %}
-        {% endblock %}
-    </body>
-    <hr />
-    <footer>Mocked 2018, all rights reserved</footer>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Mocked</title>
+
+   <!-- Logo Favicon -->
+   <link rel="icon" type="image/png" href={% static "images/geo-flower.png" %}>
+   <!-- Google Fonts -->
+   <link href="https://fonts.googleapis.com/css?family=Lato|Raleway|Quicksand:400,700|Barlow" rel="stylesheet">
+   <!-- Google TEE Fonts  -->
+   <link href="https://fonts.googleapis.com/css?family=Anton|Bungee+Inline|Cabin+Sketch|Julius+Sans+One|Lobster|Monoton" rel="stylesheet">
+   <!-- Font Awesome CDN -->
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+   <!-- jQuery files -->
+   <script src="https://code.jquery.com/jquery-3.3.1.min.js" defer></script>
+   <!-- jQueryUI -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" defer></script>
+   <!-- My CSS styles -->
+   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+   <!-- My JS files -->
+   <!-- <script src="js/app.js" defer></script> -->
+   <script src="{% static 'js/app.js' %}" defer></script>
+   <script src="{% static 'js/gallery.js' %}" defer></script>
+</head>
+
+<body>
+   <header>
+      <nav class="flex-nav">
+         <a href="#"<h1 class="nav-logo toggle-nav">Mocked</h1><i class="fa fa-bars"></i></a>
+         <ul>
+            <li><a href="{% url 'home' %}" class="nav-logo nav-logo-hidden">Mocked</a></li>
+
+            {% if user.is_authenticated %}
+            <li><a href="#">{{ user.username }}</a></li>
+            {% else %}
+            <li><a href="#" class="nav-hidden">.</a></li>
+            {% endif %}
+
+            <li><a href="#" class="nav-active">New Design</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#" class="nav-hidden">.</a></li>
+            <li><a href="#" class="nav-hidden">.</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="#" class="nav-hidden">.</a></li>
+            <li><a href="{% url 'logout_user' %}">Logout</a></li>
+            {% else %}
+            <li><a href="{% url 'signup_user' %}">Sign Up</a></li>
+            <li><a href="{% url 'login_user' %}">Log In</a></li>
+            {% endif %}
+         </ul>
+      </nav>
+   </header>
+
+      {% block content %}
+
+      {% endblock %}
+
+   <footer>
+      <p> &copy; 2018 Sharon Paz</p>
+   </footer>
+</body>
 </html>

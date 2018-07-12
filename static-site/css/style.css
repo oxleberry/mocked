@@ -8,7 +8,7 @@
 body {
    margin: 0;
    padding: 0;
-   font-family: 'Quicksand', sans-serif;
+   font-family: 'Barlow', sans-serif;
 }
 
 .flex-row {
@@ -59,6 +59,11 @@ header a:hover, header a:focus {
    font-size: 1.4em;
    padding: .6em 0;
    font-weight: 800;
+}
+
+.nav-icon {
+   padding: .2em;
+   height: 40px;
 }
 
 .flex-nav, footer {
@@ -528,7 +533,6 @@ footer p {
    }
 
    .shirt-container, .info-container {
-      width: 100%;
-
+      width: 47%;
    }
 }

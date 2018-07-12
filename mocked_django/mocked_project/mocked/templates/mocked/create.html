@@ -1,0 +1,179 @@
+
+{% extends 'mocked/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<main class="flex-row stacked">
+   <!-- SHIRT CONTAINER -->
+   <section class="shirt-container">
+      <div class="current-tee">
+         <img class="tee" src={% static "images/mens-tee-front-black.png" %} />
+      </div>
+      <div class="current-design">
+         <div id="design-target" class="print-area">
+            <!-- <div class="image-resize-container"> -->
+               <!-- <img id="design-display" class="upload-art" src="" /> -->
+               <img id="design-display" src={% static "images/geo-flower.png" %} />
+               <p id="text-display"></p>
+            <!-- </div> -->
+         </div>
+      </div>
+
+
+   </section>
+   <!-- INFO CONTAINER -->
+   <section class="info-container">
+
+   <!-- GARMENT STYLE -->
+      <section class="garment">
+         <h3>Garment Options</h3>
+         <div class="flex-row">
+            <div class="flex-row">
+               <div class="dropdown-container">
+                  <div class="dropdown">
+                     <button class="dropdown-button">
+                        <span class="button-label">Style</span>
+                        <i class="fa fa-angle-down"></i>
+                     </button>
+                     <ul class="dropdown-options">
+                        <li class="dropdown-option is-selected" id="Mens-tee">Mens Tee</li>
+                        <li class="dropdown-option" id="Womens-tee">Womens Tee</li>
+                        <li class="dropdown-option" id="Youth-tee">Youth Tee</li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="value-container">
+                  <span id="style-value" class="current-value">
+                     Mens Tee
+                  </span>
+               </div>
+            </div>
+
+            <!-- GARMENT POSITION -->
+            <div class="flex-row">
+               <div class="dropdown-container">
+                  <div class="dropdown">
+                     <button class="dropdown-button">
+                        <span class="button-label">Placement</span>
+                        <i class="fa fa-angle-down"></i>
+                     </button>
+                     <ul class="dropdown-options">
+                        <li class="dropdown-option is-selected" id="Front">Front</li>
+                        <li class="dropdown-option" id="Back">Back</li>
+                        <li class="dropdown-option" id="Sleeve">Sleeve</li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="value-container">
+                  <span id="placement-value" class="current-value">
+                     Front
+                  </span>
+               </div>
+            </div>
+         </div>
+         <hr />
+
+         <!-- GARMENT COLOR -->
+         <div class="flex-row">
+            <div class="flex-row">
+               <span>Color:</span>
+               <span class="current-value">Black</span>
+            </div>
+            <div class="flex-row">
+               <div class="garment-swatch black is-selected"></div>
+               <div class="garment-swatch silver"></div>
+               <div class="garment-swatch navy"></div>
+               <div class="garment-swatch red"></div>
+               <div class="garment-swatch white"></div>
+               <div class="garment-swatch charcoal"></div>
+            </div>
+         </div>
+      </section>
+      <!-- end of garment section  -->
+
+      <!-- IMAGE SECTION -->
+      <section class="image-design">
+         <h3>Image Options</h3>
+         <div class="flex-row">
+
+         <!-- upload file button, masked with a styled button -->
+         <input id="image-input" type="file" />
+         <button type="button" id="upload-button" class="image-upload">Upload Image</button>
+         <button id="width-plus" class="size-control">+</button>
+         <button id="width-minus" class="size-control">-</button>
+            <span>Width:</span>
+            <span class="current-value current-width"></span>
+            <span>Height:</span>
+            <span class="current-value current-height"></span>
+         </div>
+      </section>
+
+      <!-- TEXT SECTION -->
+      <section class="text-design">
+         <!-- TEXT FONT SECTION -->
+         <h3>Text Options</h3>
+         <input id="custom-text" class="custom-text" type="text" placeholder="Add Your Text Here" />
+
+         <button id="text-plus" class="size-control">+</button>
+         <button id="text-minus" class="size-control">-</button>
+
+         <div class="flex-row">
+            <div class="flex-row">
+               <div class="dropdown-container">
+                  <div class="dropdown">
+                     <button class="dropdown-button">
+                        <span class="button-label">Font</span>
+                        <i class="fa fa-angle-down"></i>
+                     </button>
+                     <ul class="dropdown-options">
+                        <li class="dropdown-option" id="Anton">Anton</li>
+                        <li class="dropdown-option is-selected" id="Lobster">Lobster</li>
+                        <li class="dropdown-option" id="Monoton">Monoton</li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="value-container">
+                  <span id="placement-value" class="current-value">
+                     Lobster
+                  </span>
+               </div>
+            </div>
+
+               <!-- TEXT COLOR SECTION -->
+
+            <div class="flex-row">
+               <div class="dropdown-container">
+                  <div class="dropdown">
+                     <button class="dropdown-button">
+                        <span class="button-label">Text Color</span>
+                        <i class="fa fa-angle-down"></i>
+                     </button>
+                     <ul class="dropdown-options">
+                        <li class="dropdown-option" id="Red">Red</li>
+                        <li class="dropdown-option" id="Black">Black</li>
+                        <li class="dropdown-option is-selected" id="White">White</li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="value-container">
+                  <span id="placement-value" class="current-value">
+                     White
+                  </span>
+               </div>
+            </div>
+         </div>
+
+      </section>
+      <!-- end of text Section  -->
+      <div class="flex-column save-container">
+         <input class="design-title" type="text" placeholder="Add Design Name" />
+         <button type="button" class="btn btn-secondary btn-lg save">SAVE</button>
+      </div>
+   </section>
+   <!-- end of info Container  -->
+</main>
+
+
+
+{% endblock %}

@@ -8,12 +8,13 @@
 body {
    margin: 0;
    padding: 0;
-   font-family: 'Quicksand', sans-serif;
+   font-family: 'Barlow', sans-serif;
 }
 
 .flex-row {
    display: flex;
    /* flex-direction: row; */
+   justify-content: space-around;   
    flex-wrap: wrap;
 }
 
@@ -32,10 +33,6 @@ a {
    /* color: white; */
 }
 
-h1 {
-   color: tomato;
-}
-
 /* NAV ========================= */
 
 header a {
@@ -44,7 +41,7 @@ header a {
    letter-spacing: 1px;
    text-decoration: none;
    text-transform: uppercase;
-   padding: 1em .5em;
+   padding: 1.2em .5em .8em;
    display: inline-block;
    width: 100%;
    text-align: center;
@@ -63,6 +60,11 @@ header a:hover, header a:focus {
    font-size: 1.4em;
    padding: .6em 0;
    font-weight: 800;
+}
+
+.nav-icon {
+   padding: .2em;
+   height: 40px;
 }
 
 .flex-nav, footer {
@@ -159,12 +161,13 @@ main {
 }
 
 .shirt-container {
-   width: 47%;
+   width: 470px;
+   /* width: 48%; */
    position: relative;
 }
 
 .info-container {
-   width: 50%;
+   /* width: 50%; */
    border: 8px solid #34485f;
 }
 
@@ -175,7 +178,7 @@ main {
    max-height: 100%;
    width: auto;
    height: auto;
-   padding: 5% 9%;
+   padding: 9% 5%;
 }
 
 .resize-test {
@@ -205,18 +208,20 @@ main {
 
 .print-area {
    /* border: 2px dotted #cccccc40; */
-   width: 47%;
-   height: 78%;
+   /* width: 47%;
+   height: 78%; */
+   width: 246px;
+   height: 435px;
    position: absolute;
-   top: 5em;
-   left: 9.4em;
+   top: 6em;
+   left: 7em;
 }
 
 /* IMAGE UPLOAD ========================= */
 
 .image-upload {
    width: 140px;
-   height: 40px;
+   height: 52px;
    background: none;
    /* border: none; */
    border: 2px dashed #42586f;
@@ -225,7 +230,7 @@ main {
    color: #42586f
    border-radius: 3px;
    font-size: 14px;
-   margin-right: 1.5em;
+   margin-right: 1em;
    transition: all 50ms linear;
    cursor: pointer;
 }
@@ -243,15 +248,62 @@ main {
 }
 
 input[type="file"] {
-   font-size: 3em;
+   font-size: 1em;
    position: absolute;
    opacity: 0;
+   padding-bottom: 2em;
 }
 
 #design-display {
+   /* width: 58%; */
+   width: 128px;
+   left: 59px;
+   top: 50px;
+}
+
+#text-display {
+   font-size: 3em;
+   color: white;
+   left: 66.6875px;
    width: 58%;
+   position: inherit;
+   font-size: 3em;
+   margin: -24px 0;
+   font-family: 'Lobster', sans-serif;
+}
+
+/* GALLERY CONTAINER ===================== */
+
+.gallery-title {
+   text-align: center;
+   font-size: 2.2em;
+   margin: 0;
+   padding-top: 1em;
+   text-transform: uppercase;
+}
+
+.gallery-display {
+   position: absolute;
+   width: 150px;
    left: 54px;
    top: 50px;
+}
+
+.gallery-info-container {
+   display: none;
+   /* opacity: 0; */
+   width: 45%;
+   background-color: white;
+   /* border-radius: 2em; */
+   margin: 0 auto;
+   margin-top: 1em;
+   /* border: solid 4px #aaa; */
+   justify-content: space-between;
+   box-shadow: 11px 12px 17px 0px rgba(0, 0, 0, 0.3);
+}
+
+gallery-shirt-container {
+   margin-bottom: 1em;
 }
 
 /* INFO CONTAINER ===================== */
@@ -275,41 +327,96 @@ main h3 {
 }
 
 .garment-swatch {
-   width: 1em;
-   height: 1em;
+   width: 1.5em;
+   height: 1.5em;
+   border-radius: 50%;
    background-color: grey;
-   border: 2px solid black;
-   margin-right: 6px;
+   /* border: 2px solid black; */
+   margin-right: 8px;
+   margin-top: 2px;
 }
 
 .black {
    background-color: black;
 }
 
+.silver {
+   background-color: #bbbaba;
+}
+
 .red {
-   background-color: red;
+   background-color: #bf390f;
+}
+
+.navy {
+   background-color: #2d5471;
+}
+
+.white {
+   background-color: #fff;
+   border: 2px solid black;
+}
+
+.charcoal {
+   background-color: #5f5e5e;
 }
 
 .size-control {
    z-index: 20;
+   font-size: 1em;
+   margin-right: 0.4em;
+   width: 36px;
 }
 
 .size-control:nth-last-child(2n+ 1) {
-   margin-right: 2em;
+   margin-right: .8em;
 }
 
 .custom-text {
-   height: 40px;
-   width: 100%;
+   height: 54px;
+   width: 71%;
    border: 2px solid #a8b6c5;
    margin-bottom: 1em;
    border-radius: 3px;
    text-indent: 18px;
+   font-size: .8em;
+}
+
+#text-plus {
+   height: 53px;
+   width: 41px;
+   margin-left: 8px;
+   margin-right: 2px;
+   font-size: 1em;
+}
+
+#text-minus {
+   height: 53px;
+   width: 41px;
+   margin-right: 0;
+   font-size: 1em;
+}
+
+.save-container {
+   margin: 1.5em;
+}
+
+.design-title {
+   height: 54px;
+    width: 40%;
+   border: 2px solid #a8b6c5;
+   /* margin-bottom: 1em; */
+   margin: 0 auto;
+   border-radius: 3px;
+   /* text-indent: 18px; */
+   font-size: .8em;
+   text-align: center;
 }
 
 .save {
    margin: 0 auto;
-   margin-top: 1.8em;
+    margin-top: 0.6em;
+   width: 40%;
    font-size: 1em;
    color: #34475f;
    background-color: #fff;
@@ -327,13 +434,13 @@ main h3 {
 
 .dropdown-container {
    height: 40px;
-   width: 140px;
+   width: 138px;
    position: relative;
 }
 
 .dropdown {
    position: absolute;
-   width: 130px;
+   width: 126px;
    height: 40px;
    overflow: hidden;
    display: inline-block;
@@ -346,7 +453,7 @@ main h3 {
 }
 
 .dropdown-button {
-   width: 130px;
+   width: 126px;
    height: 40px;
    background: none;
    border: none;
@@ -424,7 +531,7 @@ main h3 {
    width: 88px;
    border-bottom: 2px solid #346394;
    text-align: center;
-   padding: 0 1em .2em .4em;
+   padding: 0 1em 0.2em 0.4em;
    margin: 0 1em 0 0;
 }
 
@@ -464,8 +571,12 @@ footer p {
       height: auto;
    }
 
-   .shirt-container, .info-container {
-      width: 98%;
-
+   .shirt-container {
+      width: 525px;
    }
+
+   /* .info-container {
+      width: 100%;
+   } */
+
 }
