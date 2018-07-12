@@ -131,6 +131,9 @@ $(function(){
    // RESIZE IMAGE BUTTON CONTROLS =====================
    const changeSize = 12;
    const changePosition = 6;
+   let layoutWidth;
+   let layoutArtPosTop;
+   let layoutArtPosLeft;
 
    console.log('Postion TOP: ' + $('#design-display').position().top);
    console.log('Postion LEFT: ' + $('#design-display').position().left);
@@ -185,6 +188,12 @@ $(function(){
       $('.current-width').text(`${widthInInches}"`);
       heightInInches = heightInInches.toFixed(2);
       $('.current-height').text(`${heightInInches}"`);
+      console.log('NEW');
+      console.log('ART FILE: ' + currentArtFileName);
+      console.log('WIDTH: ' + widthInInches);
+      console.log('ART POS TOP: ' + $('#design-display').position().top);
+      console.log('ART POS LEFT: ' + $('#design-display').position().left);
+
    }
 
    // adding custom text

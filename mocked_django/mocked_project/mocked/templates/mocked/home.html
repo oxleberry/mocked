@@ -1,10 +1,62 @@
 
 {% extends 'mocked/base.html' %}
+{% load staticfiles %}
 
 {% block content %}
 
-<h1> Home Page </h1>
+<main class="flex-row stacked">
+   <!-- SHIRT CONTAINER -->
+   <section class="shirt-container welcome-tee-margin">
+      <div class="current-tee">
+         <img class="tee" src={% static "images/mens-tee-front-black.png" %} />
+      </div>
+      <div class="current-design">
+         <div id="design-target" class="print-area">
+            <!-- <div class="image-resize-container"> -->
+               <!-- <img id="design-display" class="upload-art" src="" /> -->
+               <img id="design-display" src={% static "images/geo-flower.png" %} />
+               <p id="text-display"></p>
+            <!-- </div> -->
+         </div>
+      </div>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+   </section>
+   <!-- INFO CONTAINER -->
+   <section class="welcome-info-container">
+
+   <!-- GARMENT STYLE -->
+      <section class="welcome">
+         <h2>WELCOME TO MOCKED</h2>
+
+         <p>Have an idea for a T-Shirt design?</p>
+         <p>This is an app to test out those ideas and layout your design on a tee.</p>
+
+         <hr />
+
+
+      <!-- IMAGE SECTION -->
+      <div class="image-design try">
+         <h3>Try it out with out Mocked Logo</h3>
+         <p>Change the placement of the image by dragging it around. Use the controls below to adjust the size.</p>
+         <p>Make it a pocket print.</p>
+         <div class="flex-row">
+
+         <!-- upload file button, masked with a styled button -->
+         <p id="image-input" class="welcome-buffer"></p>
+         <button id="width-plus" class="welcome-control">+</button>
+         <button id="width-minus" class="welcome-control">-</button>
+         <p id="upload-button" class="welcome-buffer"></p>
+
+         </div>
+      </div>
+
+
+
+   </section>
+   <!-- end of info Container  -->
+</main>
+
+
 
 {% endblock %}

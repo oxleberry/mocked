@@ -33,24 +33,18 @@
       <nav class="flex-nav">
          <a href="#"<h1 class="nav-logo toggle-nav">Mocked</h1><i class="fa fa-bars"></i></a>
          <ul>
-            <li><a href="{% url 'home' %}" class="nav-logo nav-logo-hidden">Mocked</a></li>
-
-            {% if user.is_authenticated %}
-            <li><a href="#">{{ user.username }}</a></li>
-            {% else %}
+            <li><a href="{% url 'home' %}" class="nav-logo nav-logo-hidden nav-active">Mocked</a></li>
+            <li><a href="{% url 'create' %}">New Design</a></li>
+            <li><a href="{% url 'design' %}">Gallery</a></li>
             <li><a href="#" class="nav-hidden">.</a></li>
-            {% endif %}
-
-            <li><a href="#" class="nav-active">New Design</a></li>
-            <li><a href="#">Gallery</a></li>
             <li><a href="#" class="nav-hidden">.</a></li>
             <li><a href="#" class="nav-hidden">.</a></li>
             {% if user.is_authenticated %}
-            <li><a href="#" class="nav-hidden">.</a></li>
-            <li><a href="{% url 'logout_user' %}">Logout</a></li>
+               <li><a href="#">{{ user.username }}</a></li>
+               <li><a href="{% url 'logout_user' %}">Logout</a></li>
             {% else %}
-            <li><a href="{% url 'signup_user' %}">Sign Up</a></li>
-            <li><a href="{% url 'login_user' %}">Log In</a></li>
+               <li><a href="{% url 'signup_user' %}">Sign Up</a></li>
+               <li><a href="{% url 'login_user' %}">Log In</a></li>
             {% endif %}
          </ul>
       </nav>

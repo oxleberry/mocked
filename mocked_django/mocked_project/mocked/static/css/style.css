@@ -14,13 +14,17 @@ body {
 .flex-row {
    display: flex;
    /* flex-direction: row; */
-   justify-content: space-around;   
+   justify-content: space-around;
    flex-wrap: wrap;
 }
 
 .flex-column {
    display: flex;
    flex-direction: column;
+}
+
+.hide {
+   display: none;
 }
 
 li {
@@ -141,6 +145,43 @@ before an elements starts shrink or wrap */
 
 }
 
+/* WELCOME ========================= */
+
+.welcome-tee-container {
+   margin-top: 0;
+   width: 470px;
+   /* width: 48%; */
+   position: relative;
+}
+
+.welcome {
+   padding: 3em 4em;
+   text-align: center;
+}
+
+.welcome-info-container {
+   max-width: 50%;
+   border: 8px solid #34485f;
+   background-color: white;
+}
+
+.welcome-buffer {
+   width: 27%;
+}
+
+.welcome-control {
+   background-image: linear-gradient(#fff, #ebf0f5);
+   height: 53px;
+   width: 41px;
+   border-radius: 3px;
+   border: 1px solid #a8b6c5;
+   font-size: 1em;
+}
+
+.try {
+   text-align: center;
+   margin-top: 3em;
+}
 
 /* MAIN ========================= */
 
@@ -150,7 +191,9 @@ main {
    /* margin: 0.8em 0 0 0; */
 }
 
-.shirt-container, .info-container {
+.shirt-container,
+.info-container,
+.welcome-info-container {
    background-color: white;
    /* border-radius: 2em; */
    margin: 0 auto;
@@ -171,7 +214,7 @@ main {
    border: 8px solid #34485f;
 }
 
-/* Tee CONTAINER ===================== */
+/* TEE CONTAINER ===================== */
 
 .tee {
    max-width: 100%;
@@ -219,6 +262,11 @@ main {
 
 /* IMAGE UPLOAD ========================= */
 
+.image-container {
+   border-bottom: 4px solid #34485f;
+   padding: 1em;
+}
+
 .image-upload {
    width: 140px;
    height: 52px;
@@ -243,14 +291,21 @@ main {
    margin-top: 1em;
 }
 
+.image-design {
+   /* border-bottom: 4px solid #34485f;
+   padding: .8em; */
+   position: relative;
+}
+
 .image-design .current-value {
-   margin: 1em 1em 0 0;
+   /* margin: 1em 1em 0 0; */
 }
 
 input[type="file"] {
    font-size: 1em;
    position: absolute;
    opacity: 0;
+   left: 0;
    padding-bottom: 2em;
 }
 
@@ -278,7 +333,7 @@ input[type="file"] {
    text-align: center;
    font-size: 2.2em;
    margin: 0;
-   padding-top: 1em;
+   /* padding-top: 1em; */
    text-transform: uppercase;
 }
 
@@ -294,17 +349,16 @@ input[type="file"] {
    /* opacity: 0; */
    width: 45%;
    background-color: white;
-   /* border-radius: 2em; */
    margin: 0 auto;
    margin-top: 1em;
-   /* border: solid 4px #aaa; */
    justify-content: space-between;
    box-shadow: 11px 12px 17px 0px rgba(0, 0, 0, 0.3);
 }
 
-gallery-shirt-container {
+.gallery-shirt-container {
    margin-bottom: 1em;
 }
+
 
 /* INFO CONTAINER ===================== */
 
@@ -316,7 +370,7 @@ main h3 {
 }
 
 .garment,
-.image-design,
+.image-container,
 .text-design {
    border-bottom: 4px solid #34485f;
    padding: .8em;
@@ -366,6 +420,9 @@ main h3 {
    font-size: 1em;
    margin-right: 0.4em;
    width: 36px;
+   border-radius: 3px;
+   border: 1px solid #a8b6c5;
+   background-image: linear-gradient(#fff, #ebf0f5);
 }
 
 .size-control:nth-last-child(2n+ 1) {
@@ -415,11 +472,11 @@ main h3 {
 
 .save {
    margin: 0 auto;
-    margin-top: 0.6em;
+   margin-top: 0.6em;
    width: 40%;
    font-size: 1em;
    color: #34475f;
-   background-color: #fff;
+   /* background-image: linear-gradient(#fff, #ebf0f5); */
    padding: .8em 4em;
    border: 3px solid #42576f;
    border-radius: 3px;
@@ -528,7 +585,7 @@ main h3 {
    /* VALUE SECTION ========== */
 
 .current-value {
-   width: 88px;
+   width: 80px;
    border-bottom: 2px solid #346394;
    text-align: center;
    padding: 0 1em 0.2em 0.4em;
@@ -571,9 +628,9 @@ footer p {
       height: auto;
    }
 
-   .shirt-container {
+   /* .shirt-container {
       width: 525px;
-   }
+   } */
 
    /* .info-container {
       width: 100%;
