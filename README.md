@@ -12,12 +12,12 @@ MOCKED is an app for users to layout their design ideas onto t-shirt templates b
 </ul>
 
 
+## CODE SNIPPET
+Image uploading to the front end by drag and drop/ or file upload capabilities
+![Mocked Wireframes](mocked_django/mocked_project/mocked/static/wireframes/image_handling_clean.png)
+
 ## Wireframes
-![Mocked Wireframes](mocked_django/mocked_project/mocked/static/wireframes/wireframes.jpg)
+![Mocked Wireframes](mocked_django/mocked_project/mocked/static/wireframes/wireframe.jpg)
 
 ## ERD
 ![Mocked Wireframes](mocked_django/mocked_project/mocked/static/wireframes/erd.jpg)
-
-## CODE SNIPPET
-Image uploading to the front end by drag and drop/ or file upload capabilities
-![Mocked Wireframes](mocked_django/mocked_project/mocked/static/wireframes/image_handling.png)
