@@ -43,10 +43,10 @@ $(function(){
          // traverse the DOM from
          // dropdownOption (LI) to current value (SPAN)
          let valTarget = el.parentNode
-         .parentNode
-         .parentNode
-         .nextElementSibling
-         .firstElementChild;
+                           .parentNode
+                           .parentNode
+                           .nextElementSibling
+                           .firstElementChild;
          // in the field next to the dropdown bar,
          // swaps old text content for new text content
          // from selected dropdown value
@@ -94,12 +94,10 @@ $(function(){
    document.getElementById('image-input').addEventListener('change', function(e){
       imageHandling(e);
    }, false);
-
    // uses drag and drop to upload image
    document.body.addEventListener('drop', function(e){
       imageHandling(e);
    }, false);
-
    function imageHandling(e) {
       file = e.target.files[0];
       if(!file.type.match('image.*')) {
@@ -109,13 +107,9 @@ $(function(){
       reader = new FileReader();
       reader.addEventListener('load', (function(imgFile) {
          return function(e) {
-            // uploads as an allover background print
-            // document.body.style.backgroundImage = "url('" + e.target.result + "')";
             // uploads images in target area
             designDisplayEl.setAttribute('src', e.target.result);
-            console.log(file);
             console.log(file.name);
-            console.log(file.size);
             currentArtFileName = file.name
          };
       })(file), false);
@@ -164,6 +158,7 @@ $(function(){
    });
    // end of resizeable buttons controls for images
 
+
    // IMAGE WIDTH AND HEIGHT CALCULATOR
    // Pertinent info on design data
    console.log('NEW');
@@ -188,11 +183,11 @@ $(function(){
       $('.current-width').text(`${widthInInches}"`);
       heightInInches = heightInInches.toFixed(2);
       $('.current-height').text(`${heightInInches}"`);
-      console.log('NEW');
-      console.log('ART FILE: ' + currentArtFileName);
-      console.log('WIDTH: ' + widthInInches);
-      console.log('ART POS TOP: ' + $('#design-display').position().top);
-      console.log('ART POS LEFT: ' + $('#design-display').position().left);
+      // console.log('NEW');
+      // console.log('ART FILE: ' + currentArtFileName);
+      // console.log('WIDTH: ' + widthInInches);
+      // console.log('ART POS TOP: ' + $('#design-display').position().top);
+      // console.log('ART POS LEFT: ' + $('#design-display').position().left);
 
    }
 

@@ -28,31 +28,28 @@
    <!-- GARMENT STYLE -->
       <section class="welcome">
          <h2>WELCOME TO MOCKED</h2>
-
          <p>Have an idea for a T-Shirt design?</p>
          <p>This is an app to test out those ideas and layout your design on a tee.</p>
-
          <hr />
 
+         <div class="image-design try">
+            <h3>Try it out with out Mocked Logo</h3>
+            <p>Change the placement of the image by dragging it around. Use the controls below to adjust the size.</p>
+            <p>Make it a pocket print.</p>
+            <div class="flex-row">
 
-      <!-- IMAGE SECTION -->
-      <div class="image-design try">
-         <h3>Try it out with out Mocked Logo</h3>
-         <p>Change the placement of the image by dragging it around. Use the controls below to adjust the size.</p>
-         <p>Make it a pocket print.</p>
-         <div class="flex-row">
-
-         <!-- upload file button, masked with a styled button -->
-         <p id="image-input" class="welcome-buffer"></p>
-         <button id="width-plus" class="welcome-control">+</button>
-         <button id="width-minus" class="welcome-control">-</button>
-         <p id="upload-button" class="welcome-buffer"></p>
-
+            <!-- upload file button, masked with a styled button -->
+            <p id="image-input" class="welcome-buffer"></p>
+            <button id="width-plus" class="welcome-control">+</button>
+            <button id="width-minus" class="welcome-control">-</button>
+            <p id="upload-button" class="welcome-buffer"></p>
+            </div>
          </div>
-      </div>
-
-
-
+         <hr />
+         <a href="{% url 'create' %}">
+            <button type="button" class="started-button">START YOUR LAYOUT</button>
+         </a>
+      </section>
    </section>
    <!-- end of info Container  -->
 </main>

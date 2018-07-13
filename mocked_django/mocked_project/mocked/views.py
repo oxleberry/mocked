@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
 
 from django.contrib.auth.models import User
-from .forms import LoginForm
+from .forms import LoginForm, DesignForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 
@@ -34,7 +34,27 @@ def design(request):
     return render(request, 'mocked/design.html', {'designs': designs})
 
 def create(request):
-    return render(request, 'mocked/create.html')    
+    return render(request, 'mocked/create.html')
+
+
+# Design SHOW
+def created_design(request, pk):
+    design = Design.objects.get(id=pk)
+    return render(request, 'mocked/created_design.html', {'design': design})
+
+# Design CREATE
+def design_create(request):
+    designs = Design.objects.all()
+    if request.method == 'POST':
+        form = DesignForm(request.POST)
+        if form.is_valid():
+            design = form.save()
+            return render(request, 'mocked/design_list.html', {'designs': designs})
+    else:
+        form = DesignForm()
+    return render(request, 'mocked/design_form.html', {'form': form})
+
+
 
 def login_user(request):
     if request.method == 'POST':

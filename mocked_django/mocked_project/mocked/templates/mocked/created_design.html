@@ -6,16 +6,17 @@
 
 {% block content %}
 <main class="flex-row stacked">
-   {% for design in designs %}
    <div>
       <section class="flex-column">
          <h4 class="gallery-title">{{ design.title }}</h4>
-      <section class="shirt-container gallery-space">
+      <section class="shirt-container">
          <div class="current-tee">
             <img class="tee" src={% static "images/mens-tee-front-black.png" %} />
          </div>
          <div class="current-design">
             <div class="print-area design-target">
+                  <!-- <img class="gallery-display" src={% static "images/geo-flower.svg" %} /> -->
+                  <!-- <img class="gallery-display" src="http://localhost:8000/media/uploads/teo_pAll_2.png" /> -->
                   <img class="gallery-display" src="http://localhost:8000/media/{{ design.document }}" />
             </div>
          </div>
@@ -41,7 +42,6 @@
       <h4 class="gallery-title gallery-art-pos-left">{{ design.artPosLeft }}</h4>
       <h4 class="gallery-title">{{ design.text }}</h4>
    </section>
-      {% endfor %}
 </main>
 
 {% endblock %}
