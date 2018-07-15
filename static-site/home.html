@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Mocked</title>
+
+   <!-- Logo Favicon -->
+   <link rel="icon" type="image/png" href="images/geo-flower.png">
+   <!-- Google Fonts -->
+   <link href="https://fonts.googleapis.com/css?family=Lato|Raleway|Quicksand:400,700|Barlow" rel="stylesheet">
+   <!-- Google TEE Fonts  -->
+   <link href="https://fonts.googleapis.com/css?family=Anton|Bungee+Inline|Cabin+Sketch|Julius+Sans+One|Lobster|Monoton" rel="stylesheet">
+   <!-- Font Awesome CDN -->
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+   <!-- jQuery files -->
+   <script src="https://code.jquery.com/jquery-3.3.1.min.js" defer></script>
+   <!-- jQueryUI -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" defer></script>
+   <!-- My CSS styles -->
+   <link rel="stylesheet" href="css/style.css">
+   <!-- My JS files -->
+   <script src="js/app.js" defer></script>
+
+</head>
+<body>
+
+
+   <header>
+      <nav class="flex-nav">
+         <a href="home.html"<h1 class="nav-logo toggle-nav">Mocked</h1><i class="fa fa-bars"></i></a>
+         <!-- <a href="#"><img class="nav-icon toggle-nav" src="images/geo-flower-white.svg"></a> -->
+         <ul>
+            <li><a href="home.html" class="nav-logo nav-logo-hidden nav-active">Mocked</a></li>
+            <!-- <li><img src="images/geo-flower-white.svg" class="nav-icon"></li> -->
+            <li><a href="create.html">New Design</a></li>
+            <!-- <li><a href="gallery.html">Gallery</a></li> -->
+            <li><a href="#" class="nav-hidden">.</a></li>
+            <li><a href="#" class="nav-hidden">.</a></li>
+            <!-- <li><a href="#">Log In/Out</a></li> -->
+         </ul>
+      </nav>
+   </header>
+
+   <main class="flex-row stacked">
+      <!-- SHIRT CONTAINER -->
+      <section class="shirt-container welcome-tee-margin">
+         <div class="current-tee">
+            <img class="tee" src="images/mens-tee-front-black.png" />
+         </div>
+         <div class="current-design">
+            <div id="design-target" class="print-area">
+               <img id="design-display" src="images/geo-flower.svg" />
+               <p id="text-display"></p>
+            </div>
+         </div>
+      </section>
+
+      <!-- WELCOME CONTAINER -->
+      <section class="welcome-info-container">
+         <section class="welcome">
+            <h2>WELCOME TO MOCKED</h2>
+            <p>Have an idea for a T-Shirt design?</p>
+            <p>This is an app to test out your ideas and layout your design on a tee.</p>
+            <hr />
+            <div class="image-design try">
+               <h3>Try it out with out Mocked Logo</h3>
+               <p>Change the placement of the image by dragging it around. Use the controls below to adjust the size.</p>
+               <p>Make it a pocket print.</p>
+               <div class="flex-row">
+
+               <!-- upload file button, masked with a styled button -->
+               <p id="image-input" class="welcome-buffer"></p>
+               <button id="width-plus" class="welcome-control"><i class="fas fa-plus"></i></button>
+               <button id="width-minus" class="welcome-control"><i class="fas fa-minus"></i></button>
+               <p id="upload-button" class="welcome-buffer"></p>
+               </div>
+            </div>
+            <hr />
+            <a href="create.html">
+               <button type="button" class="started-button">START YOUR LAYOUT</button>
+            </a>
+         </section>
+      </section>
+   </main>
+
+
+   <footer>
+      <p> &copy; 2018 Sharon Paz</p>
+   </footer>
+
+</body>
+</html>

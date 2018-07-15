@@ -8,7 +8,7 @@ const textFonts = {
    lobster: 'Lobster'
 }
 
-let currentArtFileName;
+// let currentArtFileName;
 
 $(function(){
    console.log('Sanity Check');
@@ -81,17 +81,21 @@ $(function(){
 
 
    // IMAGE UPLOAD ===================================
-   let file;
+   let currentArtFileName;
+   let imageFile;
    let reader;
    let designDisplayEl = document.getElementById('design-display');
+   let uploadButtonEl = document.getElementById('upload-button');
+   // let imageInputEl = document.querySelector('input[type="file"]');
+   let imageInputEl = document.getElementById('image-input');
 
-   // activates the image upload button when the styled button is clicked
-   document.getElementById('upload-button').addEventListener('click', function(){
-      document.getElementById('image-input').click();
+   // activates the real image upload button
+   // when the styledized button is clicked
+   uploadButtonEl.addEventListener('click', function(){
+      imageInputEl.click();
    }, false);
-
    // use file search to upload image
-   document.getElementById('image-input').addEventListener('change', function(e){
+   imageInputEl.addEventListener('change', function(e){
       imageHandling(e);
    }, false);
    // uses drag and drop to upload image
@@ -99,22 +103,21 @@ $(function(){
       imageHandling(e);
    }, false);
    function imageHandling(e) {
-      file = e.target.files[0];
-      if(!file.type.match('image.*')) {
-         alert("This file isn't image or it's unsupported format");
+      imageFile = e.target.files[0];
+      if(!imageFile.type.match('image.*')) {
+         alert("This file is not a unsupported image file");
          return;
       }
       reader = new FileReader();
-      reader.addEventListener('load', (function(imgFile) {
+      reader.addEventListener('load', (function() {
          return function(e) {
             // uploads images in target area
             designDisplayEl.setAttribute('src', e.target.result);
-            console.log(file.name);
-            currentArtFileName = file.name
          };
-      })(file), false);
-      reader.readAsDataURL(file);
+      })(imageFile), false);
+      reader.readAsDataURL(imageFile);
    }
+
    // end of image uploads
 
    // DRAGGABLE IMAGE =====================

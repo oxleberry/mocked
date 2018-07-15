@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Mocked</title>
+
+   <!-- Logo Favicon -->
+   <link rel="icon" type="image/png" href="images/geo-flower.png">
+   <!-- Google Fonts -->
+   <link href="https://fonts.googleapis.com/css?family=Lato|Raleway|Quicksand:400,700|Barlow" rel="stylesheet">
+   <!-- Google TEE Fonts  -->
+   <link href="https://fonts.googleapis.com/css?family=Anton|Bungee+Inline|Cabin+Sketch|Julius+Sans+One|Lobster|Monoton" rel="stylesheet">
+   <!-- Font Awesome CDN -->
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+   <!-- jQuery files -->
+   <script src="https://code.jquery.com/jquery-3.3.1.min.js" defer></script>
+   <!-- jQueryUI -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" defer></script>
+   <!-- My CSS styles -->
+   <link rel="stylesheet" href="css/style.css">
+   <!-- My JS files -->
+   <script src="js/app.js" defer></script>
+
+</head>
+<body>
+
+
+   <header>
+      <nav class="flex-nav">
+         <a href="home.html"<h1 class="nav-logo toggle-nav">Mocked</h1><i class="fa fa-bars"></i></a>
+         <!-- <a href="#"><img class="nav-icon toggle-nav" src="images/geo-flower-white.svg"></a> -->
+         <ul>
+            <li><a href="home.html" class="nav-logo nav-logo-hidden">Mocked</a></li>
+            <!-- <li><img src="images/geo-flower-white.svg" class="nav-icon"></li> -->
+            <li><a href="create.html" class="nav-active">New Design</a></li>
+            <!-- <li><a href="gallery.html">Gallery</a></li> -->
+            <li><a href="#" class="nav-hidden">.</a></li>
+            <li><a href="#" class="nav-hidden">.</a></li>
+            <!-- <li><a href="#">Log In/Out</a></li> -->
+         </ul>
+      </nav>
+   </header>
+
+
+
+   <main class="flex-row stacked">
+      <!-- SHIRT CONTAINER -->
+      <section class="shirt-container">
+         <div class="current-tee">
+            <img class="tee" src="images/mens-tee-front-black.png" />
+         </div>
+         <div class="current-design">
+            <div id="design-target" class="print-area">
+               <!-- <div class="image-resize-container"> -->
+                  <!-- <img id="design-display" class="upload-art" src="" /> -->
+                  <!-- <img id="design-display" src={% static "images/geo-flower.png" %} /> -->
+                  <!-- <img id="design-display" src="images/geo-flower.png" /> -->
+                  <img id="design-display" src="" />
+                  <p id="text-display"></p>
+               <!-- </div> -->
+            </div>
+         </div>
+
+
+      </section>
+      <!-- INFO CONTAINER -->
+      <section class="info-container">
+
+      <!-- GARMENT STYLE -->
+         <section class="garment">
+            <h3>Garment Options</h3>
+            <div class="flex-row">
+               <div class="flex-row">
+                  <div class="dropdown-container">
+                     <div class="dropdown">
+                        <button class="dropdown-button">
+                           <span class="button-label">Style</span>
+                           <i class="fa fa-angle-down"></i>
+                        </button>
+                        <ul class="dropdown-options">
+                           <li class="dropdown-option is-selected" id="Mens-tee">Mens Tee</li>
+                           <li class="dropdown-option" id="Womens-tee">Womens Tee</li>
+                           <li class="dropdown-option" id="Youth-tee">Youth Tee</li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="value-container">
+                     <span id="style-value" class="current-value">
+                        Mens Tee
+                     </span>
+                  </div>
+               </div>
+
+               <!-- GARMENT POSITION -->
+               <div class="flex-row">
+                  <div class="dropdown-container">
+                     <div class="dropdown">
+                        <button class="dropdown-button">
+                           <span class="button-label">Placement</span>
+                           <i class="fa fa-angle-down"></i>
+                        </button>
+                        <ul class="dropdown-options">
+                           <li class="dropdown-option is-selected" id="Front">Front</li>
+                           <li class="dropdown-option" id="Back">Back</li>
+                           <li class="dropdown-option" id="Sleeve">Sleeve</li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="value-container">
+                     <span id="placement-value" class="current-value">
+                        Front
+                     </span>
+                  </div>
+               </div>
+            </div>
+            <hr />
+
+            <!-- GARMENT COLOR -->
+            <div class="flex-row">
+               <div class="flex-row">
+                  <span>Color:</span>
+                  <span class="current-value">Black</span>
+               </div>
+               <div class="flex-row">
+                  <div class="garment-swatch black is-selected"></div>
+                  <div class="garment-swatch silver"></div>
+                  <div class="garment-swatch navy"></div>
+                  <div class="garment-swatch red"></div>
+                  <div class="garment-swatch white"></div>
+                  <div class="garment-swatch charcoal"></div>
+               </div>
+            </div>
+         </section>
+         <!-- end of garment section  -->
+
+         <!-- IMAGE SECTION -->
+         <section class="image-container">
+            <div class="flex-row-between">
+               <h3>Image Options</h3>
+               <!-- <p class="image-instruct">Art should be a png file with a transparent background or a vector svg file.</p> -->
+               <p class="image-instr">Useable art files: <br />
+                  <span class="image-instr-bold">png</span> with a transparent background <br />
+                  <span class="image-instr-bold">svg</span> vector file</p>
+            </div>
+            <div class="flex-row image-design">
+
+            <!-- upload file button, masked with a styled button -->
+            <input id="image-input" type="file" />
+            <button type="button" id="upload-button" class="image-upload">Upload Image</button>
+            <button id="width-plus" class="size-control"><i class="fas fa-plus"></i></button>
+            <button id="width-minus" class="size-control"><i class="fas fa-minus"></i></button>
+               <span>Width:</span>
+               <span class="current-value current-width"></span>
+               <span>Height:</span>
+               <span class="current-value current-height"></span>
+            </div>
+         </section>
+
+         <!-- TEXT SECTION -->
+         <section class="text-design">
+            <!-- TEXT FONT SECTION -->
+            <h3>Text Options</h3>
+            <input id="custom-text" class="custom-text" type="text" placeholder="Add Your Text Here" />
+
+            <button id="text-plus" class="size-control"><i class="fas fa-plus"></i></button>
+            <button id="text-minus" class="size-control"><i class="fas fa-minus"></i></button>
+
+            <div class="flex-row">
+               <div class="flex-row">
+                  <div class="dropdown-container">
+                     <div class="dropdown">
+                        <button class="dropdown-button">
+                           <span class="button-label">Font</span>
+                           <i class="fa fa-angle-down"></i>
+                        </button>
+                        <ul class="dropdown-options">
+                           <li class="dropdown-option" id="Anton">Anton</li>
+                           <li class="dropdown-option is-selected" id="Lobster">Lobster</li>
+                           <li class="dropdown-option" id="Monoton">Monoton</li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="value-container">
+                     <span id="placement-value" class="current-value">
+                        Lobster
+                     </span>
+                  </div>
+               </div>
+
+                  <!-- TEXT COLOR SECTION -->
+
+               <div class="flex-row">
+                  <div class="dropdown-container">
+                     <div class="dropdown">
+                        <button class="dropdown-button">
+                           <span class="button-label">Text Color</span>
+                           <i class="fa fa-angle-down"></i>
+                        </button>
+                        <ul class="dropdown-options">
+                           <li class="dropdown-option" id="Red">Red</li>
+                           <li class="dropdown-option" id="Black">Black</li>
+                           <li class="dropdown-option is-selected" id="White">White</li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="value-container">
+                     <span id="placement-value" class="current-value">
+                        White
+                     </span>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- end of text Section  -->
+
+         <!-- DEFAULT IMAGE SECTION -->
+         <section class="default-container">
+            <p class="image-instr">Don't have an image ready? Use one of ours.</p>
+
+            <button type="button" class="default-image">
+               <img src="images/geo-flower.png" />
+            </button>
+            <button type="button" class="default-image black">
+               <img src="images/flaming-bunny.png" />
+            </button>
+            <button type="button" class="default-image black">
+               <img src="images/sugar-skull.svg" />
+            </button>
+         </section>
+
+         <!-- SAVE SECTION -->
+         <!-- <div class="flex-column save-container">
+            <input class="design-title" type="text" placeholder="Add Design Name" />
+            <button type="button" class="save">SAVE</button>
+         </div> -->
+
+      </section>
+      <!-- end of info Container  -->
+   </main>
+
+
+
+
+   <footer>
+      <p> &copy; 2018 Sharon Paz</p>
+   </footer>
+
+</body>
+</html>

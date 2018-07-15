@@ -14,12 +14,23 @@ body {
 .flex-row {
    display: flex;
    /* flex-direction: row; */
+   justify-content: space-around;
+   flex-wrap: wrap;
+}
+
+.flex-row-between {
+   display: flex;
+   justify-content: space-between;
    flex-wrap: wrap;
 }
 
 .flex-column {
    display: flex;
    flex-direction: column;
+}
+
+.hide {
+   display: none;
 }
 
 li {
@@ -29,18 +40,21 @@ li {
 a {
    text-decoration: none;
    /* padding: 1em; */
-   /* color: white; */
+   color: white;
+}
+
+button:focus {
+  outline: none;
 }
 
 /* NAV ========================= */
 
 header a {
-   color: #F0F8EA;
    font-weight: 400;
    letter-spacing: 1px;
    text-decoration: none;
    text-transform: uppercase;
-   padding: 1em .5em;
+   padding: 1.2em .5em .8em;
    display: inline-block;
    width: 100%;
    text-align: center;
@@ -140,16 +154,78 @@ before an elements starts shrink or wrap */
 
 }
 
+/* WELCOME ========================= */
+
+.welcome-tee-container {
+   margin-top: 0;
+   width: 470px;
+   /* width: 48%; */
+   position: relative;
+}
+
+.welcome {
+   padding: 3em 4em;
+   text-align: center;
+}
+
+.welcome h2 {
+   margin-top: 0.5em;
+}
+
+.welcome-info-container {
+   max-width: 50%;
+   border: 8px solid #34485f;
+   background-color: white;
+}
+
+.welcome p {
+   padding: 0 2em;
+}
+
+
+.welcome-buffer {
+   width: 27%;
+}
+
+.welcome-control {
+   background-image: linear-gradient(#fff, #ebf0f5);
+   height: 53px;
+   width: 41px;
+   border-radius: 3px;
+   border: 1px solid #a8b6c5;
+   font-size: .8em;
+   color: #34475f;
+}
+
+.try {
+   text-align: center;
+   margin-top: 2em;
+   margin-bottom: 1em;
+}
+
+.started-button {
+   margin: 0 auto;
+   margin-top: 0.6em;
+   font-size: 1em;
+   color: #34475f;
+   /* background-image: linear-gradient(#fff, #ebf0f5); */
+   padding: .8em 4em;
+   border: 3px solid #42576f;
+   border-radius: 3px;
+}
 
 /* MAIN ========================= */
 
 main {
    background-color: #d6d6d6;
-   padding: 2em 2em 3em;
+   /* padding: 2em 2em 3em; */
+   padding: 2em 5em 3em;
    /* margin: 0.8em 0 0 0; */
 }
 
-.shirt-container, .info-container {
+.shirt-container,
+.info-container,
+.welcome-info-container {
    background-color: white;
    /* border-radius: 2em; */
    margin: 0 auto;
@@ -160,23 +236,24 @@ main {
 }
 
 .shirt-container {
-   width: 47%;
+   width: 470px;
+   /* width: 48%; */
    position: relative;
 }
 
 .info-container {
-   width: 50%;
+   /* width: 50%; */
    border: 8px solid #34485f;
 }
 
-/* Tee CONTAINER ===================== */
+/* TEE CONTAINER ===================== */
 
 .tee {
    max-width: 100%;
    max-height: 100%;
    width: auto;
    height: auto;
-   padding: 5% 9%;
+   padding: 9% 5%;
 }
 
 .resize-test {
@@ -208,23 +285,26 @@ main {
    /* border: 2px dotted #cccccc40; */
    /* width: 47%;
    height: 78%; */
-   width: 262px;
-   height: 480px;
+   width: 246px;
+   height: 435px;
    position: absolute;
-   top: 5em;
-   left: 9.4em;
+   top: 6em;
+   left: 7em;
 }
 
 /* IMAGE UPLOAD ========================= */
 
+.image-container {
+   border-bottom: 4px solid #34485f;
+   padding: 1em;
+}
+
 .image-upload {
+   /* opacity: 0; */
    width: 140px;
    height: 52px;
    background: none;
-   /* border: none; */
    border: 2px dashed #42586f;
-   /* background-color: #42586f; */
-   /* color: white; */
    color: #42586f
    border-radius: 3px;
    font-size: 14px;
@@ -241,33 +321,55 @@ main {
    margin-top: 1em;
 }
 
+.image-design {
+   /* border-bottom: 4px solid #34485f;
+   padding: .8em; */
+   position: relative;
+}
+
 .image-design .current-value {
-   margin: 1em 1em 0 0;
+   /* margin: 1em 1em 0 0; */
 }
 
 input[type="file"] {
-   font-size: 1em;
    position: absolute;
    opacity: 0;
-   padding-bottom: 2em;
+   left: 0;
+   padding-bottom: 3.5em;
 }
 
 #design-display {
    /* width: 58%; */
-   width: 150px;
-   left: 54px;
+   width: 128px;
+   left: 59px;
    top: 50px;
+   position: relative;
 }
 
 #text-display {
    font-size: 3em;
    color: white;
    left: 66.6875px;
-   width: 58%;
+   /* width: 58%; */
    position: inherit;
    font-size: 3em;
    margin: -24px 0;
    font-family: 'Lobster', sans-serif;
+}
+
+.image-instr {
+   color: #8ca6c1;
+   margin: 0;
+   max-width: 27em;
+   margin-bottom: .8em;
+   /* margin-left: 2em; */
+   margin-right: 5em;
+}
+
+.image-instr-bold {
+   font-weight: 900;
+   text-transform: uppercase;
+   font-size: 1.1em;
 }
 
 /* GALLERY CONTAINER ===================== */
@@ -276,6 +378,7 @@ input[type="file"] {
    text-align: center;
    font-size: 2.2em;
    margin: 0;
+   /* padding-top: 1em; */
    text-transform: uppercase;
 }
 
@@ -286,19 +389,43 @@ input[type="file"] {
    top: 50px;
 }
 
+.gallery-info-container {
+   display: none;
+   /* opacity: 0; */
+   width: 45%;
+   background-color: white;
+   margin: 0 auto;
+   margin-top: 1em;
+   justify-content: space-between;
+   box-shadow: 11px 12px 17px 0px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-shirt-container {
+   margin-bottom: 1em;
+}
+
+.gallery-space {
+   margin-bottom: 3em;
+}
+
 /* INFO CONTAINER ===================== */
 
 main h3 {
    margin: 0 0 .4em;
-    color: #163456;
-    font-weight: 400;
-    text-transform: uppercase;
+   color: #163456;
+   font-weight: 400;
+   text-transform: uppercase;
+   padding-bottom: .3em;
 }
 
 .garment,
-.image-design,
+.image-container,
 .text-design {
    border-bottom: 4px solid #34485f;
+   padding: .8em;
+}
+
+.default-container {
    padding: .8em;
 }
 
@@ -307,26 +434,50 @@ main h3 {
 }
 
 .garment-swatch {
-   width: 1em;
-   height: 1em;
+   width: 1.5em;
+   height: 1.5em;
+   border-radius: 50%;
    background-color: grey;
-   border: 2px solid black;
-   margin-right: 6px;
+   /* border: 2px solid black; */
+   margin-right: 8px;
+   margin-top: 2px;
 }
 
 .black {
    background-color: black;
 }
 
+.silver {
+   background-color: #bbbaba;
+}
+
 .red {
-   background-color: red;
+   background-color: #bf390f;
+}
+
+.navy {
+   background-color: #2d5471;
+}
+
+.white {
+   background-color: #fff;
+   border: 2px solid black;
+}
+
+.charcoal {
+   background-color: #5f5e5e;
 }
 
 .size-control {
+   /* opacity: 0; */
    z-index: 20;
-   font-size: 1em;
    margin-right: 0.4em;
    width: 36px;
+   border-radius: 3px;
+   border: 1px solid #a8b6c5;
+   background-image: linear-gradient(#fff, #ebf0f5);
+   font-size: .8em;
+   color: #34475f;
 }
 
 .size-control:nth-last-child(2n+ 1) {
@@ -348,14 +499,12 @@ main h3 {
    width: 41px;
    margin-left: 8px;
    margin-right: 2px;
-   font-size: 1em;
 }
 
 #text-minus {
    height: 53px;
    width: 41px;
    margin-right: 0;
-   font-size: 1em;
 }
 
 .save-container {
@@ -376,20 +525,43 @@ main h3 {
 
 .save {
    margin: 0 auto;
-    margin-top: 0.6em;
+   margin-top: 0.6em;
    width: 40%;
    font-size: 1em;
    color: #34475f;
-   background-color: #fff;
+   /* background-image: linear-gradient(#fff, #ebf0f5); */
    padding: .8em 4em;
    border: 3px solid #42576f;
    border-radius: 3px;
 }
 
-.save:hover {
+.save:hover,
+.started-button:hover {
    border: 3px solid #e64a4b;
    color: #e7494b;
 }
+
+.default-container {
+   text-align: right;
+}
+
+.default-container button {
+   border-radius: 1em;
+   padding: .5em;
+   margin-right: 1em;
+   opacity: .3;
+   transition: opacity 0.5s ease;
+}
+
+.default-image img {
+   width: 6em;
+   height: 58px;
+}
+
+.default-container button:hover {
+   opacity: 1;
+}
+
 
 /* DROPDOWN BUTTON ========================= */
 
@@ -489,7 +661,7 @@ main h3 {
    /* VALUE SECTION ========== */
 
 .current-value {
-   width: 88px;
+   width: 80px;
    border-bottom: 2px solid #346394;
    text-align: center;
    padding: 0 1em 0.2em 0.4em;
@@ -532,7 +704,4 @@ footer p {
       height: auto;
    }
 
-   .shirt-container, .info-container {
-      width: 47%;
-   }
 }

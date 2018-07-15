@@ -8,7 +8,7 @@ const textFonts = {
    lobster: 'Lobster'
 }
 
-let currentArtFileName;
+// let currentArtFileName;
 
 $(function(){
    console.log('Sanity Check');
@@ -43,10 +43,10 @@ $(function(){
          // traverse the DOM from
          // dropdownOption (LI) to current value (SPAN)
          let valTarget = el.parentNode
-         .parentNode
-         .parentNode
-         .nextElementSibling
-         .firstElementChild;
+                           .parentNode
+                           .parentNode
+                           .nextElementSibling
+                           .firstElementChild;
          // in the field next to the dropdown bar,
          // swaps old text content for new text content
          // from selected dropdown value
@@ -81,47 +81,72 @@ $(function(){
 
 
    // IMAGE UPLOAD ===================================
-   let file;
+   let currentArtFileName;
+   let imageFile;
    let reader;
    let designDisplayEl = document.getElementById('design-display');
+   let uploadButtonEl = document.getElementById('upload-button');
+   // let imageInputEl = document.querySelector('input[type="file"]');
+   let imageInputEl = document.getElementById('image-input');
 
-   // activates the image upload button when the styled button is clicked
-   document.getElementById('upload-button').addEventListener('click', function(){
-      document.getElementById('image-input').click();
+   // activates the real image upload button
+   // when the styledized button is clicked
+   uploadButtonEl.addEventListener('click', function(){
+      imageInputEl.click();
    }, false);
-
    // use file search to upload image
-   document.getElementById('image-input').addEventListener('change', function(e){
+   imageInputEl.addEventListener('change', function(e){
       imageHandling(e);
    }, false);
-
    // uses drag and drop to upload image
    document.body.addEventListener('drop', function(e){
       imageHandling(e);
    }, false);
-
    function imageHandling(e) {
-      file = e.target.files[0];
-      if(!file.type.match('image.*')) {
-         alert("This file isn't image or it's unsupported format");
+      imageFile = e.target.files[0];
+      if(!imageFile.type.match('image.*')) {
+         alert("This file is not a unsupported image file");
          return;
       }
       reader = new FileReader();
-      reader.addEventListener('load', (function(imgFile) {
+      reader.addEventListener('load', (function() {
          return function(e) {
-            // uploads as an allover background print
-            // document.body.style.backgroundImage = "url('" + e.target.result + "')";
             // uploads images in target area
             designDisplayEl.setAttribute('src', e.target.result);
-            console.log(file);
-            console.log(file.name);
-            console.log(file.size);
-            currentArtFileName = file.name
          };
-      })(file), false);
-      reader.readAsDataURL(file);
+      })(imageFile), false);
+      reader.readAsDataURL(imageFile);
    }
+
    // end of image uploads
+
+   // DISPLAY TEST IMAGE SECTION
+   // let defaultThumbnailEl = document.getElementById('default-thumbnail');
+   // defaultThumbnailEl.addEventListener('click', function(el) {
+   //    let imgEl = defaultThumbnailEl.firstElementChild;
+   //    let imgElAttr = imgEl.getAttribute('src');
+   //    // console.log(imgEl);
+   //    // console.log(imgElAttr);
+   //    // console.log(defaultThumbnailEl.firstElementChild);
+   //    designDisplayEl.setAttribute('src', imgElAttr);
+   // });
+
+   let defaultThumbnailsEl = document.querySelectorAll('.default-image');
+
+   defaultThumbnailsEl.forEach( function(el) {
+      console.log(el);
+      el.addEventListener('click', function(e) {
+         let imgEl = el.firstElementChild;
+         console.log(imgEl);
+         let imgElAttr = imgEl.getAttribute('src');
+         console.log(imgElAttr);
+         // console.log(imgElAttr);
+         // console.log(defaultThumbnailEl.firstElementChild);
+                  // e.stopPropagation();
+         designDisplayEl.setAttribute('src', imgElAttr);
+      })
+   });
+
 
    // DRAGGABLE IMAGE =====================
    $('#design-display').draggable({ containment: '#design-target', scroll: false });
@@ -131,6 +156,9 @@ $(function(){
    // RESIZE IMAGE BUTTON CONTROLS =====================
    const changeSize = 12;
    const changePosition = 6;
+   let layoutWidth;
+   let layoutArtPosTop;
+   let layoutArtPosLeft;
 
    console.log('Postion TOP: ' + $('#design-display').position().top);
    console.log('Postion LEFT: ' + $('#design-display').position().left);
@@ -161,6 +189,7 @@ $(function(){
    });
    // end of resizeable buttons controls for images
 
+
    // IMAGE WIDTH AND HEIGHT CALCULATOR
    // Pertinent info on design data
    console.log('NEW');
@@ -175,7 +204,8 @@ $(function(){
 
    // output the dimensions of the art size
    function calcArtDimensions() {
-      const rulerConverter = 17.456666;
+      // const rulerConverter = 17.456666;
+      const rulerConverter = 16;
       let curWidth = $('#design-display').width();
       let curHeight = $('#design-display').height();
       let widthInInches = curWidth / rulerConverter;
@@ -184,32 +214,41 @@ $(function(){
       $('.current-width').text(`${widthInInches}"`);
       heightInInches = heightInInches.toFixed(2);
       $('.current-height').text(`${heightInInches}"`);
+      // console.log('NEW');
+      // console.log('ART FILE: ' + currentArtFileName);
+      // console.log('WIDTH: ' + widthInInches);
+      // console.log('ART POS TOP: ' + $('#design-display').position().top);
+      // console.log('ART POS LEFT: ' + $('#design-display').position().left);
+
    }
 
-   // let customTextEl = document.getElementById('custom-text').value;
-   // let textDisplayEl = document.getElementById('text-display');
-   // console.log(customTextEl);
-   // console.log(textDisplayEl);
-   //
-   // customTextEl.addEventListener('input', function (e) {
-   //     textDisplayEl.innerHTML = customTextEl;
-   // });
-
-   // currentText.addEventListener('keypress', function() {
-   //    textDisplayEl.innerHTML = customTextEl;
-   // });
-
+   // adding custom text
    $('#custom-text').keyup(function() {
       let currentText = $('#custom-text').val();
       console.log(currentText);
       $('#text-display').text(currentText);
       $('#text-display').css(currentText);
-
    });
 
-
-
-   // $('#custon-text').val();
-
+   // galleryCalc();
+   //
+   // function galleryCalc() {
+   //    console.log('NEW');
+   //    console.log('ART FILE: ' + $('.gallery-display').attr('src'));
+   //    console.log('WIDTH: ' + $('.gallery-display').width());
+   //    console.log('ART POS TOP: ' + $('.gallery-display').position().top);
+   //    console.log('ART POS LEFT: ' + $('.gallery-display').position().left);
+   //    let galleryArtWidth = $('.gallery-art-width').text();
+   //    let galleryArtPosTop = $(".gallery-art-pos-top").text();
+   //    let galleryArtPosLeft = $(".gallery-art-pos-left").text();
+   //    console.log(galleryArtWidth);
+   //    galleryArtPosTop = parseInt(galleryArtPosTop);
+   //    galleryArtPosLeft = parseInt(galleryArtPosLeft);
+   //    console.log(galleryArtPosTop);
+   //    console.log(galleryArtPosLeft);
+   //    $('.gallery-display').width(galleryArtWidth);
+   //    $('.gallery-display').css('top', galleryArtPosTop);
+   //    $('.gallery-display').css('left', galleryArtPosLeft);
+   // }
 
 }); // end of document.ready
