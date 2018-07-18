@@ -11,7 +11,7 @@
    <!-- Google Fonts -->
    <link href="https://fonts.googleapis.com/css?family=Lato|Raleway|Quicksand:400,700|Barlow" rel="stylesheet">
    <!-- Google TEE Fonts  -->
-   <link href="https://fonts.googleapis.com/css?family=Anton|Bungee+Inline|Cabin+Sketch|Julius+Sans+One|Lobster|Monoton" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Jaldi|Lobster|Monoton" rel="stylesheet">
    <!-- Font Awesome CDN -->
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
    <!-- jQuery files -->
@@ -168,7 +168,7 @@
             <button id="text-minus" class="size-control"><i class="fas fa-minus"></i></button>
 
             <div class="flex-row">
-               <div class="flex-row">
+               <div class="flex-row-between">
                   <div class="dropdown-container">
                      <div class="dropdown">
                         <button class="dropdown-button">
@@ -176,14 +176,14 @@
                            <i class="fa fa-angle-down"></i>
                         </button>
                         <ul class="dropdown-options">
-                           <li class="dropdown-option" id="Anton">Anton</li>
-                           <li class="dropdown-option is-selected" id="Lobster">Lobster</li>
-                           <li class="dropdown-option" id="Monoton">Monoton</li>
+                           <li class="dropdown-option font-option">Nanum Gothic</li>
+                           <li class="dropdown-option font-option is-selected">Lobster</li>
+                           <li class="dropdown-option font-option">Monoton</li>
                         </ul>
                      </div>
                   </div>
                   <div class="value-container">
-                     <span id="placement-value" class="current-value">
+                     <span id="font-value" class="current-value">
                         Lobster
                      </span>
                   </div>
@@ -192,7 +192,7 @@
                   <!-- TEXT COLOR SECTION -->
 
                <div class="flex-row">
-                  <div class="dropdown-container">
+                  <!-- <div class="dropdown-container">
                      <div class="dropdown">
                         <button class="dropdown-button">
                            <span class="button-label">Text Color</span>
@@ -204,10 +204,17 @@
                            <li class="dropdown-option is-selected" id="White">White</li>
                         </ul>
                      </div>
+                  </div> -->
+
+                  <div>
+                     <input type="color" id="color-choice" name="color-choice"
+                     value="#e64a4b" />
+                     <label for="body"></label>
                   </div>
                   <div class="value-container">
-                     <span id="placement-value" class="current-value">
-                        White
+
+                     <span id="text-color-value" class="current-value">
+                        #E64A4B
                      </span>
                   </div>
                </div>
@@ -230,11 +237,18 @@
             </button>
          </section>
 
+         <!-- <hr> -->
          <!-- SAVE SECTION -->
-         <!-- <div class="flex-column save-container">
-            <input class="design-title" type="text" placeholder="Add Design Name" />
-            <button type="button" class="save">SAVE</button>
-         </div> -->
+         <!-- <form method="POST" action=".">
+
+            <input type="hidden" name="style-value-hidden" value="MensTee" />
+
+            <div class="flex-column save-container">
+               <input class="design-title" type="text" placeholder="Add Design Name" />
+               <button type="button" class="save">SAVE</button>
+            </div>
+
+         </form> -->
 
       </section>
       <!-- end of info Container  -->

@@ -87,7 +87,7 @@ $(function(){
    let designDisplayEl = document.getElementById('design-display');
    let uploadButtonEl = document.getElementById('upload-button');
    // let imageInputEl = document.querySelector('input[type="file"]');
-   let imageInputEl = document.getElementById('image-input');
+   // let imageInputEl = document.getElementById('image-input');
 
    // activates the real image upload button
    // when the styledized button is clicked

@@ -331,11 +331,20 @@ main {
    /* margin: 1em 1em 0 0; */
 }
 
+/* FILE UPLOAD INPUT */
 input[type="file"] {
    position: absolute;
    opacity: 0;
    left: 0;
    padding-bottom: 3.5em;
+}
+
+/* COLOR PICKER INPUT */
+input[type="color" i] {
+   width: 116px;
+   height: 40px;
+   border-radius: 3px;
+   margin-right: 1em;
 }
 
 #design-display {
@@ -348,7 +357,7 @@ input[type="file"] {
 
 #text-display {
    font-size: 3em;
-   color: white;
+   color: #e64a4b;
    left: 66.6875px;
    /* width: 58%; */
    position: inherit;
@@ -642,7 +651,7 @@ main h3 {
    position: relative;
    height: 40px;
    line-height: 40px;
-   padding-left: 18px;
+   padding-left: 10px;
    cursor: pointer;
    color: #6b6b6b;
    /* font-weight: 600; */
@@ -664,7 +673,7 @@ main h3 {
    width: 80px;
    border-bottom: 2px solid #346394;
    text-align: center;
-   padding: 0 1em 0.2em 0.4em;
+   padding: 0 .5em 0.2em 0.4em;
    margin: 0 1em 0 0;
 }
 
