@@ -1,4 +1,6 @@
 
+import os
+
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
 
@@ -14,7 +16,6 @@ from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 
 from .models import Design
-
 
 # Test our first view
 # from django.http import HttpResponse
@@ -42,18 +43,28 @@ def created_design(request, pk):
     design = Design.objects.get(id=pk)
     return render(request, 'mocked/created_design.html', {'design': design})
 
-# Design CREATE
-def design_create(request):
+# Create a new design
+@login_required
+def design_form(request):
     designs = Design.objects.all()
     if request.method == 'POST':
-        form = DesignForm(request.POST)
+        form = DesignForm(request.POST, request.FILES)
+        print("LINE 61")
         if form.is_valid():
+            print("LINE 63")
+            print(request.user)
+            design = form.save(commit=False)
+            design.user = request.user
+            print(design.user)
+            # title = form.cleaned_data['title']
+            # print(title)
+            # design.save()
             design = form.save()
+            print("LINE 65")
             return render(request, 'mocked/design_list.html', {'designs': designs})
     else:
         form = DesignForm()
     return render(request, 'mocked/design_form.html', {'form': form})
-
 
 
 def login_user(request):
@@ -93,7 +104,7 @@ def file_upload(request):
     document = Document.objects.create(document=path, upload_by=request.user)
     return JsonResponse({'document': document.id})
 
-# Test some data
+# Test seed data
 # def test(request):
 # 	return render( request, 'mocked/test.html', {'designs': designs} )
 

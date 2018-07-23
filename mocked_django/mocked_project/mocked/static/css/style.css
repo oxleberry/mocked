@@ -18,6 +18,12 @@ body {
    flex-wrap: wrap;
 }
 
+.flex-row-between {
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+}
+
 .flex-column {
    display: flex;
    flex-direction: column;
@@ -35,6 +41,10 @@ a {
    text-decoration: none;
    /* padding: 1em; */
    color: white;
+}
+
+button:focus {
+  outline: none;
 }
 
 /* NAV ========================= */
@@ -168,6 +178,11 @@ before an elements starts shrink or wrap */
    background-color: white;
 }
 
+.welcome p {
+   padding: 0 2em;
+}
+
+
 .welcome-buffer {
    width: 27%;
 }
@@ -178,7 +193,8 @@ before an elements starts shrink or wrap */
    width: 41px;
    border-radius: 3px;
    border: 1px solid #a8b6c5;
-   font-size: 1em;
+   font-size: .8em;
+   color: #34475f;
 }
 
 .try {
@@ -203,6 +219,7 @@ before an elements starts shrink or wrap */
 main {
    background-color: #d6d6d6;
    padding: 2em 2em 3em;
+   /* padding: 2em 5em 3em; */
    /* margin: 0.8em 0 0 0; */
 }
 
@@ -314,6 +331,7 @@ main {
    /* margin: 1em 1em 0 0; */
 }
 
+/* FILE UPLOAD INPUT */
 input[type="file"] {
    position: absolute;
    opacity: 0;
@@ -321,22 +339,46 @@ input[type="file"] {
    padding-bottom: 3.5em;
 }
 
+/* COLOR PICKER INPUT */
+input[type="color" i] {
+   width: 116px;
+   height: 40px;
+   border-radius: 3px;
+   margin-right: 1em;
+}
+
 #design-display {
    /* width: 58%; */
    width: 128px;
    left: 59px;
    top: 50px;
+   position: relative;
 }
 
 #text-display {
    font-size: 3em;
-   color: white;
+   color: #e64a4b;
    left: 66.6875px;
    /* width: 58%; */
    position: inherit;
    font-size: 3em;
    margin: -24px 0;
    font-family: 'Lobster', sans-serif;
+}
+
+.image-instr {
+   color: #8ca6c1;
+   margin: 0;
+   max-width: 27em;
+   margin-bottom: .8em;
+   /* margin-left: 2em; */
+   margin-right: 5em;
+}
+
+.image-instr-bold {
+   font-weight: 900;
+   text-transform: uppercase;
+   font-size: 1.1em;
 }
 
 /* GALLERY CONTAINER ===================== */
@@ -379,15 +421,20 @@ input[type="file"] {
 
 main h3 {
    margin: 0 0 .4em;
-    color: #163456;
-    font-weight: 400;
-    text-transform: uppercase;
+   color: #163456;
+   font-weight: 400;
+   text-transform: uppercase;
+   padding-bottom: .3em;
 }
 
 .garment,
 .image-container,
 .text-design {
    border-bottom: 4px solid #34485f;
+   padding: .8em;
+}
+
+.default-container {
    padding: .8em;
 }
 
@@ -433,12 +480,13 @@ main h3 {
 .size-control {
    /* opacity: 0; */
    z-index: 20;
-   font-size: 1em;
    margin-right: 0.4em;
    width: 36px;
    border-radius: 3px;
    border: 1px solid #a8b6c5;
    background-image: linear-gradient(#fff, #ebf0f5);
+   font-size: .8em;
+   color: #34475f;
 }
 
 .size-control:nth-last-child(2n+ 1) {
@@ -460,14 +508,12 @@ main h3 {
    width: 41px;
    margin-left: 8px;
    margin-right: 2px;
-   font-size: 1em;
 }
 
 #text-minus {
    height: 53px;
    width: 41px;
    margin-right: 0;
-   font-size: 1em;
 }
 
 .save-container {
@@ -503,6 +549,28 @@ main h3 {
    border: 3px solid #e64a4b;
    color: #e7494b;
 }
+
+.default-container {
+   text-align: right;
+}
+
+.default-container button {
+   border-radius: 1em;
+   padding: .5em;
+   margin-right: 1em;
+   opacity: .3;
+   transition: opacity 0.5s ease;
+}
+
+.default-image img {
+   width: 6em;
+   height: 58px;
+}
+
+.default-container button:hover {
+   opacity: 1;
+}
+
 
 /* DROPDOWN BUTTON ========================= */
 
@@ -583,7 +651,7 @@ main h3 {
    position: relative;
    height: 40px;
    line-height: 40px;
-   padding-left: 18px;
+   padding-left: 10px;
    cursor: pointer;
    color: #6b6b6b;
    /* font-weight: 600; */
@@ -605,7 +673,7 @@ main h3 {
    width: 80px;
    border-bottom: 2px solid #346394;
    text-align: center;
-   padding: 0 1em 0.2em 0.4em;
+   padding: 0 .5em 0.2em 0.4em;
    margin: 0 1em 0 0;
 }
 

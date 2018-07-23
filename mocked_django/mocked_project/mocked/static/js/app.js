@@ -1,17 +1,17 @@
-
-const textFonts = {
-   anton: 'Anton',
-   monoton: 'Monoton',
-   cabinSketch: 'Cabin Sketch',
-   juliusSansOne: 'Julius Sans One',
-   bungeeInline: 'Bungee Inline',
-   lobster: 'Lobster'
-}
+//
+// const textFonts = {
+//    anton: 'Anton',
+//    monoton: 'Monoton',
+//    cabinSketch: 'Cabin Sketch',
+//    juliusSansOne: 'Julius Sans One',
+//    bungeeInline: 'Bungee Inline',
+//    lobster: 'Lobster'
+// }
 
 // let currentArtFileName;
 
 $(function(){
-   console.log('Sanity Check');
+   console.log('STATIC Sanity Check');
 
    // NAV ACTIONS ================================
    $('.flex-nav ul li a').on('click',function() {
@@ -87,7 +87,7 @@ $(function(){
    let designDisplayEl = document.getElementById('design-display');
    let uploadButtonEl = document.getElementById('upload-button');
    // let imageInputEl = document.querySelector('input[type="file"]');
-   // let imageInputEl = document.getElementById('image-input');
+   let imageInputEl = document.getElementById('image-input');
 
    // activates the real image upload button
    // when the styledized button is clicked
@@ -120,6 +120,34 @@ $(function(){
 
    // end of image uploads
 
+   // DISPLAY TEST IMAGE SECTION
+   // let defaultThumbnailEl = document.getElementById('default-thumbnail');
+   // defaultThumbnailEl.addEventListener('click', function(el) {
+   //    let imgEl = defaultThumbnailEl.firstElementChild;
+   //    let imgElAttr = imgEl.getAttribute('src');
+   //    // console.log(imgEl);
+   //    // console.log(imgElAttr);
+   //    // console.log(defaultThumbnailEl.firstElementChild);
+   //    designDisplayEl.setAttribute('src', imgElAttr);
+   // });
+
+   let defaultThumbnailsEl = document.querySelectorAll('.default-image');
+
+   defaultThumbnailsEl.forEach( function(el) {
+      console.log(el);
+      el.addEventListener('click', function(e) {
+         let imgEl = el.firstElementChild;
+         console.log(imgEl);
+         let imgElAttr = imgEl.getAttribute('src');
+         console.log(imgElAttr);
+         // console.log(imgElAttr);
+         // console.log(defaultThumbnailEl.firstElementChild);
+                  // e.stopPropagation();
+         designDisplayEl.setAttribute('src', imgElAttr);
+      })
+   });
+
+
    // DRAGGABLE IMAGE =====================
    $('#design-display').draggable({ containment: '#design-target', scroll: false });
    $('#text-display').draggable({ containment: '#design-target', scroll: true });
@@ -127,16 +155,17 @@ $(function(){
 
    // RESIZE IMAGE BUTTON CONTROLS =====================
    const changeSize = 12;
-   const changePosition = 6;
-   let layoutWidth;
-   let layoutArtPosTop;
-   let layoutArtPosLeft;
+   const changeImgPos = 6;
+   const changeTextPos = 12;
+   // let layoutWidth;
+   // let layoutArtPosTop;
+   // let layoutArtPosLeft;
 
-   console.log('Postion TOP: ' + $('#design-display').position().top);
-   console.log('Postion LEFT: ' + $('#design-display').position().left);
-   console.log($('#design-display').position());
-   console.log('WIDTH: ' + $('#design-display').width());
-   console.log($('#design-display').width());
+   // console.log('Postion TOP: ' + $('#design-display').position().top);
+   // console.log('Postion LEFT: ' + $('#design-display').position().left);
+   // console.log($('#design-display').position());
+   // console.log('WIDTH: ' + $('#design-display').width());
+   // console.log($('#design-display').width());
 
    $('#width-plus').on('click', function() {
       let curWidth = $('#design-display').width();
@@ -144,23 +173,21 @@ $(function(){
       $('#design-display').width(`${curWidth}px`);
 
       let curPosition = $('#design-display').position().left;
-      curPosition -= changePosition;
+      curPosition -= changeImgPos;
       $('#design-display').css({"left": curPosition});
       calcArtDimensions();
    });
-
    $('#width-minus').on('click', function() {
       let curWidth = $('#design-display').width();
       curWidth -= changeSize;
       $('#design-display').width(`${curWidth}px`);
 
       let curPosition = $('#design-display').position().left;
-      curPosition += changePosition;
-      $('#design-display').css({"left": curPosition});
+      curPosition += changeImgPos;
+      $('#design-display').css({'left': curPosition});
       calcArtDimensions();
    });
-   // end of resizeable buttons controls for images
-
+   // end of resizeable buttons controls for image
 
    // IMAGE WIDTH AND HEIGHT CALCULATOR
    // Pertinent info on design data
@@ -191,16 +218,62 @@ $(function(){
       // console.log('WIDTH: ' + widthInInches);
       // console.log('ART POS TOP: ' + $('#design-display').position().top);
       // console.log('ART POS LEFT: ' + $('#design-display').position().left);
-
    }
 
    // adding custom text
    $('#custom-text').keyup(function() {
+      // console.log($('#font-value').text());
       let currentText = $('#custom-text').val();
       console.log(currentText);
+      // let currentFont = $('#font-value').text();
       $('#text-display').text(currentText);
-      $('#text-display').css(currentText);
+      // $('#text-display').css({'font-family': currentFont});
+      // $('#text-display').css(currentText);
    });
+
+   // adding custom font
+   $('.font-option').click(function() {
+      let currentFont = $('#font-value').text();
+      $('#text-display').css({'font-family': currentFont});
+   });
+
+   // using color picker to update text color
+   $("#color-choice").on('change', function(){
+      let curHexColor = $(this).val();
+      console.log(curHexColor);
+      $('#text-display').css({'color': curHexColor});
+      $("#text-color-value").text(curHexColor);
+   });
+
+
+
+   // RESIZE TEXT BUTTON CONTROLS =====================
+   $('#text-plus').on('click', function() {
+      let curfontSize = $('#text-display').css('font-size');
+      let removePxLength = curfontSize.length - 2;
+      curfontSize = curfontSize.slice(0,removePxLength);
+      curfontSize = parseInt(curfontSize);
+      curfontSize += changeSize;
+      $('#text-display').css({'font-size': `${curfontSize}px`});
+
+      let curPosition = $('#text-display').position().left;
+      curPosition -= changeTextPos;
+      $('#text-display').css({"left": curPosition});
+   });
+
+   $('#text-minus').on('click', function() {
+      let curfontSize = $('#text-display').css('font-size');
+      let removePxLength = curfontSize.length - 2;
+      curfontSize = curfontSize.slice(0,removePxLength);
+      curfontSize = parseInt(curfontSize);
+      curfontSize -= changeSize;
+      $('#text-display').css({'font-size': `${curfontSize}px`});
+
+      let curPosition = $('#text-display').position().left;
+      curPosition += changeTextPos;
+      $('#text-display').css({"left": curPosition});
+   });
+   // end of resizeable buttons controls for images
 
    // galleryCalc();
    //
