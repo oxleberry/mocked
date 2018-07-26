@@ -27,6 +27,10 @@
    <!-- INFO CONTAINER -->
    <section class="info-container">
 
+   <!-- FORM SECTION -->
+   <form enctype="multipart/form-data" method="POST" action="">
+      {% csrf_token %}
+
    <!-- GARMENT STYLE -->
       <section class="garment">
          <h3>Garment Options</h3>
@@ -34,7 +38,7 @@
             <div class="flex-row">
                <div class="dropdown-container">
                   <div class="dropdown">
-                     <button class="dropdown-button">
+                     <button type="button" class="dropdown-button">
                         <span class="button-label">Style</span>
                         <i class="fa fa-angle-down"></i>
                      </button>
@@ -56,7 +60,7 @@
             <div class="flex-row">
                <div class="dropdown-container">
                   <div class="dropdown">
-                     <button class="dropdown-button">
+                     <button type="button" class="dropdown-button">
                         <span class="button-label">Placement</span>
                         <i class="fa fa-angle-down"></i>
                      </button>
@@ -100,16 +104,17 @@
             <h3>Image Options</h3>
             <p class="image-instr">Useable art files: <br />
                <span class="image-instr-bold">png</span> with a transparent background <br />
-               <span class="image-instr-bold">svg</span> vector file
+               <!-- <span class="image-instr-bold">svg</span> vector file -->
             </p>
          </div>
          <div class="flex-row image-design">
 
          <!-- upload file button, masked with a styled button -->
-         <input id="image-input" type="file" />
+         <!-- <input id="image-input" type="file" /> -->
+         {{ form.document }}
          <button type="button" id="upload-button" class="image-upload">Upload Image</button>
-         <button id="width-plus" class="size-control"><i class="fas fa-plus"></i></button>
-         <button id="width-minus" class="size-control"><i class="fas fa-minus"></i></button>
+         <button type="button" id="width-plus" class="size-control"><i class="fas fa-plus"></i></button>
+         <button type="button" id="width-minus" class="size-control"><i class="fas fa-minus"></i></button>
             <span>Width:</span>
             <span class="current-value current-width"></span>
             <span>Height:</span>
@@ -123,14 +128,14 @@
          <h3>Text Options</h3>
          <input id="custom-text" class="custom-text" type="text" placeholder="Add Your Text Here" />
 
-         <button id="text-plus" class="size-control"><i class="fas fa-plus"></i></button>
-         <button id="text-minus" class="size-control"><i class="fas fa-minus"></i></button>
+         <button type="button" id="text-plus" class="size-control"><i class="fas fa-plus"></i></button>
+         <button type="button" id="text-minus" class="size-control"><i class="fas fa-minus"></i></button>
 
          <div class="flex-row">
             <div class="flex-row-between">
                <div class="dropdown-container">
                   <div class="dropdown">
-                     <button class="dropdown-button">
+                     <button type="button" class="dropdown-button">
                         <span class="button-label">Font</span>
                         <i class="fa fa-angle-down"></i>
                      </button>
@@ -166,7 +171,7 @@
       <!-- end of text color section  -->
 
       <!-- DEFAULT IMAGE SECTION -->
-      <section class="default-container">
+      <!-- <section class="default-container">
          <p class="image-instr">Don't have an image ready? Use one of ours.</p>
          <button type="button" class="default-image">
             <img src={% static "images/geo-flower.png" %} />
@@ -179,10 +184,10 @@
          </button>
       </section>
 
-      <hr />
+      <hr /> -->
       <!-- FORM SECTION -->
-      <form enctype="multipart/form-data" method="POST" action="">
-         {% csrf_token %}
+      <!-- <form enctype="multipart/form-data" method="POST" action="">
+         {% csrf_token %} -->
 
             {{ form.shirtStyle.errors }}
             {{ form.shirtStyle }}
@@ -214,9 +219,9 @@
             {{ form.title }}
             {{ form.title.help_text }}
 
-            <hr>
-            {{ form.document }}
-            <hr>
+            <!-- <hr> -->
+            <!-- {{ form.document }} -->
+            <!-- <hr> -->
 
             <button type="submit" class="save">SAVE</button>
          </div>

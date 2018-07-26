@@ -1,17 +1,6 @@
-//
-// const textFonts = {
-//    anton: 'Anton',
-//    monoton: 'Monoton',
-//    cabinSketch: 'Cabin Sketch',
-//    juliusSansOne: 'Julius Sans One',
-//    bungeeInline: 'Bungee Inline',
-//    lobster: 'Lobster'
-// }
-
-// let currentArtFileName;
 
 $(function(){
-   console.log('STATIC Sanity Check');
+   console.log('Sanity Check');
 
    // NAV ACTIONS ================================
    $('.flex-nav ul li a').on('click',function() {
@@ -87,17 +76,21 @@ $(function(){
    let designDisplayEl = document.getElementById('design-display');
    let uploadButtonEl = document.getElementById('upload-button');
    // let imageInputEl = document.querySelector('input[type="file"]');
-   let imageInputEl = document.getElementById('image-input');
+   // let imageInputEl = document.getElementById('image-input');
+   let idDocumentEl = document.getElementById('id_document');
 
    // activates the real image upload button
    // when the styledized button is clicked
    uploadButtonEl.addEventListener('click', function(){
-      imageInputEl.click();
+      idDocumentEl.click();
+      // idDocumentEl.click();
    }, false);
    // use file search to upload image
-   imageInputEl.addEventListener('change', function(e){
+   idDocumentEl.addEventListener('change', function(e){
       imageHandling(e);
    }, false);
+
+
    // uses drag and drop to upload image
    document.body.addEventListener('drop', function(e){
       imageHandling(e);
@@ -113,39 +106,29 @@ $(function(){
          return function(e) {
             // uploads images in target area
             designDisplayEl.setAttribute('src', e.target.result);
+            getFormValues();
          };
       })(imageFile), false);
       reader.readAsDataURL(imageFile);
    }
-
    // end of image uploads
 
-   // DISPLAY TEST IMAGE SECTION
-   // let defaultThumbnailEl = document.getElementById('default-thumbnail');
-   // defaultThumbnailEl.addEventListener('click', function(el) {
-   //    let imgEl = defaultThumbnailEl.firstElementChild;
-   //    let imgElAttr = imgEl.getAttribute('src');
-   //    // console.log(imgEl);
-   //    // console.log(imgElAttr);
-   //    // console.log(defaultThumbnailEl.firstElementChild);
-   //    designDisplayEl.setAttribute('src', imgElAttr);
-   // });
-
+   // DEFAULT IMAGES =====================
    let defaultThumbnailsEl = document.querySelectorAll('.default-image');
 
    defaultThumbnailsEl.forEach( function(el) {
-      console.log(el);
+      // console.log(el);
       el.addEventListener('click', function(e) {
          let imgEl = el.firstElementChild;
-         console.log(imgEl);
+         // console.log(imgEl);
          let imgElAttr = imgEl.getAttribute('src');
-         console.log(imgElAttr);
+         // console.log(imgElAttr);
          // console.log(imgElAttr);
          // console.log(defaultThumbnailEl.firstElementChild);
-                  // e.stopPropagation();
+         // e.stopPropagation();
          designDisplayEl.setAttribute('src', imgElAttr);
       })
-   });
+   }); // end of default images
 
 
    // DRAGGABLE IMAGE =====================
@@ -176,6 +159,7 @@ $(function(){
       curPosition -= changeImgPos;
       $('#design-display').css({"left": curPosition});
       calcArtDimensions();
+      getFormValues();
    });
    $('#width-minus').on('click', function() {
       let curWidth = $('#design-display').width();
@@ -186,19 +170,17 @@ $(function(){
       curPosition += changeImgPos;
       $('#design-display').css({'left': curPosition});
       calcArtDimensions();
+      getFormValues();
    });
    // end of resizeable buttons controls for image
 
-   // IMAGE WIDTH AND HEIGHT CALCULATOR
+   // IMAGE WIDTH CALCULATOR =====================
    // Pertinent info on design data
-   console.log('NEW');
+   // console.log('NEW');
    console.log('ART FILE: ' + currentArtFileName);
    console.log('WIDTH: ' + $('#design-display').width());
    console.log('ART POS TOP: ' + $('#design-display').position().top);
    console.log('ART POS LEFT: ' + $('#design-display').position().left);
-   // console.log($('#design-display').position());
-   // console.log('HEIGHT: ' + $('#design-display').height());
-   // console.log($('#design-display').width());
    calcArtDimensions();
 
    // output the dimensions of the art size
@@ -213,14 +195,9 @@ $(function(){
       $('.current-width').text(`${widthInInches}"`);
       heightInInches = heightInInches.toFixed(2);
       $('.current-height').text(`${heightInInches}"`);
-      // console.log('NEW');
-      // console.log('ART FILE: ' + currentArtFileName);
-      // console.log('WIDTH: ' + widthInInches);
-      // console.log('ART POS TOP: ' + $('#design-display').position().top);
-      // console.log('ART POS LEFT: ' + $('#design-display').position().left);
    }
 
-   // adding custom text
+   // CUSTOM TEXT FEATURE =====================
    $('#custom-text').keyup(function() {
       // console.log($('#font-value').text());
       let currentText = $('#custom-text').val();
@@ -275,25 +252,40 @@ $(function(){
    });
    // end of resizeable buttons controls for images
 
-   // galleryCalc();
-   //
-   // function galleryCalc() {
-   //    console.log('NEW');
-   //    console.log('ART FILE: ' + $('.gallery-display').attr('src'));
-   //    console.log('WIDTH: ' + $('.gallery-display').width());
-   //    console.log('ART POS TOP: ' + $('.gallery-display').position().top);
-   //    console.log('ART POS LEFT: ' + $('.gallery-display').position().left);
-   //    let galleryArtWidth = $('.gallery-art-width').text();
-   //    let galleryArtPosTop = $(".gallery-art-pos-top").text();
-   //    let galleryArtPosLeft = $(".gallery-art-pos-left").text();
-   //    console.log(galleryArtWidth);
-   //    galleryArtPosTop = parseInt(galleryArtPosTop);
-   //    galleryArtPosLeft = parseInt(galleryArtPosLeft);
-   //    console.log(galleryArtPosTop);
-   //    console.log(galleryArtPosLeft);
-   //    $('.gallery-display').width(galleryArtWidth);
-   //    $('.gallery-display').css('top', galleryArtPosTop);
-   //    $('.gallery-display').css('left', galleryArtPosLeft);
-   // }
+   // OBTAINING FORM DATA =====================
+   // updating form values
+   getFormValues();
+
+   // EDIT FOR WHEN SAVE BUTTON IS CLICKED
+   function getFormValues() {
+      // Art Size Width Field
+      let curArtWidth = $('#design-display').width();
+      curArtWidth = parseInt(curArtWidth);
+      curArtWidth.toFixed();
+      $('#id_artWidth').val(parseInt(curArtWidth));
+      let formArtWidth = $('#id_artWidth').val();
+      formArtWidth = parseInt(formArtWidth);
+      // console.log(jQuery.type(formArtWidth));
+      // console.log(formArtWidth);
+
+      // Art Pos Top
+      let curArtPosTop = $('#design-display').position().top;
+      curArtPosTop = parseInt(curArtPosTop);
+      curArtPosTop.toFixed();
+      $('#id_artPosTop').val(curArtPosTop);
+      let formArtPosTop = $('#id_artPosTop').val();
+      formArtPosTop = parseInt(formArtPosTop);
+      console.log(formArtPosTop);
+
+      // Art Pos Left
+      let curArtPosLeft = $('#design-display').position().left;
+      curArtPosLeft = parseInt(curArtPosLeft);
+      curArtPosLeft.toFixed();
+      $('#id_artPosLeft').val(curArtPosLeft);
+      let formArtPosLeft = $('#id_artPosLeft').val();
+      formArtPosLeft = parseInt(formArtPosLeft);
+      console.log(formArtPosLeft);
+   }
+$('#design-display').position().left
 
 }); // end of document.ready

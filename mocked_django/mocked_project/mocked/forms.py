@@ -50,19 +50,19 @@ class DesignForm(forms.ModelForm):
     artWidth = forms.IntegerField(
             widget=forms.HiddenInput(
                 attrs={
-                'value': '32'
+                'value': 0
                 }
             ))
     artPosTop = forms.IntegerField(
             widget=forms.HiddenInput(
                 attrs={
-                'value': '374'
+                'value': 0
                 }
             ))
     artPosLeft = forms.IntegerField(
             widget=forms.HiddenInput(
                 attrs={
-                'value': '9'
+                'value': 0
                 }
             ))
 
