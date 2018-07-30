@@ -45,27 +45,68 @@ class DesignForm(forms.ModelForm):
             ))
 
     document = forms.ImageField(
+            required = False,
             widget=forms.ClearableFileInput())
 
     artWidth = forms.IntegerField(
+            required = False,
             widget=forms.HiddenInput(
                 attrs={
                 'value': 0
                 }
             ))
     artPosTop = forms.IntegerField(
+            required = False,
             widget=forms.HiddenInput(
                 attrs={
                 'value': 0
                 }
             ))
     artPosLeft = forms.IntegerField(
+            required = False,
             widget=forms.HiddenInput(
                 attrs={
                 'value': 0
                 }
             ))
 
+    text = forms.CharField(
+            max_length=255,
+            required = False,
+            widget=forms.TextInput(
+                attrs={
+                'class': 'custom-text',
+                'placeholder': 'Add Your Text Here',
+                'value': ''
+                }
+            ))
+    textFont = forms.CharField(
+            required = False,
+            max_length=255,
+            widget=forms.TextInput(),
+            )
+    textSize = forms.IntegerField(
+            required = False,
+            widget=forms.NumberInput(),
+            )
+    textWidth = forms.IntegerField(
+            required = False,
+            widget=forms.NumberInput(),
+            )
+    textPosTop = forms.IntegerField(
+            required = False,
+            widget=forms.NumberInput(
+                attrs={
+                'value': 0
+                }
+            ))
+    textPosLeft = forms.IntegerField(
+            required = False,
+            widget=forms.NumberInput(
+                attrs={
+                'value': 0
+                }
+            ))
 
     class Meta:
         model = Design
@@ -76,12 +117,12 @@ class DesignForm(forms.ModelForm):
                  'artWidth',
                  'artPosTop',
                  'artPosLeft',
-                 # 'text',
-                 # 'textFont',
-                 # 'textSize',
+                 'text',
+                 'textFont',
+                 'textSize',
                  # 'textWidth',
-                 # 'textPosTop',
-                 # 'textPosLeft',
+                 'textPosTop',
+                 'textPosLeft',
                  'title',
                  )
 

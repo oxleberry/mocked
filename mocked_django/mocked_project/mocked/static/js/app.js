@@ -117,7 +117,6 @@ $(function(){
    let defaultThumbnailsEl = document.querySelectorAll('.default-image');
 
    defaultThumbnailsEl.forEach( function(el) {
-      // console.log(el);
       el.addEventListener('click', function(e) {
          let imgEl = el.firstElementChild;
          // console.log(imgEl);
@@ -140,9 +139,6 @@ $(function(){
    const changeSize = 12;
    const changeImgPos = 6;
    const changeTextPos = 12;
-   // let layoutWidth;
-   // let layoutArtPosTop;
-   // let layoutArtPosLeft;
 
    // console.log('Postion TOP: ' + $('#design-display').position().top);
    // console.log('Postion LEFT: ' + $('#design-display').position().left);
@@ -198,10 +194,10 @@ $(function(){
    }
 
    // CUSTOM TEXT FEATURE =====================
-   $('#custom-text').keyup(function() {
+   $('#id_text').keyup(function() {
       // console.log($('#font-value').text());
-      let currentText = $('#custom-text').val();
-      console.log(currentText);
+      let currentText = $('#id_text').val();
+      // console.log(currentText);
       // let currentFont = $('#font-value').text();
       $('#text-display').text(currentText);
       // $('#text-display').css({'font-family': currentFont});
@@ -254,9 +250,11 @@ $(function(){
 
    // OBTAINING FORM DATA =====================
    // updating form values
-   getFormValues();
+   $('#form_save').on('mousedown', function(e) {
+      getFormValues();
+      console.log("SAVING");
+   })
 
-   // EDIT FOR WHEN SAVE BUTTON IS CLICKED
    function getFormValues() {
       // Art Size Width Field
       let curArtWidth = $('#design-display').width();
@@ -275,7 +273,7 @@ $(function(){
       $('#id_artPosTop').val(curArtPosTop);
       let formArtPosTop = $('#id_artPosTop').val();
       formArtPosTop = parseInt(formArtPosTop);
-      console.log(formArtPosTop);
+      // console.log(formArtPosTop);
 
       // Art Pos Left
       let curArtPosLeft = $('#design-display').position().left;
@@ -284,8 +282,52 @@ $(function(){
       $('#id_artPosLeft').val(curArtPosLeft);
       let formArtPosLeft = $('#id_artPosLeft').val();
       formArtPosLeft = parseInt(formArtPosLeft);
-      console.log(formArtPosLeft);
+      // console.log(formArtPosLeft);
+
+      // Custom Text
+      // let curText = $('#id_text').val();
+      // $('#id_text').val(curText);
+      // console.log($('#id_text').val());
+
+      // Text Font
+      let curTextFont = $('#font-value').text();
+      $('#id_textFont').val(curTextFont);
+      console.log($('#id_textFont').val());
+
+      // Text Font Size
+      let curTextSize = $('#text-display').css('font-size');
+      let removePxLength = curTextSize.length - 2;
+      curTextSize = curTextSize.slice(0,removePxLength);
+      curTextSize = parseInt(curTextSize);
+      // console.log(curTextSize);
+      $('#id_textSize').val(curTextSize);
+      console.log($('#id_textSize').val());
+
+      // Text Width (May Not Need)
+      // let curTextWidth = $('#text-display').width();
+      // curTextWidth = parseInt(curTextWidth);
+      // curTextWidth.toFixed();
+      // $('#id_textWidth').val(parseInt(curTextWidth));
+
+      // Text Pos Top
+      let curTextPosTop = $('#text-display').position().top;
+      curTextPosTop = parseInt(curTextPosTop);
+      curTextPosTop.toFixed();
+      $('#id_textPosTop').val(curTextPosTop);
+      let formTextPosTop = $('#id_textPosTop').val();
+      formTextPosTop = parseInt(formTextPosTop);
+      console.log(formTextPosTop);
+
+      // Text Pos Left
+      let curTextPosLeft = $('#text-display').position().left;
+      curTextPosLeft = parseInt(curTextPosLeft);
+      curTextPosLeft.toFixed();
+      $('#id_textPosLeft').val(curTextPosLeft);
+      let formTextPosLeft = $('#id_textPosLeft').val();
+      formTextPosLeft = parseInt(formTextPosLeft);
+      console.log(formTextPosLeft);
+
    }
-$('#design-display').position().left
+
 
 }); // end of document.ready

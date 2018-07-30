@@ -21,7 +21,7 @@ urlpatterns = [
     path('design/', views.design, name='design'),
     path('create/', views.create, name='create'),
     path('created_design/', views.created_design, name='created_design'),
-    path('design_form/', views.design_form, name='design_form'),
+    # path('design_form/', views.design_form, name='design_form'),
     # path('designs/new', views.design_create, name='design_create'),
 
 ]

@@ -10,6 +10,7 @@
    <div>
       <section class="flex-column">
          <h4 class="gallery-title">{{ design.title }}</h4>
+         <!-- <p>by {{ design.user }}</p>          -->
       <section class="shirt-container gallery-space">
          <div class="current-tee">
             <img class="tee" src={% static "images/mens-tee-front-black.png" %} />
@@ -17,8 +18,9 @@
          <div class="current-design">
             <div class="print-area design-target">
                   <img class="gallery-display" src="http://localhost:8000/media/{{ design.document }}" />
-
                   <!-- <img class="gallery-display" src="{{ user.design.document.url }}" /> -->
+
+                  <p class="gallery-text-display"></p>
 
             </div>
          </div>
@@ -33,16 +35,22 @@
 
 
    <section class="gallery-info-container">
-      <h4 class="gallery-title">hello {{ design.user }}</h4>
+      <h4 class="gallery-title">{{ design.user }}</h4>
       <h4 class="gallery-title">{{ design.title }}</h4>
       <h4 class="gallery-title">{{ design.shirtStyle }}</h4>
       <h4 class="gallery-title">{{ design.shirtPlacement }}</h4>
       <h4 class="gallery-title">{{ design.shirtColor }}</h4>
-      <h4 class="gallery-title">{{ design.document }}</h4>
+      <h4 class="gallery-title gallery-document">{{ design.document }}</h4>
       <h4 class="gallery-title gallery-art-width">{{ design.artWidth }}</h4>
       <h4 class="gallery-title gallery-art-pos-top">{{ design.artPosTop }}</h4>
       <h4 class="gallery-title gallery-art-pos-left">{{ design.artPosLeft }}</h4>
-      <!-- <h4 class="gallery-title">{{ design.text }}</h4> -->
+      <h4 class="gallery-title gallery-text">{{ design.text }}</h4>
+      <h4 class="gallery-title gallery-text-font">{{ design.textFont }}</h4>
+      <h4 class="gallery-title gallery-text-size">{{ design.textSize }}</h4>
+      <!-- <h4 class="gallery-title gallery-text-width">{{ design.textWidth }}</h4> -->
+      <h4 class="gallery-title gallery-text-pos-top">{{ design.textPosTop }}</h4>
+      <h4 class="gallery-title gallery-text-pos-left">{{ design.textPosLeft }}</h4>
+
    </section>
       {% endfor %}
 </main>

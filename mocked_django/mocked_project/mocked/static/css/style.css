@@ -361,7 +361,6 @@ input[type="color" i] {
    left: 66.6875px;
    /* width: 58%; */
    position: inherit;
-   font-size: 3em;
    margin: -24px 0;
    font-family: 'Lobster', sans-serif;
 }
@@ -396,6 +395,15 @@ input[type="color" i] {
    width: 150px;
    left: 54px;
    top: 50px;
+}
+
+.gallery-text-display {
+   /* font-size: 3em; */
+   color: #e64a4b;
+   /* left: 66.6875px; */
+   position: inherit;
+   margin: -24px 0;
+   /* font-family: 'Lobster', sans-serif; */
 }
 
 .gallery-info-container {
@@ -711,6 +719,10 @@ footer p {
 
    main {
       height: auto;
+   }
+
+   .welcome-info-container {
+      max-width: 100%;
    }
 
 }

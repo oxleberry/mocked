@@ -28,8 +28,8 @@ def design(request):
     designs = Design.objects.all()
     return render(request, 'mocked/design.html', {'designs': designs})
 
-def create(request):
-    return render(request, 'mocked/create.html')
+# def create(request):
+#     return render(request, 'mocked/create.html')
 
 
 # Design SHOW
@@ -39,7 +39,7 @@ def created_design(request, pk):
 
 # Create a new design
 @login_required
-def design_form(request):
+def create(request):
     designs = Design.objects.all()
     if request.method == 'POST':
         form = DesignForm(request.POST, request.FILES)
@@ -58,7 +58,7 @@ def design_form(request):
             return render(request, 'mocked/design_list.html', {'designs': designs})
     else:
         form = DesignForm()
-    return render(request, 'mocked/design_form.html', {'form': form})
+    return render(request, 'mocked/create.html', {'form': form})
 
 
 def login_user(request):

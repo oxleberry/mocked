@@ -7,16 +7,20 @@ $(function(){
 
    function galleryData() {
 
-      // console.log('ART FILE: ' + $('.gallery-display').eq(0).attr('src'));
-
-      // console.log('WIDTH: ' + $('.gallery-art-width').eq(0).text());
-      // console.log('ART POS TOP: ' + $(".gallery-art-pos-top").eq(0).text());
-      // console.log('ART POS LEFT: ' + $(".gallery-art-pos-left").eq(0).text();
-
       $('.gallery-display').each(function(idx, el){
          // console.log('ART FILESSS: ' + $(this).attr('src'));
          // console.log(idx);
          // console.log(el);
+
+         let galleryDocument = $('.gallery-document').eq(idx).text();
+         console.log(galleryDocument);
+
+         if (galleryDocument === ''){
+            $(this).attr('src','');
+         } else {
+            $(this).attr('src',`http://localhost:8000/media/${galleryDocument}`);
+         }
+
          let galleryArtWidth = $('.gallery-art-width').eq(idx).text();
          galleryArtWidth = parseInt(galleryArtWidth);
          // console.log(galleryArtWidth);
@@ -30,36 +34,46 @@ $(function(){
          let galleryArtPosLeft = $('.gallery-art-pos-left').eq(idx).text();
          galleryArtPosLeft = parseInt(galleryArtPosLeft);
          $(this).css('left', galleryArtPosLeft);
+      })
 
+      $('.gallery-text-display').each(function(idx, el){
+         // console.log('ART FILESSS: ' + $(this).attr('src'));
+         // console.log(idx);
+         // console.log(el);
+
+         // if available, shows text input
+         let galleryText = $('.gallery-text').eq(idx).text();
+         console.log(galleryText);
+         if (galleryText === 'None'){
+            $(this).text('');
+         } else {
+            $(this).text(galleryText);
+         }
+
+         let galleryTextFont = $('.gallery-text-font').eq(idx).text();
+         // console.log(galleryTextFont);
+         // console.log(jQuery.type(galleryTextFont));
+         $(this).css({'font-family': galleryTextFont});
+
+         let galleryTextSize = $('.gallery-text-size').eq(idx).text();
+         // console.log(galleryTextSize);
+         // console.log(jQuery.type(galleryTextSize));
+         $(this).css({'font-size': `${galleryTextSize}px`});
+
+         let galleryTextPosTop = $('.gallery-text-pos-top').eq(idx).text();
+         galleryTextPosTop = parseInt(galleryTextPosTop);
+         // console.log(galleryTextPosTop);
+         // console.log(jQuery.type(galleryTextPosTop));
+         $(this).css('top', galleryTextPosTop);
+
+         let galleryTextPosLeft = $('.gallery-text-pos-left').eq(idx).text();
+         galleryTextPosLeft = parseInt(galleryTextPosLeft);
+         console.log(galleryTextPosLeft);
+         console.log(jQuery.type(galleryTextPosLeft));
+         $(this).css('left', galleryTextPosLeft);
 
       })
 
-      // let galleryArtWidth = $('.gallery-art-width').eq(0).text();
-      // galleryArtWidth = parseInt(galleryArtWidth);
-      // console.log(galleryArtWidth);
-      // console.log(jQuery.type(galleryArtWidth));
-      //
-      // let galleryArtPosTop = $(".gallery-art-pos-top").eq(0).text();
-      // galleryArtPosTop = parseInt(galleryArtPosTop);
-      // console.log(galleryArtPosTop);
-      // console.log(jQuery.type(galleryArtPosTop));
-      //
-      // let galleryArtPosLeft = $(".gallery-art-pos-left").eq(0).text();
-      // galleryArtPosLeft = parseInt(galleryArtPosLeft);
-      // console.log(galleryArtPosLeft);
-      // console.log(jQuery.type(galleryArtPosLeft));
-
-      // $('.gallery-display').eq(0).width(galleryArtWidth)
-      // $('.gallery-display').eq(0).css('top', galleryArtPosTop)
-      // $('.gallery-display').eq(0).css('left', galleryArtPosLeft)
-      //
-      // $('.gallery-display').eq(1).width(186)
-      // $('.gallery-display').eq(1).css('top', 22)
-      // $('.gallery-display').eq(1).css('left', 34)
-      //
-      // $('.gallery-display').eq(2).width(68)
-      // $('.gallery-display').eq(2).css('top', 51)
-      // $('.gallery-display').eq(2).css('left', 141)
 
    }
 
