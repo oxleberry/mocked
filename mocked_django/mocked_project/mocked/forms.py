@@ -83,26 +83,26 @@ class DesignForm(forms.ModelForm):
     textFont = forms.CharField(
             required = False,
             max_length=255,
-            widget=forms.TextInput(),
+            widget=forms.HiddenInput(),
             )
     textSize = forms.IntegerField(
             required = False,
-            widget=forms.NumberInput(),
+            widget=forms.HiddenInput(),
             )
     textWidth = forms.IntegerField(
             required = False,
-            widget=forms.NumberInput(),
+            widget=forms.HiddenInput(),
             )
     textPosTop = forms.IntegerField(
             required = False,
-            widget=forms.NumberInput(
+            widget=forms.HiddenInput(
                 attrs={
                 'value': 0
                 }
             ))
     textPosLeft = forms.IntegerField(
             required = False,
-            widget=forms.NumberInput(
+            widget=forms.HiddenInput(
                 attrs={
                 'value': 0
                 }
@@ -125,16 +125,3 @@ class DesignForm(forms.ModelForm):
                  'textPosLeft',
                  'title',
                  )
-
-    # def clean(self):
-    #     cleaned_data = super(DesignForm, self).clean()
-    #     title = cleaned_data.get('title')
-    #     shirtStyle = cleaned_data.get('shirtStyle')
-    #     shirtPlacement = cleaned_data.get('shirtPlacement')
-    #     shirtColor = cleaned_data.get('shirtColor')
-    #     document = cleaned_data.get('document')
-    #     artWidth = cleaned_data.get('artWidth')
-    #     artPosTop = cleaned_data.get('artPosTop')
-    #     artPosLeft = cleaned_data.get('artPosLeft')
-    #     if not title and not shirtStyle and not shirtPlacement:
-    #         raise forms.ValidationError('You have to write something!')

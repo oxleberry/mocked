@@ -712,7 +712,7 @@ footer p {
 
 /* MAIN MEDIA QUERIES ====================== */
 
-@media screen and (max-width: 850px){
+/* @media screen and (max-width: 950px){
    main.flex-row {
       flex-direction: column;
    }
@@ -724,5 +724,31 @@ footer p {
    .welcome-info-container {
       max-width: 100%;
    }
+
+} */
+
+
+/* MAIN MEDIA QUERIES ====================== */
+
+@media screen and (max-width: 1000px){
+
+   main.flex-row {
+      flex-direction: column;
+   }
+
+   main {
+      height: auto;
+      padding: 0;
+      margin: 0;
+   }
+
+   .welcome {
+      padding: 1em 1em;
+   }
+
+   .welcome-info-container {
+      max-width: 100%;
+   }
+
 
 }
