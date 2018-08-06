@@ -13,7 +13,7 @@
    <!-- Google TEE Fonts  -->
    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Jaldi|Lobster|Monoton" rel="stylesheet">
    <!-- Font Awesome CDN -->
-   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
    <!-- jQuery files -->
    <script src="https://code.jquery.com/jquery-3.3.1.min.js" defer></script>
    <!-- jQueryUI -->
@@ -53,10 +53,6 @@
          </div>
          <div class="current-design">
             <div id="design-target" class="print-area">
-               <!-- <div class="image-resize-container"> -->
-                  <!-- <img id="design-display" class="upload-art" src="" /> -->
-                  <!-- <img id="design-display" src={% static "images/geo-flower.png" %} /> -->
-                  <!-- <img id="design-display" src="images/geo-flower.png" /> -->
                   <img id="design-display" src="" />
                   <p id="text-display"></p>
                <!-- </div> -->
@@ -69,7 +65,7 @@
       <section class="info-container">
 
       <!-- GARMENT STYLE -->
-         <section class="garment">
+         <section id="garment-control" class="garment mobile-info-display">
             <h3>Garment Options</h3>
             <div class="flex-row">
                <div class="flex-row">
@@ -136,7 +132,7 @@
          <!-- end of garment section  -->
 
          <!-- IMAGE SECTION -->
-         <section class="image-container">
+         <section id="image-control" class="image-container mobile-info-display">
             <div class="flex-row-between">
                <h3>Image Options</h3>
                <p class="image-instr">Useable art files: <br />
@@ -159,7 +155,7 @@
          </section>
 
          <!-- TEXT SECTION -->
-         <section class="text-design">
+         <section id="text-control" class="text-design mobile-info-display">
             <!-- TEXT FONT SECTION -->
             <h3>Text Options</h3>
             <input id="custom-text" class="custom-text" type="text" placeholder="Add Your Text Here" />
@@ -222,7 +218,7 @@
          <!-- end of text Section  -->
 
          <!-- DEFAULT IMAGE SECTION -->
-         <section class="default-container">
+         <section id="default-control" class="default-container mobile-info-display">
             <p class="image-instr">Don't have an image ready? Use one of ours.</p>
             <button type="button" class="default-image">
                <img src="images/geo-flower.png" />
@@ -250,6 +246,27 @@
 
       </section>
       <!-- end of info Container  -->
+
+      <section class="flex-row mobile-controls">
+         <div id="mb-garment" class="mobile-icon">
+            <i class="fas fa-tshirt"></i>
+         </div>
+
+         <div id="mb-image" class="mobile-icon">
+            <i class="fas fa-file-image"></i>
+         </div>
+
+         <div id="mb-text" class="mobile-icon">
+            <i class="fas fa-font"></i>
+         </div>
+
+         <div id="mb-default" class="mobile-icon">
+            <i class="fas fa-question"></i>
+         </div>
+
+      </section>
+
+
    </main>
 
 

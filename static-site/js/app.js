@@ -1,14 +1,4 @@
-//
-// const textFonts = {
-//    anton: 'Anton',
-//    monoton: 'Monoton',
-//    cabinSketch: 'Cabin Sketch',
-//    juliusSansOne: 'Julius Sans One',
-//    bungeeInline: 'Bungee Inline',
-//    lobster: 'Lobster'
-// }
 
-// let currentArtFileName;
 
 $(function(){
    console.log('STATIC Sanity Check');
@@ -117,19 +107,7 @@ $(function(){
       })(imageFile), false);
       reader.readAsDataURL(imageFile);
    }
-
    // end of image uploads
-
-   // DISPLAY TEST IMAGE SECTION
-   // let defaultThumbnailEl = document.getElementById('default-thumbnail');
-   // defaultThumbnailEl.addEventListener('click', function(el) {
-   //    let imgEl = defaultThumbnailEl.firstElementChild;
-   //    let imgElAttr = imgEl.getAttribute('src');
-   //    // console.log(imgEl);
-   //    // console.log(imgElAttr);
-   //    // console.log(defaultThumbnailEl.firstElementChild);
-   //    designDisplayEl.setAttribute('src', imgElAttr);
-   // });
 
    let defaultThumbnailsEl = document.querySelectorAll('.default-image');
 
@@ -157,15 +135,6 @@ $(function(){
    const changeSize = 12;
    const changeImgPos = 6;
    const changeTextPos = 12;
-   // let layoutWidth;
-   // let layoutArtPosTop;
-   // let layoutArtPosLeft;
-
-   // console.log('Postion TOP: ' + $('#design-display').position().top);
-   // console.log('Postion LEFT: ' + $('#design-display').position().left);
-   // console.log($('#design-display').position());
-   // console.log('WIDTH: ' + $('#design-display').width());
-   // console.log($('#design-display').width());
 
    $('#width-plus').on('click', function() {
       let curWidth = $('#design-display').width();
@@ -213,11 +182,6 @@ $(function(){
       $('.current-width').text(`${widthInInches}"`);
       heightInInches = heightInInches.toFixed(2);
       $('.current-height').text(`${heightInInches}"`);
-      // console.log('NEW');
-      // console.log('ART FILE: ' + currentArtFileName);
-      // console.log('WIDTH: ' + widthInInches);
-      // console.log('ART POS TOP: ' + $('#design-display').position().top);
-      // console.log('ART POS LEFT: ' + $('#design-display').position().left);
    }
 
    // adding custom text
@@ -275,25 +239,32 @@ $(function(){
    });
    // end of resizeable buttons controls for images
 
-   // galleryCalc();
-   //
-   // function galleryCalc() {
-   //    console.log('NEW');
-   //    console.log('ART FILE: ' + $('.gallery-display').attr('src'));
-   //    console.log('WIDTH: ' + $('.gallery-display').width());
-   //    console.log('ART POS TOP: ' + $('.gallery-display').position().top);
-   //    console.log('ART POS LEFT: ' + $('.gallery-display').position().left);
-   //    let galleryArtWidth = $('.gallery-art-width').text();
-   //    let galleryArtPosTop = $(".gallery-art-pos-top").text();
-   //    let galleryArtPosLeft = $(".gallery-art-pos-left").text();
-   //    console.log(galleryArtWidth);
-   //    galleryArtPosTop = parseInt(galleryArtPosTop);
-   //    galleryArtPosLeft = parseInt(galleryArtPosLeft);
-   //    console.log(galleryArtPosTop);
-   //    console.log(galleryArtPosLeft);
-   //    $('.gallery-display').width(galleryArtWidth);
-   //    $('.gallery-display').css('top', galleryArtPosTop);
-   //    $('.gallery-display').css('left', galleryArtPosLeft);
-   // }
+   // Mobile Controls
+
+   $('#mb-garment').on('click', function() {
+      $('#garment-control').slideToggle();
+      $('#image-control').slideUp();
+      $('#text-control').slideUp();
+      $('#default-control').slideUp();
+   });
+   $('#mb-image').on('click', function() {
+      $('#image-control').slideToggle();
+      $('#garment-control').slideUp();
+      $('#text-control').slideUp();
+      $('#default-control').slideUp();
+   });
+   $('#mb-text').on('click', function() {
+      $('#text-control').slideToggle();
+      $('#garment-control').slideUp();
+      $('#image-control').slideUp();
+      $('#default-control').slideUp();
+   });
+   $('#mb-default').on('click', function() {
+      $('#default-control').slideToggle();
+      $('#garment-control').slideUp();
+      $('#image-control').slideUp();
+      $('#text-control').slideUp();
+   });
+
 
 }); // end of document.ready
