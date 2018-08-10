@@ -132,18 +132,20 @@ $(function(){
    // end of draggable images
 
    // RESIZE IMAGE BUTTON CONTROLS =====================
-   const changeSize = 12;
-   const changeImgPos = 6;
-   const changeTextPos = 12;
+   const changeSize = 6;
+   const changeImgPos = 3;
+   const changeTextPos = 6;
+   // let imagePositionX = $('#design-display').position().left;
+   // let imagePositionY = $('#design-display').position().top;
 
    $('#width-plus').on('click', function() {
       let curWidth = $('#design-display').width();
       curWidth += changeSize;
       $('#design-display').width(`${curWidth}px`);
 
-      let curPosition = $('#design-display').position().left;
-      curPosition -= changeImgPos;
-      $('#design-display').css({"left": curPosition});
+      let imagePositionX = $('#design-display').position().left;
+      imagePositionX -= changeImgPos;
+      $('#design-display').css({"left": imagePositionX});
       calcArtDimensions();
    });
    $('#width-minus').on('click', function() {
@@ -151,28 +153,24 @@ $(function(){
       curWidth -= changeSize;
       $('#design-display').width(`${curWidth}px`);
 
-      let curPosition = $('#design-display').position().left;
-      curPosition += changeImgPos;
-      $('#design-display').css({'left': curPosition});
+      let imagePositionX = $('#design-display').position().left;
+      imagePositionX += changeImgPos;
+      $('#design-display').css({'left': imagePositionX});
       calcArtDimensions();
    });
    // end of resizeable buttons controls for image
 
    // IMAGE WIDTH AND HEIGHT CALCULATOR
    // Pertinent info on design data
-   console.log('NEW');
-   console.log('ART FILE: ' + currentArtFileName);
-   console.log('WIDTH: ' + $('#design-display').width());
-   console.log('ART POS TOP: ' + $('#design-display').position().top);
-   console.log('ART POS LEFT: ' + $('#design-display').position().left);
-   // console.log($('#design-display').position());
-   // console.log('HEIGHT: ' + $('#design-display').height());
-   // console.log($('#design-display').width());
+   // console.log('NEW');
+   // console.log('ART FILE: ' + currentArtFileName);
+   // console.log('WIDTH: ' + $('#design-display').width());
+   // console.log('ART POS TOP: ' + $('#design-display').position().top);
+   // console.log('ART POS LEFT: ' + $('#design-display').position().left);
    calcArtDimensions();
 
    // output the dimensions of the art size
    function calcArtDimensions() {
-      // const rulerConverter = 17.456666;
       const rulerConverter = 16;
       let curWidth = $('#design-display').width();
       let curHeight = $('#design-display').height();
@@ -186,13 +184,9 @@ $(function(){
 
    // adding custom text
    $('#custom-text').keyup(function() {
-      // console.log($('#font-value').text());
       let currentText = $('#custom-text').val();
       console.log(currentText);
-      // let currentFont = $('#font-value').text();
       $('#text-display').text(currentText);
-      // $('#text-display').css({'font-family': currentFont});
-      // $('#text-display').css(currentText);
    });
 
    // adding custom font
@@ -211,60 +205,158 @@ $(function(){
 
 
 
+
    // RESIZE TEXT BUTTON CONTROLS =====================
-   $('#text-plus').on('click', function() {
+
+   function increaseTextSize() {
       let curfontSize = $('#text-display').css('font-size');
       let removePxLength = curfontSize.length - 2;
       curfontSize = curfontSize.slice(0,removePxLength);
       curfontSize = parseInt(curfontSize);
       curfontSize += changeSize;
       $('#text-display').css({'font-size': `${curfontSize}px`});
+      let textPositionX = $('#text-display').position().left;
+      textPositionX -= changeTextPos;
+      $('#text-display').css({"left": textPositionX});
+   }
 
-      let curPosition = $('#text-display').position().left;
-      curPosition -= changeTextPos;
-      $('#text-display').css({"left": curPosition});
-   });
-
-   $('#text-minus').on('click', function() {
+   function decreaseTextSize() {
       let curfontSize = $('#text-display').css('font-size');
       let removePxLength = curfontSize.length - 2;
       curfontSize = curfontSize.slice(0,removePxLength);
       curfontSize = parseInt(curfontSize);
       curfontSize -= changeSize;
       $('#text-display').css({'font-size': `${curfontSize}px`});
+      let textPositionX = $('#text-display').position().left;
+      textPositionX += changeTextPos;
+      $('#text-display').css({"left": textPositionX});
+   }
 
-      let curPosition = $('#text-display').position().left;
-      curPosition += changeTextPos;
-      $('#text-display').css({"left": curPosition});
+   $('#text-plus').on('click', function() {
+      increaseTextSize();
+   });
+
+   $('#text-minus').on('click', function() {
+      decreaseTextSize();
    });
    // end of resizeable buttons controls for images
 
+
+
    // Mobile Controls
+   $('#mb-left').on('click', function() {
+      if (($('.mobile-icon .fa-file-image').hasClass('active-image')) ||
+         ($('.mobile-icon .fa-question').hasClass('active-image'))) {
+         let imagePositionX = $('#design-display').position().left;
+         imagePositionX -= changeImgPos;
+         $('#design-display').css({'left': imagePositionX});
+      } else if ($('.mobile-icon .fa-font').hasClass('active-image')) {
+         let textPositionX = $('#text-display').position().left;
+         textPositionX -= changeTextPos;
+         $('#text-display').css({"left": textPositionX});
+      }
+   });
+   $('#mb-right').on('click', function() {
+      if (($('.mobile-icon .fa-file-image').hasClass('active-image')) ||
+         ($('.mobile-icon .fa-question').hasClass('active-image'))) {
+         let imagePositionX = $('#design-display').position().left;
+         imagePositionX += changeImgPos;
+         $('#design-display').css({'left': imagePositionX });
+      } else if ($('.mobile-icon .fa-font').hasClass('active-image')) {
+         let textPositionX = $('#text-display').position().left;
+         textPositionX += changeTextPos;
+         $('#text-display').css({"left": textPositionX});
+      }
+   });
+   $('#mb-up').on('click', function() {
+      let imagePositionY = $('#design-display').position().top;
+      if (($('.mobile-icon .fa-file-image').hasClass('active-image')) ||
+         ($('.mobile-icon .fa-question').hasClass('active-image'))) {
+         imagePositionY -= changeImgPos;
+         $('#design-display').css({'top': imagePositionY });
+      } else if ($('.mobile-icon .fa-font').hasClass('active-image')) {
+         let textPositionY = $('#text-display').position().top;
+         textPositionY -= changeTextPos;
+         $('#text-display').css({"top": textPositionY});
+      }
+   });
+   $('#mb-down').on('click', function() {
+      let imagePositionY = $('#design-display').position().top;
+      if (($('.mobile-icon .fa-file-image').hasClass('active-image')) ||
+         ($('.mobile-icon .fa-question').hasClass('active-image'))) {
+         imagePositionY += changeImgPos;
+         $('#design-display').css({'top': imagePositionY });
+      } else if ($('.mobile-icon .fa-font').hasClass('active-image')) {
+         let textPositionY = $('#text-display').position().top;
+         textPositionY += changeTextPos;
+         $('#text-display').css({"top": textPositionY});
+      }
+   });
+
+   $('#mb-plus').on('click', function() {
+      if (($('.mobile-icon .fa-file-image').hasClass('active-image')) ||
+         ($('.mobile-icon .fa-question').hasClass('active-image'))) {
+         let curWidth = $('#design-display').width();
+         curWidth += changeSize;
+         $('#design-display').width(`${curWidth}px`);
+         let imagePositionX = $('#design-display').position().left;
+         imagePositionX -= changeImgPos;
+         $('#design-display').css({"left": imagePositionX});
+         calcArtDimensions();
+      } else if ($('.mobile-icon .fa-font').hasClass('active-image')) {
+         increaseTextSize();
+      }
+   });
+   $('#mb-minus').on('click', function() {
+      if (($('.mobile-icon .fa-file-image').hasClass('active-image')) ||
+         ($('.mobile-icon .fa-question').hasClass('active-image'))) {
+         let curWidth = $('#design-display').width();
+         curWidth -= changeSize;
+         $('#design-display').width(`${curWidth}px`);
+         let imagePositionX = $('#design-display').position().left;
+         imagePositionX += changeImgPos;
+         $('#design-display').css({'left': imagePositionX});
+         calcArtDimensions();
+      } else if ($('.mobile-icon .fa-font').hasClass('active-image')) {
+         decreaseTextSize();
+      }
+   });
+
 
    $('#mb-garment').on('click', function() {
       $('#garment-control').slideToggle();
-      $('#image-control').slideUp();
-      $('#text-control').slideUp();
-      $('#default-control').slideUp();
+      $('#image-control, #text-control, #default-control' ).slideUp();
+      $('.fa-tshirt').addClass('active-image');
+      $('.fa-file-image, .fa-font, .fa-question').removeClass('active-image');
+      $('.mobile-position').removeClass('show-position');
    });
    $('#mb-image').on('click', function() {
       $('#image-control').slideToggle();
-      $('#garment-control').slideUp();
-      $('#text-control').slideUp();
-      $('#default-control').slideUp();
+      $('#garment-control, #text-control, #default-control').slideUp();
+      $('.fa-file-image').addClass('active-image');
+      $('.fa-tshirt, .fa-font, .fa-question').removeClass('active-image');
+      $('.mobile-position').addClass('show-position');
    });
    $('#mb-text').on('click', function() {
       $('#text-control').slideToggle();
-      $('#garment-control').slideUp();
-      $('#image-control').slideUp();
-      $('#default-control').slideUp();
+      $('#garment-control, #image-control, #default-control').slideUp();
+      $('.fa-font').addClass('active-image');
+      $('.fa-tshirt, .fa-file-image, .fa-question').removeClass('active-image');
+      $('.mobile-position').addClass('show-position');
    });
    $('#mb-default').on('click', function() {
       $('#default-control').slideToggle();
-      $('#garment-control').slideUp();
-      $('#image-control').slideUp();
-      $('#text-control').slideUp();
+      $('#garment-control, #image-control, #text-control').slideUp();
+      $('.fa-question').addClass('active-image');
+      $('.fa-tshirt, .fa-file-image, .fa-font').removeClass('active-image');
+      $('.mobile-position').addClass('show-position');      
    });
+
+   $('.mobile-close').on('click', function() {
+      $('#garment-control, #image-control, #text-control, #default-control').slideUp();
+   });
+
+
 
 
 }); // end of document.ready

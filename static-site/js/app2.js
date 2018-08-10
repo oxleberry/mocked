@@ -1,7 +1,5 @@
 
 
-// FOR DATABASE CONNECTION
-
 $(function(){
    console.log('STATIC Sanity Check');
 
@@ -109,19 +107,7 @@ $(function(){
       })(imageFile), false);
       reader.readAsDataURL(imageFile);
    }
-
    // end of image uploads
-
-   // DISPLAY TEST IMAGE SECTION
-   // let defaultThumbnailEl = document.getElementById('default-thumbnail');
-   // defaultThumbnailEl.addEventListener('click', function(el) {
-   //    let imgEl = defaultThumbnailEl.firstElementChild;
-   //    let imgElAttr = imgEl.getAttribute('src');
-   //    // console.log(imgEl);
-   //    // console.log(imgElAttr);
-   //    // console.log(defaultThumbnailEl.firstElementChild);
-   //    designDisplayEl.setAttribute('src', imgElAttr);
-   // });
 
    let defaultThumbnailsEl = document.querySelectorAll('.default-image');
 
@@ -149,24 +135,17 @@ $(function(){
    const changeSize = 12;
    const changeImgPos = 6;
    const changeTextPos = 12;
-   // let layoutWidth;
-   // let layoutArtPosTop;
-   // let layoutArtPosLeft;
-
-   // console.log('Postion TOP: ' + $('#design-display').position().top);
-   // console.log('Postion LEFT: ' + $('#design-display').position().left);
-   // console.log($('#design-display').position());
-   // console.log('WIDTH: ' + $('#design-display').width());
-   // console.log($('#design-display').width());
+   let imagePositionX = $('#design-display').position().left;
+   // let imagePositionY = $('#design-display').position().top;
 
    $('#width-plus').on('click', function() {
       let curWidth = $('#design-display').width();
       curWidth += changeSize;
       $('#design-display').width(`${curWidth}px`);
 
-      let curPosition = $('#design-display').position().left;
-      curPosition -= changeImgPos;
-      $('#design-display').css({"left": curPosition});
+      // let imagePositionX = $('#design-display').position().left;
+      imagePositionX -= changeImgPos;
+      $('#design-display').css({"left": imagePositionX});
       calcArtDimensions();
    });
    $('#width-minus').on('click', function() {
@@ -174,12 +153,35 @@ $(function(){
       curWidth -= changeSize;
       $('#design-display').width(`${curWidth}px`);
 
-      let curPosition = $('#design-display').position().left;
-      curPosition += changeImgPos;
-      $('#design-display').css({'left': curPosition});
+      // let imagePositionX = $('#design-display').position().left;
+      imagePositionX += changeImgPos;
+      $('#design-display').css({'left': imagePositionX});
       calcArtDimensions();
    });
    // end of resizeable buttons controls for image
+
+   // MOBILE IMAGE BUTTON CONTROLS =====================
+
+
+
+   // $('#mb-left').on('click', function() {
+   //    imagePositionX -= changeImgPos;
+   //    $('#design-display').css({'left': imagePositionX });
+   // });
+   // $('#mb-right').on('click', function() {
+   //    imagePositionX += changeImgPos;
+   //    $('#design-display').css({'left': imagePositionX });
+   // });
+   // $('#mb-up').on('click', function() {
+   //    imagePositionY -= changeImgPos;
+   //    $('#design-display').css({'top': imagePositionY });
+   // });
+   // $('#mb-down').on('click', function() {
+   //    imagePositionY += changeImgPos;
+   //    $('#design-display').css({'top': imagePositionY });
+   // });
+
+
 
    // IMAGE WIDTH AND HEIGHT CALCULATOR
    // Pertinent info on design data
@@ -188,9 +190,6 @@ $(function(){
    console.log('WIDTH: ' + $('#design-display').width());
    console.log('ART POS TOP: ' + $('#design-display').position().top);
    console.log('ART POS LEFT: ' + $('#design-display').position().left);
-   // console.log($('#design-display').position());
-   // console.log('HEIGHT: ' + $('#design-display').height());
-   // console.log($('#design-display').width());
    calcArtDimensions();
 
    // output the dimensions of the art size
@@ -205,11 +204,6 @@ $(function(){
       $('.current-width').text(`${widthInInches}"`);
       heightInInches = heightInInches.toFixed(2);
       $('.current-height').text(`${heightInInches}"`);
-      // console.log('NEW');
-      // console.log('ART FILE: ' + currentArtFileName);
-      // console.log('WIDTH: ' + widthInInches);
-      // console.log('ART POS TOP: ' + $('#design-display').position().top);
-      // console.log('ART POS LEFT: ' + $('#design-display').position().left);
    }
 
    // adding custom text
@@ -267,25 +261,100 @@ $(function(){
    });
    // end of resizeable buttons controls for images
 
-   // galleryCalc();
-   //
-   // function galleryCalc() {
-   //    console.log('NEW');
-   //    console.log('ART FILE: ' + $('.gallery-display').attr('src'));
-   //    console.log('WIDTH: ' + $('.gallery-display').width());
-   //    console.log('ART POS TOP: ' + $('.gallery-display').position().top);
-   //    console.log('ART POS LEFT: ' + $('.gallery-display').position().left);
-   //    let galleryArtWidth = $('.gallery-art-width').text();
-   //    let galleryArtPosTop = $(".gallery-art-pos-top").text();
-   //    let galleryArtPosLeft = $(".gallery-art-pos-left").text();
-   //    console.log(galleryArtWidth);
-   //    galleryArtPosTop = parseInt(galleryArtPosTop);
-   //    galleryArtPosLeft = parseInt(galleryArtPosLeft);
-   //    console.log(galleryArtPosTop);
-   //    console.log(galleryArtPosLeft);
-   //    $('.gallery-display').width(galleryArtWidth);
-   //    $('.gallery-display').css('top', galleryArtPosTop);
-   //    $('.gallery-display').css('left', galleryArtPosLeft);
-   // }
+   // Mobile Controls
+
+   $('#mb-left').on('click', function() {
+      if (($('.mobile-icon .fa-file-image').hasClass('active-image')) ||
+         ($('.mobile-icon .fa-question').hasClass('active-image'))) {
+         imagePositionX -= changeImgPos;
+         $('#design-display').css({'left': imagePositionX });
+      } else if ($('.mobile-icon .fa-font').hasClass('active-image')) {
+         console.log("FONT");
+      }
+   });
+   $('#mb-right').on('click', function() {
+      if (($('.mobile-icon .fa-file-image').hasClass('active-image')) ||
+         ($('.mobile-icon .fa-question').hasClass('active-image'))) {
+         imagePositionX += changeImgPos;
+         $('#design-display').css({'left': imagePositionX });
+      } else if ($('.mobile-icon .fa-font').hasClass('active-image')) {
+         console.log("FONT");
+      }
+   });
+   $('#mb-up').on('click', function() {
+      let imagePositionY = $('#design-display').position().top;
+      if (($('.mobile-icon .fa-file-image').hasClass('active-image')) ||
+         ($('.mobile-icon .fa-question').hasClass('active-image'))) {
+         imagePositionY -= changeImgPos;
+         $('#design-display').css({'top': imagePositionY });
+      } else if ($('.mobile-icon .fa-font').hasClass('active-image')) {
+         console.log("FONT");
+      }
+   });
+   $('#mb-down').on('click', function() {
+      let imagePositionY = $('#design-display').position().top;
+      if (($('.mobile-icon .fa-file-image').hasClass('active-image')) ||
+         ($('.mobile-icon .fa-question').hasClass('active-image'))) {
+         imagePositionY += changeImgPos;
+         $('#design-display').css({'top': imagePositionY });
+      } else if ($('.mobile-icon .fa-font').hasClass('active-image')) {
+         console.log("FONT");
+      }
+   });
+
+   $('#mb-plus').on('click', function() {
+      if (($('.mobile-icon .fa-file-image').hasClass('active-image')) ||
+         ($('.mobile-icon .fa-question').hasClass('active-image'))) {
+         let curWidth = $('#design-display').width();
+         curWidth += changeSize;
+         $('#design-display').width(`${curWidth}px`);
+         imagePositionX -= changeImgPos;
+         $('#design-display').css({"left": imagePositionX});
+         calcArtDimensions();
+      } else if ($('.mobile-icon .fa-font').hasClass('active-image')) {
+         console.log("FONT");
+      }
+   });
+   $('#mb-minus').on('click', function() {
+      if (($('.mobile-icon .fa-file-image').hasClass('active-image')) ||
+         ($('.mobile-icon .fa-question').hasClass('active-image'))) {
+         let curWidth = $('#design-display').width();
+         curWidth -= changeSize;
+         $('#design-display').width(`${curWidth}px`);
+         imagePositionX += changeImgPos;
+         $('#design-display').css({'left': imagePositionX});
+         calcArtDimensions();
+      } else if ($('.mobile-icon .fa-font').hasClass('active-image')) {
+         console.log("FONT");
+      }
+   });
+
+
+   $('#mb-garment').on('click', function() {
+      $('#garment-control').slideToggle();
+      $('#image-control, #text-control, #default-control' ).slideUp();
+   });
+   $('#mb-image').on('click', function() {
+      $('#image-control').slideToggle();
+      $('#garment-control, #text-control, #default-control').slideUp();
+      $('.mobile-icon .fa-file-image').addClass('active-image');
+      $('.mobile-icon .fa-font').removeClass('active-image');
+      $('.mobile-icon .fa-question').removeClass('active-image');
+   });
+   $('#mb-text').on('click', function() {
+      $('#text-control').slideToggle();
+      $('#garment-control, #image-control, #default-control').slideUp();
+      $('.mobile-icon .fa-font').addClass('active-image');
+      $('.mobile-icon .fa-file-image').removeClass('active-image');
+      $('.mobile-icon .fa-question').removeClass('active-image');
+   });
+   $('#mb-default').on('click', function() {
+      $('#default-control').slideToggle();
+      $('#garment-control, #image-control, #text-control').slideUp();
+      $('.mobile-icon .fa-question').addClass('active-image');
+      $('.mobile-icon .fa-file-image').removeClass('active-image');
+      $('.mobile-icon .fa-font').removeClass('active-image');
+   });
+
 
 }); // end of document.ready
