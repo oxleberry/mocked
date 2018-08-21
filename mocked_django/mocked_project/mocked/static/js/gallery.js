@@ -8,7 +8,7 @@ $(function(){
    function galleryData() {
 
       $('.gallery-display').each(function(idx, el){
-         // console.log('ART FILESSS: ' + $(this).attr('src'));
+         // console.log('ART FILES: ' + $(this).attr('src'));
          // console.log(idx);
          // console.log(el);
 
@@ -37,7 +37,7 @@ $(function(){
       })
 
       $('.gallery-text-display').each(function(idx, el){
-         // console.log('ART FILESSS: ' + $(this).attr('src'));
+         // console.log('ART FILES: ' + $(this).attr('src'));
          // console.log(idx);
          // console.log(el);
 
@@ -56,14 +56,13 @@ $(function(){
          $(this).css({'font-family': galleryTextFont});
 
          let galleryTextSize = $('.gallery-text-size').eq(idx).text();
-         // console.log(galleryTextSize);
-         // console.log(jQuery.type(galleryTextSize));
          $(this).css({'font-size': `${galleryTextSize}px`});
+
+         let galleryTextColor = $('.gallery-text-color').eq(idx).text();
+         $(this).css({'color': `${galleryTextColor}`});
 
          let galleryTextPosTop = $('.gallery-text-pos-top').eq(idx).text();
          galleryTextPosTop = parseInt(galleryTextPosTop);
-         // console.log(galleryTextPosTop);
-         // console.log(jQuery.type(galleryTextPosTop));
          $(this).css('top', galleryTextPosTop);
 
          let galleryTextPosLeft = $('.gallery-text-pos-left').eq(idx).text();

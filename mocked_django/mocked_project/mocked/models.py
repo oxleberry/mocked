@@ -16,7 +16,7 @@ class Design(models.Model):
     text = models.CharField(max_length=255, blank=True, null=True)
     textFont = models.CharField(max_length=255, blank=True, null=True)
     textSize = models.IntegerField(blank=True, null=True)
-    textWidth = models.IntegerField(blank=True, null=True)
+    textColor = models.CharField(max_length=50, blank=True, null=True)
     textPosTop = models.IntegerField(blank=True, null=True)
     textPosLeft = models.IntegerField(blank=True, null=True)
 

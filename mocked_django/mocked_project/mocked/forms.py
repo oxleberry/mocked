@@ -89,8 +89,9 @@ class DesignForm(forms.ModelForm):
             required = False,
             widget=forms.HiddenInput(),
             )
-    textWidth = forms.IntegerField(
+    textColor = forms.CharField(
             required = False,
+            max_length=255,
             widget=forms.HiddenInput(),
             )
     textPosTop = forms.IntegerField(
@@ -120,7 +121,7 @@ class DesignForm(forms.ModelForm):
                  'text',
                  'textFont',
                  'textSize',
-                 # 'textWidth',
+                 'textColor',
                  'textPosTop',
                  'textPosLeft',
                  'title',

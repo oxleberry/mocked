@@ -217,10 +217,8 @@ before an elements starts shrink or wrap */
 /* MAIN ========================= */
 
 main {
-   background-color: #d6d6d6;
+   background-color: #e8e3dc;
    padding: 2em 2em 3em;
-   /* padding: 2em 5em 3em; */
-   /* margin: 0.8em 0 0 0; */
 }
 
 .shirt-container,
@@ -368,10 +366,10 @@ input[type="color" i] {
 .image-instr {
    color: #8ca6c1;
    margin: 0;
-   max-width: 27em;
+   /* max-width: 27em; */
    margin-bottom: .8em;
    /* margin-left: 2em; */
-   margin-right: 5em;
+   /* margin-right: 5em; */
 }
 
 .image-instr-bold {
@@ -408,6 +406,7 @@ input[type="color" i] {
 
 .gallery-info-container {
    display: none;
+   /* display: block; */
    /* opacity: 0; */
    width: 45%;
    background-color: white;
@@ -559,7 +558,7 @@ main h3 {
 }
 
 .default-container {
-   text-align: right;
+   text-align: center;
 }
 
 .default-container button {

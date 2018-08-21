@@ -136,9 +136,9 @@ $(function(){
    // end of draggable images
 
    // RESIZE IMAGE BUTTON CONTROLS =====================
-   const changeSize = 12;
-   const changeImgPos = 6;
-   const changeTextPos = 12;
+   const changeSize = 6;
+   const changeImgPos = 3;
+   const changeTextPos = 6;
 
    // console.log('Postion TOP: ' + $('#design-display').position().top);
    // console.log('Postion LEFT: ' + $('#design-display').position().left);
@@ -216,8 +216,8 @@ $(function(){
       console.log(curHexColor);
       $('#text-display').css({'color': curHexColor});
       $("#text-color-value").text(curHexColor);
+      $('#id_textColor').val(curHexColor);
    });
-
 
 
    // RESIZE TEXT BUTTON CONTROLS =====================
@@ -302,12 +302,6 @@ $(function(){
       // console.log(curTextSize);
       $('#id_textSize').val(curTextSize);
       console.log($('#id_textSize').val());
-
-      // Text Width (May Not Need)
-      // let curTextWidth = $('#text-display').width();
-      // curTextWidth = parseInt(curTextWidth);
-      // curTextWidth.toFixed();
-      // $('#id_textWidth').val(parseInt(curTextWidth));
 
       // Text Pos Top
       let curTextPosTop = $('#text-display').position().top;

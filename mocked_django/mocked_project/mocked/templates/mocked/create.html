@@ -32,7 +32,7 @@
       {% csrf_token %}
 
    <!-- GARMENT STYLE -->
-      <section class="garment">
+      <section class="garment hide">
          <h3>Garment Options</h3>
          <div class="flex-row">
             <div class="flex-row">
@@ -141,7 +141,7 @@
                         <i class="fa fa-angle-down"></i>
                      </button>
                      <ul class="dropdown-options">
-                        <li class="dropdown-option font-option">Nanum Gothic</li>
+                        <li class="dropdown-option font-option">Paytone One</li>
                         <li class="dropdown-option font-option is-selected">Lobster</li>
                         <li class="dropdown-option font-option">Monoton</li>
                      </ul>
@@ -161,7 +161,7 @@
                </div>
                <div class="value-container">
                   <span id="text-color-value" class="current-value">
-                     #E64A4B
+                     #e64a4b
                   </span>
                </div>
             </div>
@@ -170,7 +170,7 @@
       <!-- end of text color section  -->
 
       <!-- DEFAULT IMAGE SECTION -->
-      <!-- <section class="default-container">
+      <section class="default-container">
          <p class="image-instr">Don't have an image ready? Use one of ours.</p>
          <button type="button" class="default-image">
             <img src={% static "images/geo-flower.png" %} />
@@ -183,10 +183,8 @@
          </button>
       </section>
 
-      <hr /> -->
-      <!-- FORM SECTION -->
-      <!-- <form enctype="multipart/form-data" method="POST" action="">
-         {% csrf_token %} -->
+      <hr />
+      <!-- FORM SECTION CONTD-->
 
             {{ form.shirtStyle }}
             {{ form.shirtPlacement }}
@@ -199,7 +197,7 @@
          <div class="flex-column save-container">
             {{ form.textFont }}
             {{ form.textSize }}
-            <!-- {{ form.textWidth }} -->
+            {{ form.textColor }}
             {{ form.textPosTop }}
             {{ form.textPosLeft }}
 
